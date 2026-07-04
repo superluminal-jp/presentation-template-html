@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://presentation-template/contracts/pptx-layout-map.schema.json",
+  "title": "PPTX Layout Map (Phase 2)",
+  "description": "HTMLレイアウトの命名スロットを、編集可能なPowerPointプレースホルダへ写像する対応表。フェーズ2のpython-pptx変換器が消費する。本フェーズでは構造契約のみ定義(実装はしない)。",
+  "type": "object",
+  "required": ["canvas", "layouts"],
+  "properties": {
+    "canvas": {
+      "type": "object",
+      "description": "基準キャンバスと変換係数",
+      "required": ["widthPx", "heightPx", "pxToPt"],
+      "properties": {
+        "widthPx": { "type": "integer", "const": 1280 },
+        "heightPx": { "type": "integer", "const": 720 },
+        "pxToPt": { "type": "number", "const": 0.75, "description": "px×0.75=pt(960×540pt=13.333in×7.5in)" }
+      }
+    },
+    "tokens": {
+      "type": "object",
+      "description": "役割変数の実効値(変換時にHTMLから解決したRGB)。色はvendorトークン由来。",
+      "additionalProperties": { "type": "string", "pattern": "^#([0-9a-fA-F]{6})$" }
+    },
+    "layouts": {
+      "type": "array",
+      "minItems": 8,
+      "items": {
+        "type": "object",
+        "required": ["id", "slots"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "enum": ["title", "toc", "section", "body", "compare", "chart", "summary", "reference"]
+          },
+          "slots": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["name", "kind", "rect"],
+              "properties": {
+                "name": { "type": "string", "description": "スロット名(heading/body/chart/citation/signpost等)" },
+                "kind": {
+                  "type": "string",
+                  "enum": ["title", "text", "bulletList", "image", "placeholder", "shape", "table", "footnote"]
+                },
+                "rect": {
+                  "type": "object",
+                  "required": ["x", "y", "w", "h"],
+                  "description": "px単位(1280×720基準)。変換器がpxToPtで写像。",
+                  "properties": {
+                    "x": { "type": "number" },
+                    "y": { "type": "number" },
+                    "w": { "type": "number" },
+                    "h": { "type": "number" }
+                  }
+                },
+                "style": {
+                  "type": "object",
+                  "properties": {
+                    "role": { "type": "string", "description": "css役割変数名(--text-primary等)" },
+                    "fontSizePt": { "type": "number" },
+                    "bold": { "type": "boolean" },
+                    "align": { "type": "string", "enum": ["left", "center", "right"] }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
