@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ja" data-annotations="off">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2×2マトリクス — レイアウト単体</title>
+  <link rel="stylesheet" href="../tokens/vendor/tokens.css" />
+  <link rel="stylesheet" href="../styles/tokens.semantic.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/grid.css" />
+  <link rel="stylesheet" href="../styles/slides.css" />
+  <link rel="stylesheet" href="../styles/layouts/matrix.css" />
+</head>
+<body>
+  <div class="deck">
+    <section class="slide slide--matrix" data-layout="matrix">
+      <div class="slide__stage">
+        <h2 class="slide__heading">取り組みは<span class="u-accent">効果×容易さ</span>で優先順位化します</h2>
+        <div class="matrix">
+          <div class="axis-y">効果 高 → 低</div>
+          <div class="quadrant quadrant--accent"><h3>最優先</h3><p>効果大・容易(テンプレ導入)</p></div>
+          <div class="quadrant"><h3>計画的に</h3><p>効果大・困難(基盤刷新)</p></div>
+          <div class="quadrant"><h3>すきま時間で</h3><p>効果小・容易</p></div>
+          <div class="quadrant"><h3>見送り</h3><p>効果小・困難</p></div>
+          <div class="axis-x">容易さ 高 → 低</div>
+        </div>
+        <div class="slide__footer"><span class="slide__citation">2軸: 効果 / 実行容易さ</span><span>12 / 16</span></div>
+      </div>
+      <button class="slide__annotation-toggle" type="button">i</button>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">2軸で位置づけを提示。象限をグルーピングし、推奨象限を利得フレームで強調。</p>
+        <ul class="annotation__practices">
+          <li data-practice="B-gestalt">ゲシュタルト原則（→ #B-gestalt）</li>
+          <li data-practice="E-framing">フレーミング効果（→ #E-framing）</li>
+          <li data-practice="C-preattentive">事前注意特性（→ #C-preattentive）</li>
+        </ul>
+      </aside>
+    </section>
+  </div>
+  <script src="../js/annotations.js"></script>
+</body>
+</html>

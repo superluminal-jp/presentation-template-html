@@ -1,0 +1,10 @@
+/* dashboard — 複数KPIタイル。ダッシュボード設計/Storytelling with Data/デフォルト効果。 */
+.slide--dashboard .kpi-grid {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  align-content: start;
+}
+.slide--dashboard .kpi-grid .tile__value { line-height: var(--lh-tight); }

@@ -5,7 +5,10 @@
 ## 特長
 
 - **DS 準拠**: 配色・タイポ・余白・角丸・陰影はすべて `@digital-go-jp/design-tokens@2.0.1`(vendor 固定)由来。ブランドキー色は `#0031d8`(デジタル庁 HP 基調)。
-- **コア8レイアウト**: 表紙 / 目次 / 章扉 / 本文 / 2カラム比較 / 図表 / まとめ / 参考。
+- **計16レイアウト**:
+  - コア8: 表紙 / 目次 / 章扉 / 本文 / 2カラム比較 / 図表 / まとめ / 参考。
+  - 拡張8: ビッグナンバー / KPIダッシュボード / タイムライン / 2×2マトリクス / プロセス / 引用・証言 / 全面ビジュアル / クロージング。
+- **手法網羅**: `docs/practices.md` の全採用手法が、いずれかのスライド注釈で実演される(`npm run check:coverage` で検証)。
 - **設計意図の注釈**: 各スライドに既定非表示・トグル可能な注釈(適用手法 + 出典)。キー `A` で全体トグル。
 - **アクセシブル**: 主要テキストは WCAG 2.2 AA コントラスト。
 - **更新追従**: DS 更新はセマンティック写像層のみで吸収(レイアウト無改修)。
@@ -42,6 +45,7 @@ npm run sync-tokens    # tokens/vendor/tokens.css を生成(不可侵層)
 ```bash
 npm run lint:tokens      # ハードコード検出(SC-02)
 npm run check:crossrefs  # 注釈↔出典の相互参照(SC-05/FR-013)
+npm run check:coverage   # 全採用手法の実演・未実演0(feature 002 SC-005)
 node tests/a11y/contrast-tokens.mjs  # 役割色コントラスト(SC-04, node単体)
 npm run test:visual      # レンダリング/overflow/視覚回帰(SC-01/07, 要ブラウザ)
 npm run test:a11y        # axe コントラスト(SC-04, 要ブラウザ)

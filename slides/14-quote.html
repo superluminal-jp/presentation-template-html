@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ja" data-annotations="off">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>引用・証言 — レイアウト単体</title>
+  <link rel="stylesheet" href="../tokens/vendor/tokens.css" />
+  <link rel="stylesheet" href="../styles/tokens.semantic.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/grid.css" />
+  <link rel="stylesheet" href="../styles/slides.css" />
+  <link rel="stylesheet" href="../styles/layouts/quote.css" />
+</head>
+<body>
+  <div class="deck">
+    <section class="slide slide--quote" data-layout="quote">
+      <div class="slide__stage">
+        <p class="quote">現場の体裁調整がほぼ不要になり、内容の議論に時間を使えるようになった。</p>
+        <p class="attribution"><b>［氏名・肩書きを記入］</b> — ［部署／団体を記入］</p>
+      </div>
+      <button class="slide__annotation-toggle" type="button">i</button>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">社会的証明は事実に基づく実利用者の声のみ。出典・肩書きはプレースホルダ(捏造しない)。</p>
+        <ul class="annotation__practices">
+          <li data-practice="E-cialdini">社会的証明(誠実利用)（→ #E-cialdini）</li>
+          <li data-practice="E-aesthetic-usability">美的ユーザビリティ効果（→ #E-aesthetic-usability）</li>
+        </ul>
+      </aside>
+    </section>
+  </div>
+  <script src="../js/annotations.js"></script>
+</body>
+</html>

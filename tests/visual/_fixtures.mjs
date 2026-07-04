@@ -12,6 +12,8 @@ export const repoRoot = resolve(__dirname, '..', '..');
 export const LAYOUTS = [
   '01-title', '02-toc', '03-section', '04-body',
   '05-compare', '06-chart', '07-summary', '08-reference',
+  '09-big-number', '10-dashboard', '11-timeline', '12-matrix',
+  '13-process', '14-quote', '15-image-full', '16-closing',
 ];
 
 export function slideUrl(name) {

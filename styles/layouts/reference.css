@@ -3,17 +3,18 @@
 .slide--reference .citation-list {
   grid-column: 1 / -1;
   grid-row: 2;
-  columns: 2;
-  column-gap: var(--space-8);
+  columns: 4;
+  column-gap: var(--space-5);
   list-style: none;
   padding: 0;
   margin: 0;
   font-size: var(--fs-caption);
+  line-height: var(--lh-heading);
   color: var(--text-secondary);
 }
 .slide--reference .citation-list li {
   break-inside: avoid;
-  padding: var(--space-2) 0;
+  padding: var(--space-1) 0;
   border-bottom: 1px solid var(--border);
 }
 .slide--reference .citation-list .cid {

@@ -1,0 +1,23 @@
+/* closing — クロージング。ピーク・エンド/CTA/10-20-30/Fitts(操作要素)。 */
+.slide--closing { background: var(--accent); color: var(--text-on-accent); }
+.slide--closing .slide__stage { grid-template-rows: 1fr auto; align-content: center; }
+.slide--closing .slide__heading { color: var(--text-on-accent); }
+.slide--closing .slide__heading::after { background: var(--text-on-accent); }
+.slide--closing .closing-cta {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  align-self: center;
+  font-size: var(--font-size-57);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+}
+.slide--closing .contact {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: flex;
+  gap: var(--space-6);
+  font-size: var(--fs-h3);
+  border-top: 1px solid var(--text-on-accent);
+  padding-top: var(--space-3);
+}
+.slide--closing .contact a { color: var(--text-on-accent); }

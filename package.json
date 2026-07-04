@@ -8,10 +8,11 @@
     "sync-tokens": "node scripts/sync-tokens.mjs",
     "lint:tokens": "node scripts/lint-tokens.mjs",
     "check:crossrefs": "node scripts/check-crossrefs.mjs",
+    "check:coverage": "node scripts/check-practice-coverage.mjs",
     "test:visual": "playwright test tests/visual",
     "test:a11y": "playwright test tests/a11y",
     "test:print": "playwright test tests/print",
-    "verify": "npm run lint:tokens && npm run check:crossrefs && npm run test:visual && npm run test:a11y && npm run test:print"
+    "verify": "npm run lint:tokens && npm run check:crossrefs && npm run check:coverage && npm run test:visual && npm run test:a11y && npm run test:print"
   },
   "dependencies": {
     "@digital-go-jp/design-tokens": "2.0.1"

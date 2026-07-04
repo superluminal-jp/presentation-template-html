@@ -1,0 +1,28 @@
+/* timeline — 時系列/ロードマップ。一貫性/SCQA/サインポスティング。 */
+.slide--timeline .timeline {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  align-self: center;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: var(--space-4);
+  position: relative;
+}
+.slide--timeline .timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: var(--space-3);
+  height: 2px;
+  background: var(--border);
+}
+.slide--timeline .step {
+  display: grid;
+  gap: var(--space-2);
+  align-content: start;
+}
+.slide--timeline .step__marker { position: relative; z-index: 1; }
+.slide--timeline .step__label { font-weight: var(--fw-bold); font-size: var(--fs-h3); }
+.slide--timeline .step__body { font-size: var(--fs-body); color: var(--text-secondary); }

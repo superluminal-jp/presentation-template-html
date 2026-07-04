@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ja" data-annotations="off">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>プロセス — レイアウト単体</title>
+  <link rel="stylesheet" href="../tokens/vendor/tokens.css" />
+  <link rel="stylesheet" href="../styles/tokens.semantic.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/grid.css" />
+  <link rel="stylesheet" href="../styles/slides.css" />
+  <link rel="stylesheet" href="../styles/layouts/process.css" />
+</head>
+<body>
+  <div class="deck">
+    <section class="slide slide--process" data-layout="process">
+      <div class="slide__stage">
+        <h2 class="slide__heading">作成は<span class="u-accent">3ステップ</span>で完了します</h2>
+        <div class="process">
+          <div class="step"><span class="step__marker">1</span><span class="step__label">選ぶ</span><span class="step__body">レイアウトを複製</span></div>
+          <div class="arrow" aria-hidden="true">→</div>
+          <div class="step"><span class="step__marker">2</span><span class="step__label">差し込む</span><span class="step__body">役割変数のまま入力</span></div>
+          <div class="arrow" aria-hidden="true">→</div>
+          <div class="step"><span class="step__marker">3</span><span class="step__label">出す</span><span class="step__body">印刷/PDF 出力</span></div>
+        </div>
+        <div class="slide__footer"><span class="slide__citation">手順は quickstart 準拠</span><span>13 / 16</span></div>
+      </div>
+      <button class="slide__annotation-toggle" type="button">i</button>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">図(番号+矢印)と短い語を対応させ、装飾を排して手順を明確化。</p>
+        <ul class="annotation__practices">
+          <li data-practice="D-multimedia">マルチメディア学習原則（→ #D-multimedia）</li>
+          <li data-practice="B-signal-noise">Signal-to-Noise（→ #B-signal-noise）</li>
+          <li data-practice="A-consistency">一貫性（→ #A-consistency）</li>
+        </ul>
+      </aside>
+    </section>
+  </div>
+  <script src="../js/annotations.js"></script>
+</body>
+</html>

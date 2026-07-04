@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ja" data-annotations="off">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KPIダッシュボード — レイアウト単体</title>
+  <link rel="stylesheet" href="../tokens/vendor/tokens.css" />
+  <link rel="stylesheet" href="../styles/tokens.semantic.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/grid.css" />
+  <link rel="stylesheet" href="../styles/slides.css" />
+  <link rel="stylesheet" href="../styles/layouts/dashboard.css" />
+</head>
+<body>
+  <div class="deck">
+    <section class="slide slide--dashboard" data-layout="dashboard">
+      <div class="slide__stage">
+        <h2 class="slide__heading">主要指標は<span class="u-accent">おおむね計画線</span>で推移しています</h2>
+        <div class="kpi-grid">
+          <div class="tile"><span class="tile__label">導入部署</span><span class="tile__value">12</span><span class="tile__sub">前月 +3</span></div>
+          <div class="tile tile--highlight"><span class="tile__label">作成時間(中央値)</span><span class="tile__value">1.0h</span><span class="tile__sub">目標達成</span></div>
+          <div class="tile"><span class="tile__label">レビュー往復</span><span class="tile__value">1.4</span><span class="tile__sub">前月 -0.6</span></div>
+          <div class="tile"><span class="tile__label">準拠率</span><span class="tile__value">98%</span><span class="tile__sub">前月 +6pt</span></div>
+          <div class="tile"><span class="tile__label">満足度</span><span class="tile__value">4.5</span><span class="tile__sub">/5</span></div>
+          <div class="tile"><span class="tile__label">再利用回数</span><span class="tile__value">210</span><span class="tile__sub">累計</span></div>
+        </div>
+        <div class="slide__footer"><span class="slide__citation">値はプレースホルダ(作成者が差し込む)</span><span>10 / 16</span></div>
+      </div>
+      <button class="slide__annotation-toggle" type="button">i</button>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">見出しで要点を述べ、注目1件を強調。タイルは情報過多を避け6件以内。</p>
+        <ul class="annotation__practices">
+          <li data-practice="C-dashboard">ダッシュボード設計（→ #C-dashboard）</li>
+          <li data-practice="C-storytelling-data">Storytelling with Data（→ #C-storytelling-data）</li>
+          <li data-practice="E-default-effect">デフォルト効果/強調（→ #E-default-effect）</li>
+          <li data-practice="A-action-title">アクションタイトル（→ #A-action-title）</li>
+        </ul>
+      </aside>
+    </section>
+  </div>
+  <script src="../js/annotations.js"></script>
+</body>
+</html>

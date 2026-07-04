@@ -1,0 +1,21 @@
+/* big-number — 単一の重要指標。Von Restorff/事前注意/流暢性/アンカリング。 */
+.slide--big-number .slide__stage { grid-template-rows: auto 1fr auto; }
+.slide--big-number .bignum {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  align-self: center;
+  justify-self: start;
+  font-size: var(--font-size-64);
+  line-height: var(--lh-tight);
+  font-weight: var(--fw-bold);
+  color: var(--accent);
+}
+.slide--big-number .bignum .unit { font-size: var(--fs-h1); color: var(--text-primary); margin-left: var(--space-2); }
+.slide--big-number .anchor {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  align-self: end;
+  font-size: var(--fs-h3);
+  color: var(--text-secondary);
+}
+.slide--big-number .anchor b { color: var(--text-primary); }

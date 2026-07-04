@@ -13,10 +13,15 @@ import { fileURLToPath } from 'node:url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '..');
 
-const ORDER = { title: '01', toc: '02', section: '03', body: '04', compare: '05', chart: '06', summary: '07', reference: '08' };
+const ORDER = {
+  title: '01', toc: '02', section: '03', body: '04', compare: '05', chart: '06', summary: '07', reference: '08',
+  'big-number': '09', dashboard: '10', timeline: '11', matrix: '12', process: '13', quote: '14', 'image-full': '15', closing: '16',
+};
 const TITLE = {
   title: '表紙', toc: '目次', section: '章扉', body: '本文',
   compare: '2カラム比較', chart: '図表', summary: 'まとめ', reference: '参考',
+  'big-number': 'ビッグナンバー', dashboard: 'KPIダッシュボード', timeline: 'タイムライン', matrix: '2×2マトリクス',
+  process: 'プロセス', quote: '引用・証言', 'image-full': '全面ビジュアル', closing: 'クロージング',
 };
 
 const html = readFileSync(resolve(root, 'index.html'), 'utf8');

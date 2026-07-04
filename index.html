@@ -17,6 +17,14 @@
   <link rel="stylesheet" href="styles/layouts/chart.css" />
   <link rel="stylesheet" href="styles/layouts/summary.css" />
   <link rel="stylesheet" href="styles/layouts/reference.css" />
+  <link rel="stylesheet" href="styles/layouts/big-number.css" />
+  <link rel="stylesheet" href="styles/layouts/dashboard.css" />
+  <link rel="stylesheet" href="styles/layouts/timeline.css" />
+  <link rel="stylesheet" href="styles/layouts/matrix.css" />
+  <link rel="stylesheet" href="styles/layouts/process.css" />
+  <link rel="stylesheet" href="styles/layouts/quote.css" />
+  <link rel="stylesheet" href="styles/layouts/image-full.css" />
+  <link rel="stylesheet" href="styles/layouts/closing.css" />
 </head>
 <body>
   <div class="toolbar">
@@ -210,6 +218,183 @@
       </aside>
     </section>
 
+    <!-- 09 big-number -->
+    <section class="slide slide--big-number" data-layout="big-number">
+      <div class="slide__stage">
+        <h2 class="slide__heading">導入効果は<span class="u-accent">投資回収3か月</span>が目安です</h2>
+        <p class="bignum">75<span class="unit">% 削減</span></p>
+        <p class="anchor">基準: 従来の作成時間 <b>4時間/件</b> → <b>1時間/件</b></p>
+        <div class="slide__footer"><span class="slide__citation">出典: 社内試行(2026-06, n=8)</span><span>9 / 16</span></div>
+      </div>
+      <button class="slide__annotation-toggle" type="button">i</button>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">単一指標を大きく1点強調。基準値を併記して数値解釈を助ける。</p>
+        <ul class="annotation__practices">
+          <li data-practice="B-von-restorff">強調は1箇所（→ #B-von-restorff）</li>
+          <li data-practice="C-preattentive">事前注意特性（→ #C-preattentive）</li>
+          <li data-practice="E-fluency">認知的流暢性（→ #E-fluency）</li>
+          <li data-practice="E-anchoring">アンカリング（→ #E-anchoring）</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- 10 dashboard -->
+    <section class="slide slide--dashboard" data-layout="dashboard">
+      <div class="slide__stage">
+        <h2 class="slide__heading">主要指標は<span class="u-accent">おおむね計画線</span>で推移しています</h2>
+        <div class="kpi-grid">
+          <div class="tile"><span class="tile__label">導入部署</span><span class="tile__value">12</span><span class="tile__sub">前月 +3</span></div>
+          <div class="tile tile--highlight"><span class="tile__label">作成時間(中央値)</span><span class="tile__value">1.0h</span><span class="tile__sub">目標達成</span></div>
+          <div class="tile"><span class="tile__label">レビュー往復</span><span class="tile__value">1.4</span><span class="tile__sub">前月 -0.6</span></div>
+          <div class="tile"><span class="tile__label">準拠率</span><span class="tile__value">98%</span><span class="tile__sub">前月 +6pt</span></div>
+          <div class="tile"><span class="tile__label">満足度</span><span class="tile__value">4.5</span><span class="tile__sub">/5</span></div>
+          <div class="tile"><span class="tile__label">再利用回数</span><span class="tile__value">210</span><span class="tile__sub">累計</span></div>
+        </div>
+        <div class="slide__footer"><span class="slide__citation">値はプレースホルダ(作成者が差し込む)</span><span>10 / 16</span></div>
+      </div>
+      <button class="slide__annotation-toggle" type="button">i</button>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">見出しで要点を述べ、注目1件を強調。タイルは情報過多を避け6件以内。</p>
+        <ul class="annotation__practices">
+          <li data-practice="C-dashboard">ダッシュボード設計（→ #C-dashboard）</li>
+          <li data-practice="C-storytelling-data">Storytelling with Data（→ #C-storytelling-data）</li>
+          <li data-practice="E-default-effect">デフォルト効果/強調（→ #E-default-effect）</li>
+          <li data-practice="A-action-title">アクションタイトル（→ #A-action-title）</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- 11 timeline -->
+    <section class="slide slide--timeline" data-layout="timeline">
+      <div class="slide__stage">
+        <h2 class="slide__heading">導入は<span class="u-accent">3か月・4ステップ</span>で進めます</h2>
+        <div class="timeline">
+          <div class="step"><span class="step__marker">1</span><span class="step__label">試行</span><span class="step__body">1部署で運用検証</span></div>
+          <div class="step"><span class="step__marker">2</span><span class="step__label">整備</span><span class="step__body">テンプレ拡充・教育</span></div>
+          <div class="step"><span class="step__marker">3</span><span class="step__label">展開</span><span class="step__body">全部署へ横展開</span></div>
+          <div class="step"><span class="step__marker">4</span><span class="step__label">定着</span><span class="step__body">更新運用の定常化</span></div>
+        </div>
+        <div class="slide__footer">
+          <div class="slide__signpost" aria-label="現在地"><span class="signpost__dot" aria-current="true"></span><span class="signpost__dot"></span><span class="signpost__dot"></span><span class="signpost__dot"></span></div>
+          <span>11 / 16</span>
+        </div>
+      </div>
+      <button class="slide__annotation-toggle" type="button">i</button>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">時間軸で全体像を提示(状況→行動)。反復する体裁で見通しを与える。</p>
+        <ul class="annotation__practices">
+          <li data-practice="A-scqa">SCQA（→ #A-scqa）</li>
+          <li data-practice="A-consistency">一貫性/テンプレート化（→ #A-consistency）</li>
+          <li data-practice="A-signposting">サインポスティング（→ #A-signposting）</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- 12 matrix -->
+    <section class="slide slide--matrix" data-layout="matrix">
+      <div class="slide__stage">
+        <h2 class="slide__heading">取り組みは<span class="u-accent">効果×容易さ</span>で優先順位化します</h2>
+        <div class="matrix">
+          <div class="axis-y">効果 高 → 低</div>
+          <div class="quadrant quadrant--accent"><h3>最優先</h3><p>効果大・容易(テンプレ導入)</p></div>
+          <div class="quadrant"><h3>計画的に</h3><p>効果大・困難(基盤刷新)</p></div>
+          <div class="quadrant"><h3>すきま時間で</h3><p>効果小・容易</p></div>
+          <div class="quadrant"><h3>見送り</h3><p>効果小・困難</p></div>
+          <div class="axis-x">容易さ 高 → 低</div>
+        </div>
+        <div class="slide__footer"><span class="slide__citation">2軸: 効果 / 実行容易さ</span><span>12 / 16</span></div>
+      </div>
+      <button class="slide__annotation-toggle" type="button">i</button>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">2軸で位置づけを提示。象限をグルーピングし、推奨象限を利得フレームで強調。</p>
+        <ul class="annotation__practices">
+          <li data-practice="B-gestalt">ゲシュタルト原則（→ #B-gestalt）</li>
+          <li data-practice="E-framing">フレーミング効果（→ #E-framing）</li>
+          <li data-practice="C-preattentive">事前注意特性（→ #C-preattentive）</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- 13 process -->
+    <section class="slide slide--process" data-layout="process">
+      <div class="slide__stage">
+        <h2 class="slide__heading">作成は<span class="u-accent">3ステップ</span>で完了します</h2>
+        <div class="process">
+          <div class="step"><span class="step__marker">1</span><span class="step__label">選ぶ</span><span class="step__body">レイアウトを複製</span></div>
+          <div class="arrow" aria-hidden="true">→</div>
+          <div class="step"><span class="step__marker">2</span><span class="step__label">差し込む</span><span class="step__body">役割変数のまま入力</span></div>
+          <div class="arrow" aria-hidden="true">→</div>
+          <div class="step"><span class="step__marker">3</span><span class="step__label">出す</span><span class="step__body">印刷/PDF 出力</span></div>
+        </div>
+        <div class="slide__footer"><span class="slide__citation">手順は quickstart 準拠</span><span>13 / 16</span></div>
+      </div>
+      <button class="slide__annotation-toggle" type="button">i</button>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">図(番号+矢印)と短い語を対応させ、装飾を排して手順を明確化。</p>
+        <ul class="annotation__practices">
+          <li data-practice="D-multimedia">マルチメディア学習原則（→ #D-multimedia）</li>
+          <li data-practice="B-signal-noise">Signal-to-Noise（→ #B-signal-noise）</li>
+          <li data-practice="A-consistency">一貫性（→ #A-consistency）</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- 14 quote -->
+    <section class="slide slide--quote" data-layout="quote">
+      <div class="slide__stage">
+        <p class="quote">現場の体裁調整がほぼ不要になり、内容の議論に時間を使えるようになった。</p>
+        <p class="attribution"><b>［氏名・肩書きを記入］</b> — ［部署／団体を記入］</p>
+      </div>
+      <button class="slide__annotation-toggle" type="button">i</button>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">社会的証明は事実に基づく実利用者の声のみ。出典・肩書きはプレースホルダ(捏造しない)。</p>
+        <ul class="annotation__practices">
+          <li data-practice="E-cialdini">社会的証明(誠実利用)（→ #E-cialdini）</li>
+          <li data-practice="E-aesthetic-usability">美的ユーザビリティ効果（→ #E-aesthetic-usability）</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- 15 image-full -->
+    <section class="slide slide--image-full" data-layout="image-full">
+      <div class="visual-full">［全面画像を差し込む(著作物は各自用意)］</div>
+      <div class="scrim" aria-hidden="true"></div>
+      <div class="overlay">
+        <p class="caption">現場で使われてこそのテンプレート<span class="sub">画像優位性で情感に訴え、要点は1行に。</span></p>
+      </div>
+      <button class="slide__annotation-toggle" type="button">i</button>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">全面ビジュアルで印象付け。重ね文字はスクリムでコントラスト(AA)を確保。</p>
+        <ul class="annotation__practices">
+          <li data-practice="D-picture-superiority">画像優位性（→ #D-picture-superiority）</li>
+          <li data-practice="B-whitespace">余白/ネガティブスペース（→ #B-whitespace）</li>
+          <li data-practice="B-wcag">WCAG 2.2(重ね文字)（→ #B-wcag）</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- 16 closing -->
+    <section class="slide slide--closing" data-layout="closing">
+      <div class="slide__stage">
+        <h2 class="slide__heading">ご清聴ありがとうございました</h2>
+        <p class="closing-cta">次スプリントでの試行導入を承認ください</p>
+        <div class="contact">
+          <span>連絡先: ［メール／チャンネルを記入］</span>
+          <a href="#">資料・テンプレート: ［リンク］</a>
+        </div>
+      </div>
+      <button class="slide__annotation-toggle" type="button">i</button>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">末尾に山場(エンド)。行動喚起と連絡先を大きく押しやすく(操作要素)。枚数・文字量は簡潔に。</p>
+        <ul class="annotation__practices">
+          <li data-practice="E-peak-end">ピーク・エンドの法則（→ #E-peak-end）</li>
+          <li data-practice="A-hook-throughline-cta">CTA（→ #A-hook-throughline-cta）</li>
+          <li data-practice="A-10-20-30">10/20/30 ルール（→ #A-10-20-30）</li>
+          <li data-practice="B-fitts">Fitts の法則（→ #B-fitts）</li>
+        </ul>
+      </aside>
+    </section>
+
     <!-- 08 reference -->
     <section class="slide slide--reference" data-layout="reference">
       <div class="slide__stage">
@@ -233,6 +418,25 @@
           <li><span class="cid">E-framing</span>Tversky &amp; Kahneman (1981)</li>
           <li><span class="cid">E-anchoring</span>Tversky &amp; Kahneman (1974)</li>
           <li><span class="cid">E-goal-gradient</span>Kivetz et al. (2006)</li>
+          <li><span class="cid">A-action-title</span>McKinsey communication practice; Zelazny, <em>Say It With Charts</em> (2001)</li>
+          <li><span class="cid">A-scqa</span>Minto (2009); Duarte, <em>Resonate</em> (2010)</li>
+          <li><span class="cid">A-consistency</span>Williams, <em>The Non-Designer's Design Book</em> (2014)</li>
+          <li><span class="cid">A-10-20-30</span>Kawasaki, "The 10/20/30 Rule of PowerPoint" (2005)</li>
+          <li><span class="cid">B-whitespace</span>White, <em>The Elements of Graphic Design</em> (2011)</li>
+          <li><span class="cid">B-gestalt</span>Wertheimer (1923); Koffka (1935)</li>
+          <li><span class="cid">B-signal-noise</span>Reynolds, <em>Presentation Zen</em> (2019); Duarte, <em>slide:ology</em> (2008)</li>
+          <li><span class="cid">B-von-restorff</span>von Restorff (1933)</li>
+          <li><span class="cid">B-fitts</span>Fitts (1954)</li>
+          <li><span class="cid">B-wcag</span>W3C WCAG 2.2</li>
+          <li><span class="cid">C-preattentive</span>Ware, <em>Information Visualization</em> (2012)</li>
+          <li><span class="cid">C-storytelling-data</span>Knaflic, <em>Storytelling with Data</em> (2015)</li>
+          <li><span class="cid">C-dashboard</span>Few, <em>Information Dashboard Design</em> (2006)</li>
+          <li><span class="cid">D-multimedia</span>Mayer, <em>Multimedia Learning</em> (2009)</li>
+          <li><span class="cid">D-picture-superiority</span>Paivio (1971); Kosslyn, <em>Clear and to the Point</em> (2007)</li>
+          <li><span class="cid">E-fluency</span>Alter &amp; Oppenheimer (2009)</li>
+          <li><span class="cid">E-aesthetic-usability</span>Kurosu &amp; Kashimura (1995)</li>
+          <li><span class="cid">E-default-effect</span>Thaler &amp; Sunstein, <em>Nudge</em> (2008)</li>
+          <li><span class="cid">E-cialdini</span>Cialdini, <em>Influence</em> (2021)</li>
         </ul>
         <div class="slide__footer"><span class="slide__citation">全出典は docs/practices.md を参照</span><span>8 / 8</span></div>
       </div>

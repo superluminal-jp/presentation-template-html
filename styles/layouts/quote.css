@@ -1,0 +1,21 @@
+/* quote — 引用・証言。Cialdini(社会的証明・誠実利用)/美的ユーザビリティ。 */
+.slide--quote { background: var(--surface); }
+.slide--quote .slide__stage { grid-template-rows: 1fr auto; align-content: center; }
+.slide--quote .quote {
+  grid-column: 1 / 11;
+  grid-row: 1;
+  align-self: center;
+  font-size: var(--fs-h1);
+  line-height: var(--lh-heading);
+  color: var(--text-primary);
+}
+.slide--quote .quote::before { content: "“"; color: var(--accent); font-size: var(--font-size-64); vertical-align: -0.2em; margin-right: var(--space-2); }
+.slide--quote .attribution {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  font-size: var(--fs-h3);
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-3);
+}
+.slide--quote .attribution b { color: var(--text-primary); }

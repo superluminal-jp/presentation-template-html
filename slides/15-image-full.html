@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ja" data-annotations="off">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>全面ビジュアル — レイアウト単体</title>
+  <link rel="stylesheet" href="../tokens/vendor/tokens.css" />
+  <link rel="stylesheet" href="../styles/tokens.semantic.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/grid.css" />
+  <link rel="stylesheet" href="../styles/slides.css" />
+  <link rel="stylesheet" href="../styles/layouts/image-full.css" />
+</head>
+<body>
+  <div class="deck">
+    <section class="slide slide--image-full" data-layout="image-full">
+      <div class="visual-full">［全面画像を差し込む(著作物は各自用意)］</div>
+      <div class="scrim" aria-hidden="true"></div>
+      <div class="overlay">
+        <p class="caption">現場で使われてこそのテンプレート<span class="sub">画像優位性で情感に訴え、要点は1行に。</span></p>
+      </div>
+      <button class="slide__annotation-toggle" type="button">i</button>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">全面ビジュアルで印象付け。重ね文字はスクリムでコントラスト(AA)を確保。</p>
+        <ul class="annotation__practices">
+          <li data-practice="D-picture-superiority">画像優位性（→ #D-picture-superiority）</li>
+          <li data-practice="B-whitespace">余白/ネガティブスペース（→ #B-whitespace）</li>
+          <li data-practice="B-wcag">WCAG 2.2(重ね文字)（→ #B-wcag）</li>
+        </ul>
+      </aside>
+    </section>
+  </div>
+  <script src="../js/annotations.js"></script>
+</body>
+</html>

@@ -128,3 +128,41 @@
   padding: var(--space-2) var(--space-4);
   cursor: pointer;
 }
+
+/* --- 拡張レイアウト共通ユーティリティ(feature 002) --- */
+
+/* スクリム: 全面ビジュアル上の重ね文字コントラスト確保(AA)。opacity グレー(vendor)。 */
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: var(--color-neutral-opacity-gray-600);
+}
+
+/* KPIタイル shell(ダッシュボード) */
+.tile {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  padding: var(--space-4);
+  display: grid;
+  gap: var(--space-1);
+}
+.tile--highlight { border-color: var(--accent); border-top: var(--space-1) solid var(--accent); }
+.tile .tile__label { font-size: var(--fs-caption); color: var(--text-secondary); }
+.tile .tile__value { font-size: var(--fs-h1); font-weight: var(--fw-bold); }
+.tile--highlight .tile__value { color: var(--accent); }
+.tile .tile__sub { font-size: var(--fs-caption); color: var(--text-secondary); }
+
+/* ステップ marker(タイムライン/プロセス) */
+.step__marker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--space-6);
+  height: var(--space-6);
+  border-radius: var(--radius-l);
+  background: var(--accent);
+  color: var(--text-on-accent);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-caption);
+}

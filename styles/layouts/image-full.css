@@ -1,0 +1,37 @@
+/* image-full — 全面ビジュアル。画像優位性/余白/WCAG(重ね文字)。 */
+.slide--image-full { overflow: hidden; }
+.slide--image-full .visual-full {
+  position: absolute;
+  inset: 0;
+  background: var(--surface-strong);
+  /* 作成者が背景画像を差し込む(著作物は同梱しない)。既定はトークン由来のプレースホルダ面。 */
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--color-neutral-solid-gray-100),
+    var(--color-neutral-solid-gray-100) 16px,
+    var(--color-neutral-solid-gray-50) 16px,
+    var(--color-neutral-solid-gray-50) 32px
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-size: var(--fs-caption);
+}
+.slide--image-full .overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: end;
+  padding: var(--safe-y) var(--safe-x);
+}
+.slide--image-full .caption {
+  position: relative;
+  z-index: 1;
+  color: var(--text-on-accent);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-heading);
+  max-width: 60%;
+}
+.slide--image-full .caption .sub { display: block; font-size: var(--fs-body); font-weight: var(--fw-normal); margin-top: var(--space-2); }

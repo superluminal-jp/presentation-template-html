@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja" data-annotations="off">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ビッグナンバー — レイアウト単体</title>
+  <link rel="stylesheet" href="../tokens/vendor/tokens.css" />
+  <link rel="stylesheet" href="../styles/tokens.semantic.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/grid.css" />
+  <link rel="stylesheet" href="../styles/slides.css" />
+  <link rel="stylesheet" href="../styles/layouts/big-number.css" />
+</head>
+<body>
+  <div class="deck">
+    <section class="slide slide--big-number" data-layout="big-number">
+      <div class="slide__stage">
+        <h2 class="slide__heading">導入効果は<span class="u-accent">投資回収3か月</span>が目安です</h2>
+        <p class="bignum">75<span class="unit">% 削減</span></p>
+        <p class="anchor">基準: 従来の作成時間 <b>4時間/件</b> → <b>1時間/件</b></p>
+        <div class="slide__footer"><span class="slide__citation">出典: 社内試行(2026-06, n=8)</span><span>9 / 16</span></div>
+      </div>
+      <button class="slide__annotation-toggle" type="button">i</button>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">単一指標を大きく1点強調。基準値を併記して数値解釈を助ける。</p>
+        <ul class="annotation__practices">
+          <li data-practice="B-von-restorff">強調は1箇所（→ #B-von-restorff）</li>
+          <li data-practice="C-preattentive">事前注意特性（→ #C-preattentive）</li>
+          <li data-practice="E-fluency">認知的流暢性（→ #E-fluency）</li>
+          <li data-practice="E-anchoring">アンカリング（→ #E-anchoring）</li>
+        </ul>
+      </aside>
+    </section>
+  </div>
+  <script src="../js/annotations.js"></script>
+</body>
+</html>

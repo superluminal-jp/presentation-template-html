@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ja" data-annotations="off">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>クロージング — レイアウト単体</title>
+  <link rel="stylesheet" href="../tokens/vendor/tokens.css" />
+  <link rel="stylesheet" href="../styles/tokens.semantic.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/grid.css" />
+  <link rel="stylesheet" href="../styles/slides.css" />
+  <link rel="stylesheet" href="../styles/layouts/closing.css" />
+</head>
+<body>
+  <div class="deck">
+    <section class="slide slide--closing" data-layout="closing">
+      <div class="slide__stage">
+        <h2 class="slide__heading">ご清聴ありがとうございました</h2>
+        <p class="closing-cta">次スプリントでの試行導入を承認ください</p>
+        <div class="contact">
+          <span>連絡先: ［メール／チャンネルを記入］</span>
+          <a href="#">資料・テンプレート: ［リンク］</a>
+        </div>
+      </div>
+      <button class="slide__annotation-toggle" type="button">i</button>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">末尾に山場(エンド)。行動喚起と連絡先を大きく押しやすく(操作要素)。枚数・文字量は簡潔に。</p>
+        <ul class="annotation__practices">
+          <li data-practice="E-peak-end">ピーク・エンドの法則（→ #E-peak-end）</li>
+          <li data-practice="A-hook-throughline-cta">CTA（→ #A-hook-throughline-cta）</li>
+          <li data-practice="A-10-20-30">10/20/30 ルール（→ #A-10-20-30）</li>
+          <li data-practice="B-fitts">Fitts の法則（→ #B-fitts）</li>
+        </ul>
+      </aside>
+    </section>
+  </div>
+  <script src="../js/annotations.js"></script>
+</body>
+</html>
