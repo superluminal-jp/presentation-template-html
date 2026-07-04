@@ -1,0 +1,57 @@
+/**
+ * base.css — リセット・タイポ既定・印刷規則。
+ * 依存: tokens/vendor/tokens.css, styles/tokens.semantic.css
+ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-normal);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-primary);
+  background: var(--surface-strong);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, p, ul, ol, figure { margin: 0; }
+ul, ol { padding-left: var(--space-5); }
+li + li { margin-top: var(--space-2); }
+
+strong, b { font-weight: var(--fw-bold); }
+
+a { color: var(--accent); }
+
+code, pre { font-family: var(--font-mono); }
+
+/* タイポ役割ユーティリティ */
+.u-display { font-size: var(--fs-display); font-weight: var(--fw-bold); line-height: var(--lh-tight); }
+.u-h1 { font-size: var(--fs-h1); font-weight: var(--fw-bold); line-height: var(--lh-heading); }
+.u-h2 { font-size: var(--fs-h2); font-weight: var(--fw-bold); line-height: var(--lh-heading); }
+.u-h3 { font-size: var(--fs-h3); font-weight: var(--fw-bold); line-height: var(--lh-heading); }
+.u-body { font-size: var(--fs-body); line-height: var(--lh-body); }
+.u-caption { font-size: var(--fs-caption); color: var(--text-secondary); }
+.u-accent { color: var(--accent); }
+
+/* 印刷: 1 スライド = 1 ページ(SC-01) */
+@media print {
+  @page { size: 1280px 720px; margin: 0; }
+  body { background: var(--slide-bg); }
+  .deck { display: block; }
+  .slide {
+    page-break-after: always;
+    break-after: page;
+    box-shadow: none;
+    margin: 0;
+  }
+  .slide:last-child { page-break-after: auto; break-after: auto; }
+  /* 注釈は既定で印刷しない(発表/配布のクリーンさ) */
+  .slide__annotation, .toolbar { display: none !important; }
+}

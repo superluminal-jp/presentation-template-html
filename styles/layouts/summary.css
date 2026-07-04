@@ -1,0 +1,36 @@
+/* summary — まとめ。SUCCESs/ピーク・エンド/CTA。キーメッセージ ×3。 */
+.slide--summary .key-messages {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  align-content: center;
+}
+.slide--summary .key {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+  padding: var(--space-5);
+  background: var(--surface);
+  border-radius: var(--radius-m);
+  border-top: var(--space-1) solid var(--accent);
+}
+.slide--summary .key .n {
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-bold);
+  color: var(--accent);
+  line-height: var(--lh-tight);
+}
+.slide--summary .key p { font-size: var(--fs-body); }
+.slide--summary .cta {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  align-self: center;
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
+  color: var(--text-on-accent);
+  background: var(--accent);
+  border-radius: var(--radius-m);
+  padding: var(--space-4) var(--space-5);
+}

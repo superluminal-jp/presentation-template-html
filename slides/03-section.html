@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ja" data-annotations="off">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>章扉 — レイアウト単体</title>
+  <link rel="stylesheet" href="../tokens/vendor/tokens.css" />
+  <link rel="stylesheet" href="../styles/tokens.semantic.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/grid.css" />
+  <link rel="stylesheet" href="../styles/slides.css" />
+  <link rel="stylesheet" href="../styles/layouts/section.css" />
+</head>
+<body>
+  <div class="deck">
+    <section class="slide slide--section" data-layout="section">
+      <div class="slide__stage">
+        <div>
+          <p class="section-no">SECTION 01</p>
+          <p class="section-title">現状の課題</p>
+        </div>
+        <p class="section-lead">手作業の資料作成が意思決定を遅らせている。</p>
+      </div>
+      <button class="slide__annotation-toggle" type="button">i</button>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">章扉で緩急を作り、山場と記憶（冒頭・末尾）を設計する。</p>
+        <ul class="annotation__practices">
+          <li data-practice="E-peak-end">ピーク・エンドの法則（→ #E-peak-end）</li>
+          <li data-practice="D-serial-position">系列位置効果（→ #D-serial-position）</li>
+        </ul>
+      </aside>
+    </section>
+  </div>
+  <script src="../js/annotations.js"></script>
+</body>
+</html>

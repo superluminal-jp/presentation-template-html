@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="ja" data-annotations="off">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>デジタル庁DS準拠 プレゼンテンプレート — ショーケース</title>
+  <link rel="stylesheet" href="tokens/vendor/tokens.css" />
+  <link rel="stylesheet" href="styles/tokens.semantic.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/grid.css" />
+  <link rel="stylesheet" href="styles/slides.css" />
+  <link rel="stylesheet" href="styles/layouts/title.css" />
+  <link rel="stylesheet" href="styles/layouts/toc.css" />
+  <link rel="stylesheet" href="styles/layouts/section.css" />
+  <link rel="stylesheet" href="styles/layouts/body.css" />
+  <link rel="stylesheet" href="styles/layouts/compare.css" />
+  <link rel="stylesheet" href="styles/layouts/chart.css" />
+  <link rel="stylesheet" href="styles/layouts/summary.css" />
+  <link rel="stylesheet" href="styles/layouts/reference.css" />
+</head>
+<body>
+  <div class="toolbar">
+    <button type="button" data-annotation-toggle-all aria-pressed="false">注釈の表示/非表示（A）</button>
+  </div>
+
+  <div class="deck">
+
+    <!-- 01 title -->
+    <section class="slide slide--title" data-layout="title">
+      <div class="slide__stage">
+        <div>
+          <p class="title">意思決定を<br />3つに絞り、10分で合意する</p>
+          <p class="subtitle">デジタル庁デザインシステム準拠 プレゼンテンプレート</p>
+        </div>
+        <div class="meta">
+          <span>プロダクト戦略会議</span><span>2026-07-05</span><span>提案者: テンプレート</span>
+        </div>
+      </div>
+      <button class="slide__annotation-toggle" type="button">i</button>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">表紙は視覚階層で主題を最上位に。導入のフックとスルーラインを1文で提示。</p>
+        <ul class="annotation__practices">
+          <li data-practice="B-visual-hierarchy">視覚階層（→ practices.md #B-visual-hierarchy）</li>
+          <li data-practice="A-hook-throughline-cta">フック&スルーライン（→ #A-hook-throughline-cta）</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- 02 toc -->
+    <section class="slide slide--toc" data-layout="toc">
+      <div class="slide__stage">
+        <h2 class="slide__heading">本日は<span class="u-accent">3つの意思決定</span>に論点を集約します</h2>
+        <ol class="agenda">
+          <li aria-current="true"><span class="num">01</span><span>現状の課題（なぜ今か）</span></li>
+          <li><span class="num">02</span><span>選択肢の比較</span></li>
+          <li><span class="num">03</span><span>推奨案と根拠</span></li>
+          <li><span class="num">04</span><span>投資対効果</span></li>
+          <li><span class="num">05</span><span>意思決定のお願い</span></li>
+        </ol>
+        <p class="progress">5項目 / 現在地 01</p>
+        <div class="slide__footer">
+          <div class="slide__signpost" aria-label="現在地">
+            <span class="signpost__dot" aria-current="true"></span><span class="signpost__dot"></span><span class="signpost__dot"></span><span class="signpost__dot"></span><span class="signpost__dot"></span>
+          </div>
+          <span>2 / 8</span>
+        </div>
+      </div>
+      <button class="slide__annotation-toggle" type="button">i</button>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">項目は7±2に収め、現在地を示して離脱を防ぐ。</p>
+        <ul class="annotation__practices">
+          <li data-practice="D-miller">Millerの法則（→ #D-miller）</li>
+          <li data-practice="A-signposting">サインポスティング（→ #A-signposting）</li>
+          <li data-practice="E-goal-gradient">ゴール勾配（→ #E-goal-gradient）</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- 03 section -->
+    <section class="slide slide--section" data-layout="section">
+      <div class="slide__stage">
+        <div>
+          <p class="section-no">SECTION 01</p>
+          <p class="section-title">現状の課題</p>
+        </div>
+        <p class="section-lead">手作業の資料作成が意思決定を遅らせている。</p>
+      </div>
+      <button class="slide__annotation-toggle" type="button">i</button>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">章扉で緩急を作り、山場と記憶（冒頭・末尾）を設計する。</p>
+        <ul class="annotation__practices">
+          <li data-practice="E-peak-end">ピーク・エンドの法則（→ #E-peak-end）</li>
+          <li data-practice="D-serial-position">系列位置効果（→ #D-serial-position）</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- 04 body -->
+    <section class="slide slide--body" data-layout="body">
+      <div class="slide__stage">
+        <h2 class="slide__heading">資料作成の<span class="u-accent">属人化</span>が納期遅延の主因です</h2>
+        <div class="body">
+          <ul>
+            <li>1件あたり平均4時間を作図・体裁調整に消費</li>
+            <li>担当者間で体裁が不統一、レビュー往復が増加</li>
+            <li>ブランド準拠の判断が個人任せ</li>
+          </ul>
+        </div>
+        <div class="visual">図・スクリーンショットを配置<br />（Assertion–Evidence の Evidence 枠）</div>
+        <div class="slide__footer">
+          <span class="slide__citation">出典: 社内工数調査（2026Q2, n=42）</span>
+          <span>4 / 8</span>
+        </div>
+      </div>
+      <button class="slide__annotation-toggle" type="button">i</button>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">見出しに主張、本文に根拠。1スライド1メッセージで認知負荷を抑える。</p>
+        <ul class="annotation__practices">
+          <li data-practice="A-assertion-evidence">Assertion–Evidence（→ #A-assertion-evidence）</li>
+          <li data-practice="D-clt">認知負荷理論（→ #D-clt）</li>
+          <li data-practice="B-reading-pattern">視線誘導（→ #B-reading-pattern）</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- 05 compare -->
+    <section class="slide slide--compare" data-layout="compare">
+      <div class="slide__stage">
+        <h2 class="slide__heading">内製と<span class="u-accent">テンプレート導入</span>を同一基準で比較します</h2>
+        <div class="cols">
+          <div class="col">
+            <h3>現状: 都度内製</h3>
+            <ul><li>初期コスト小</li><li>体裁がばらつく</li><li>準拠は個人依存</li></ul>
+          </div>
+          <div class="col col--accent">
+            <h3>提案: テンプレート</h3>
+            <ul><li>体裁が自動で統一</li><li>DS準拠を担保</li><li>作成時間を短縮</li></ul>
+          </div>
+        </div>
+        <p class="verdict">→ 中長期の準拠と速度でテンプレート導入が優位</p>
+        <div class="slide__footer">
+          <span class="slide__citation">評価軸: コスト・一貫性・準拠・速度</span>
+          <span>5 / 8</span>
+        </div>
+      </div>
+      <button class="slide__annotation-toggle" type="button">i</button>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">利得フレームで対比を明確化。近接・整列で2案を対称配置。</p>
+        <ul class="annotation__practices">
+          <li data-practice="E-framing">フレーミング効果（→ #E-framing）</li>
+          <li data-practice="B-crap">C.R.A.P.（→ #B-crap）</li>
+          <li data-practice="D-hick">Hickの法則（→ #D-hick）</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- 06 chart -->
+    <section class="slide slide--chart" data-layout="chart">
+      <div class="slide__stage">
+        <h2 class="slide__heading">作成時間は<span class="u-accent">4時間→1時間</span>に短縮します</h2>
+        <div class="chart">
+          <svg class="chart-sample" viewBox="0 0 420 320" role="img" aria-label="内製4時間に対しテンプレート1時間">
+            <line class="axis" x1="60" y1="20" x2="60" y2="280" />
+            <line class="axis" x1="60" y1="280" x2="400" y2="280" />
+            <rect class="bar--muted" x="110" y="80" width="90" height="200" />
+            <rect class="bar" x="250" y="230" width="90" height="50" />
+            <text class="label" x="155" y="300" text-anchor="middle">内製 4h</text>
+            <text class="label" x="295" y="300" text-anchor="middle">テンプレ 1h</text>
+          </svg>
+        </div>
+        <div class="takeaway">
+          <p class="lead">約<span class="u-accent">75%</span>削減</p>
+          <p>基準値（4時間）を先に示し、削減幅の解釈を助ける。</p>
+        </div>
+        <div class="slide__footer">
+          <span class="slide__citation">出典: 社内試行測定（2026-06, n=8）</span>
+          <span>6 / 8</span>
+        </div>
+      </div>
+      <button class="slide__annotation-toggle" type="button">i</button>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">長さで量を比較（棒）。装飾を排し、要点にアクセント色を1箇所。基準値でアンカリング。</p>
+        <ul class="annotation__practices">
+          <li data-practice="C-cleveland-mcgill">Cleveland–McGill（→ #C-cleveland-mcgill）</li>
+          <li data-practice="C-data-ink">データインク比（→ #C-data-ink）</li>
+          <li data-practice="E-anchoring">アンカリング（→ #E-anchoring）</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- 07 summary -->
+    <section class="slide slide--summary" data-layout="summary">
+      <div class="slide__stage">
+        <h2 class="slide__heading">要点は<span class="u-accent">3つ</span>です</h2>
+        <div class="key-messages">
+          <div class="key"><span class="n">1</span><p>属人化が納期遅延の主因</p></div>
+          <div class="key"><span class="n">2</span><p>テンプレートで準拠と速度を両立</p></div>
+          <div class="key"><span class="n">3</span><p>作成時間を約75%削減</p></div>
+        </div>
+        <p class="cta">お願い: 次スプリントでの試行導入を承認ください</p>
+      </div>
+      <button class="slide__annotation-toggle" type="button">i</button>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">記憶に残る3点に凝縮し、末尾に明確な行動喚起（エンドの山場）。</p>
+        <ul class="annotation__practices">
+          <li data-practice="A-success">SUCCESs（→ #A-success）</li>
+          <li data-practice="E-peak-end">ピーク・エンドの法則（→ #E-peak-end）</li>
+          <li data-practice="A-hook-throughline-cta">CTA（→ #A-hook-throughline-cta）</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- 08 reference -->
+    <section class="slide slide--reference" data-layout="reference">
+      <div class="slide__stage">
+        <h2 class="slide__heading">出典</h2>
+        <ul class="citation-list">
+          <li><span class="cid">A-pyramid</span>Minto, <em>The Minto Pyramid Principle</em> (2009)</li>
+          <li><span class="cid">A-assertion-evidence</span>Alley, <em>The Craft of Scientific Presentations</em> (2013)</li>
+          <li><span class="cid">A-hook-throughline-cta</span>Anderson, <em>TED Talks</em> (2016)</li>
+          <li><span class="cid">A-signposting</span>Lidwell et al., <em>Universal Principles of Design</em> (2010)</li>
+          <li><span class="cid">A-success</span>Heath &amp; Heath, <em>Made to Stick</em> (2007)</li>
+          <li><span class="cid">B-visual-hierarchy</span>Lidwell et al., <em>Universal Principles of Design</em> (2010)</li>
+          <li><span class="cid">B-reading-pattern</span>Nielsen, "F-Shaped Pattern" (NN/g, 2006)</li>
+          <li><span class="cid">B-crap</span>Williams, <em>The Non-Designer's Design Book</em> (2014)</li>
+          <li><span class="cid">C-cleveland-mcgill</span>Cleveland &amp; McGill, <em>JASA</em> (1984)</li>
+          <li><span class="cid">C-data-ink</span>Tufte, <em>The Visual Display of Quantitative Information</em> (1983)</li>
+          <li><span class="cid">D-clt</span>Sweller (1988)</li>
+          <li><span class="cid">D-miller</span>Miller, <em>Psychological Review</em> (1956)</li>
+          <li><span class="cid">D-hick</span>Hick (1952); Hyman (1953)</li>
+          <li><span class="cid">D-serial-position</span>Murdock (1962)</li>
+          <li><span class="cid">E-peak-end</span>Kahneman, <em>Thinking, Fast and Slow</em> (2011)</li>
+          <li><span class="cid">E-framing</span>Tversky &amp; Kahneman (1981)</li>
+          <li><span class="cid">E-anchoring</span>Tversky &amp; Kahneman (1974)</li>
+          <li><span class="cid">E-goal-gradient</span>Kivetz et al. (2006)</li>
+        </ul>
+        <div class="slide__footer"><span class="slide__citation">全出典は docs/practices.md を参照</span><span>8 / 8</span></div>
+      </div>
+      <button class="slide__annotation-toggle" type="button">i</button>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">巻末に出典を集約(信頼性)。ID は practices.md と相互参照。</p>
+        <ul class="annotation__practices">
+          <li data-practice="A-pyramid">出典明示（→ practices.md #A-pyramid ほか）</li>
+        </ul>
+      </aside>
+    </section>
+
+  </div>
+  <script src="js/annotations.js"></script>
+</body>
+</html>

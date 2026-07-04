@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 320" role="img" aria-label="折れ線グラフ サンプル">
+  <style>
+    .axis { stroke: var(--border, #cccccc); stroke-width: 1; }
+    .line { fill: none; stroke: var(--accent, #0031d8); stroke-width: 3; }
+    .dot { fill: var(--accent, #0031d8); }
+    .label { fill: var(--text-secondary, #666666); font: 13px 'Noto Sans JP', sans-serif; }
+  </style>
+  <line class="axis" x1="60" y1="20" x2="60" y2="280" />
+  <line class="axis" x1="60" y1="280" x2="400" y2="280" />
+  <polyline class="line" points="80,250 160,200 240,210 320,120 390,70" />
+  <circle class="dot" cx="80" cy="250" r="4" /><circle class="dot" cx="160" cy="200" r="4" />
+  <circle class="dot" cx="240" cy="210" r="4" /><circle class="dot" cx="320" cy="120" r="4" />
+  <circle class="dot" cx="390" cy="70" r="4" />
+  <text class="label" x="80" y="300" text-anchor="middle">Q1</text>
+  <text class="label" x="390" y="300" text-anchor="middle">Q5</text>
+</svg>

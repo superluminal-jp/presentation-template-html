@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ja" data-annotations="off">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>参考 — レイアウト単体</title>
+  <link rel="stylesheet" href="../tokens/vendor/tokens.css" />
+  <link rel="stylesheet" href="../styles/tokens.semantic.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/grid.css" />
+  <link rel="stylesheet" href="../styles/slides.css" />
+  <link rel="stylesheet" href="../styles/layouts/reference.css" />
+</head>
+<body>
+  <div class="deck">
+    <section class="slide slide--reference" data-layout="reference">
+      <div class="slide__stage">
+        <h2 class="slide__heading">出典</h2>
+        <ul class="citation-list">
+          <li><span class="cid">A-pyramid</span>Minto, <em>The Minto Pyramid Principle</em> (2009)</li>
+          <li><span class="cid">A-assertion-evidence</span>Alley, <em>The Craft of Scientific Presentations</em> (2013)</li>
+          <li><span class="cid">A-hook-throughline-cta</span>Anderson, <em>TED Talks</em> (2016)</li>
+          <li><span class="cid">A-signposting</span>Lidwell et al., <em>Universal Principles of Design</em> (2010)</li>
+          <li><span class="cid">A-success</span>Heath &amp; Heath, <em>Made to Stick</em> (2007)</li>
+          <li><span class="cid">B-visual-hierarchy</span>Lidwell et al., <em>Universal Principles of Design</em> (2010)</li>
+          <li><span class="cid">B-reading-pattern</span>Nielsen, "F-Shaped Pattern" (NN/g, 2006)</li>
+          <li><span class="cid">B-crap</span>Williams, <em>The Non-Designer's Design Book</em> (2014)</li>
+          <li><span class="cid">C-cleveland-mcgill</span>Cleveland &amp; McGill, <em>JASA</em> (1984)</li>
+          <li><span class="cid">C-data-ink</span>Tufte, <em>The Visual Display of Quantitative Information</em> (1983)</li>
+          <li><span class="cid">D-clt</span>Sweller (1988)</li>
+          <li><span class="cid">D-miller</span>Miller, <em>Psychological Review</em> (1956)</li>
+          <li><span class="cid">D-hick</span>Hick (1952); Hyman (1953)</li>
+          <li><span class="cid">D-serial-position</span>Murdock (1962)</li>
+          <li><span class="cid">E-peak-end</span>Kahneman, <em>Thinking, Fast and Slow</em> (2011)</li>
+          <li><span class="cid">E-framing</span>Tversky &amp; Kahneman (1981)</li>
+          <li><span class="cid">E-anchoring</span>Tversky &amp; Kahneman (1974)</li>
+          <li><span class="cid">E-goal-gradient</span>Kivetz et al. (2006)</li>
+        </ul>
+        <div class="slide__footer"><span class="slide__citation">全出典は docs/practices.md を参照</span><span>8 / 8</span></div>
+      </div>
+      <button class="slide__annotation-toggle" type="button">i</button>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">巻末に出典を集約(信頼性)。ID は practices.md と相互参照。</p>
+        <ul class="annotation__practices">
+          <li data-practice="A-pyramid">出典明示（→ practices.md #A-pyramid ほか）</li>
+        </ul>
+      </aside>
+    </section>
+  </div>
+  <script src="../js/annotations.js"></script>
+</body>
+</html>

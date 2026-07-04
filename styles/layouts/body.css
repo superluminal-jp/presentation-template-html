@@ -1,0 +1,38 @@
+/* body — 本文。Assertion–Evidence(見出し=主張、本文=根拠)。bullet ≤7(Miller/CLT)。 */
+.slide--body .body {
+  grid-column: 1 / 8;
+  grid-row: 2;
+  align-self: start;
+}
+.slide--body .body ul { list-style: none; padding: 0; display: grid; gap: var(--space-3); }
+.slide--body .body li {
+  position: relative;
+  padding-left: var(--space-5);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-body);
+}
+.slide--body .body li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: var(--space-2);
+  height: var(--space-2);
+  background: var(--accent);
+  border-radius: var(--radius-l);
+}
+.slide--body .visual {
+  grid-column: 8 / -1;
+  grid-row: 2;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  color: var(--text-secondary);
+  font-size: var(--fs-caption);
+  text-align: center;
+  padding: var(--space-4);
+}

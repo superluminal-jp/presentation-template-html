@@ -1,0 +1,43 @@
+/**
+ * grid.css — 16:9 固定キャンバス(1280×720)+ 12カラムグリッド。
+ * すべての配置は --space-* を用いる(生 px 禁止)。
+ */
+
+:root {
+  --canvas-w: 1280px;
+  --canvas-h: 720px;
+  --safe-x: var(--space-8); /* 左右 48px */
+  --safe-y: var(--space-6); /* 上下 32px */
+  --grid-cols: 12;
+  --grid-gutter: var(--space-5); /* 24px */
+}
+
+.slide {
+  position: relative;
+  width: var(--canvas-w);
+  height: var(--canvas-h);
+  background: var(--slide-bg);
+  color: var(--text-primary);
+  overflow: hidden; /* 見切れ検知の基準(SC-01) */
+}
+
+/* 本文領域(安全余白の内側) */
+.slide__stage {
+  position: absolute;
+  inset: var(--safe-y) var(--safe-x);
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), 1fr);
+  grid-template-rows: auto 1fr auto;
+  column-gap: var(--grid-gutter);
+  row-gap: var(--space-4);
+}
+
+/* カラムスパンユーティリティ */
+.col-1 { grid-column: span 1; } .col-2 { grid-column: span 2; }
+.col-3 { grid-column: span 3; } .col-4 { grid-column: span 4; }
+.col-5 { grid-column: span 5; } .col-6 { grid-column: span 6; }
+.col-7 { grid-column: span 7; } .col-8 { grid-column: span 8; }
+.col-9 { grid-column: span 9; } .col-10 { grid-column: span 10; }
+.col-11 { grid-column: span 11; } .col-12 { grid-column: span 12; }
+
+.row-full { grid-row: 1 / -1; }

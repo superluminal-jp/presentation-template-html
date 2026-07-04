@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ja" data-annotations="off">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>まとめ — レイアウト単体</title>
+  <link rel="stylesheet" href="../tokens/vendor/tokens.css" />
+  <link rel="stylesheet" href="../styles/tokens.semantic.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/grid.css" />
+  <link rel="stylesheet" href="../styles/slides.css" />
+  <link rel="stylesheet" href="../styles/layouts/summary.css" />
+</head>
+<body>
+  <div class="deck">
+    <section class="slide slide--summary" data-layout="summary">
+      <div class="slide__stage">
+        <h2 class="slide__heading">要点は<span class="u-accent">3つ</span>です</h2>
+        <div class="key-messages">
+          <div class="key"><span class="n">1</span><p>属人化が納期遅延の主因</p></div>
+          <div class="key"><span class="n">2</span><p>テンプレートで準拠と速度を両立</p></div>
+          <div class="key"><span class="n">3</span><p>作成時間を約75%削減</p></div>
+        </div>
+        <p class="cta">お願い: 次スプリントでの試行導入を承認ください</p>
+      </div>
+      <button class="slide__annotation-toggle" type="button">i</button>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">記憶に残る3点に凝縮し、末尾に明確な行動喚起（エンドの山場）。</p>
+        <ul class="annotation__practices">
+          <li data-practice="A-success">SUCCESs（→ #A-success）</li>
+          <li data-practice="E-peak-end">ピーク・エンドの法則（→ #E-peak-end）</li>
+          <li data-practice="A-hook-throughline-cta">CTA（→ #A-hook-throughline-cta）</li>
+        </ul>
+      </aside>
+    </section>
+  </div>
+  <script src="../js/annotations.js"></script>
+</body>
+</html>

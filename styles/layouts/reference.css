@@ -1,0 +1,24 @@
+/* reference — 参考(巻末)。出典一覧。practices.md の ID を参照。 */
+.slide--reference { background: var(--surface); }
+.slide--reference .citation-list {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  columns: 2;
+  column-gap: var(--space-8);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: var(--fs-caption);
+  color: var(--text-secondary);
+}
+.slide--reference .citation-list li {
+  break-inside: avoid;
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--border);
+}
+.slide--reference .citation-list .cid {
+  color: var(--accent);
+  font-weight: var(--fw-bold);
+  font-family: var(--font-mono);
+  margin-right: var(--space-2);
+}

@@ -1,0 +1,28 @@
+/* title — 表紙。キー色面 + 視覚階層。 */
+.slide--title { background: var(--accent); color: var(--text-on-accent); }
+.slide--title .slide__stage { grid-template-rows: 1fr auto; align-content: center; }
+.slide--title .slide__stage > div { grid-column: 1 / -1; }
+.slide--title .title {
+  grid-column: 1 / 11;
+  font-size: var(--fs-display);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+}
+.slide--title .subtitle {
+  grid-column: 1 / 10;
+  margin-top: var(--space-4);
+  font-size: var(--fs-h2);
+  color: var(--text-on-accent);
+  opacity: 0.92;
+}
+.slide--title .meta {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: flex;
+  gap: var(--space-5);
+  font-size: var(--fs-caption);
+  color: var(--text-on-accent);
+  opacity: 0.85;
+  border-top: 1px solid var(--text-on-accent);
+  padding-top: var(--space-3);
+}

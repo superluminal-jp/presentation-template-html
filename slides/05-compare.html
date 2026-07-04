@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ja" data-annotations="off">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2カラム比較 — レイアウト単体</title>
+  <link rel="stylesheet" href="../tokens/vendor/tokens.css" />
+  <link rel="stylesheet" href="../styles/tokens.semantic.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/grid.css" />
+  <link rel="stylesheet" href="../styles/slides.css" />
+  <link rel="stylesheet" href="../styles/layouts/compare.css" />
+</head>
+<body>
+  <div class="deck">
+    <section class="slide slide--compare" data-layout="compare">
+      <div class="slide__stage">
+        <h2 class="slide__heading">内製と<span class="u-accent">テンプレート導入</span>を同一基準で比較します</h2>
+        <div class="cols">
+          <div class="col">
+            <h3>現状: 都度内製</h3>
+            <ul><li>初期コスト小</li><li>体裁がばらつく</li><li>準拠は個人依存</li></ul>
+          </div>
+          <div class="col col--accent">
+            <h3>提案: テンプレート</h3>
+            <ul><li>体裁が自動で統一</li><li>DS準拠を担保</li><li>作成時間を短縮</li></ul>
+          </div>
+        </div>
+        <p class="verdict">→ 中長期の準拠と速度でテンプレート導入が優位</p>
+        <div class="slide__footer">
+          <span class="slide__citation">評価軸: コスト・一貫性・準拠・速度</span>
+          <span>5 / 8</span>
+        </div>
+      </div>
+      <button class="slide__annotation-toggle" type="button">i</button>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">利得フレームで対比を明確化。近接・整列で2案を対称配置。</p>
+        <ul class="annotation__practices">
+          <li data-practice="E-framing">フレーミング効果（→ #E-framing）</li>
+          <li data-practice="B-crap">C.R.A.P.（→ #B-crap）</li>
+          <li data-practice="D-hick">Hickの法則（→ #D-hick）</li>
+        </ul>
+      </aside>
+    </section>
+  </div>
+  <script src="../js/annotations.js"></script>
+</body>
+</html>

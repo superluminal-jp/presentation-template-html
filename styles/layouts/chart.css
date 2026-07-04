@@ -1,0 +1,42 @@
+/* chart — 図表。Cleveland–McGill/データインク/事前注意/アンカリング。 */
+.slide--chart .chart {
+  grid-column: 1 / 9;
+  grid-row: 2;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slide--chart .chart svg { width: 100%; height: auto; max-height: 380px; }
+.slide--chart .takeaway {
+  grid-column: 9 / -1;
+  grid-row: 2;
+  align-self: center;
+  display: grid;
+  gap: var(--space-3);
+}
+.slide--chart .takeaway .lead { font-size: var(--fs-h2); font-weight: var(--fw-bold); }
+.slide--chart .takeaway .lead .u-accent { color: var(--accent); }
+.slide--chart .takeaway p { font-size: var(--fs-body); color: var(--text-secondary); }
+
+/* 画像/プレースホルダ枠(作成者の実データ図を受ける) */
+.slide--chart .chart--placeholder {
+  width: 100%;
+  min-height: 320px;
+  border: 2px dashed var(--border-strong);
+  border-radius: var(--radius-m);
+  color: var(--text-secondary);
+  font-size: var(--fs-caption);
+  text-align: center;
+}
+
+/* サンプル図のトークン整形(色は役割変数のみ) */
+.chart-sample .bar { fill: var(--accent); }
+.chart-sample .bar--muted { fill: var(--border-strong); }
+.chart-sample .axis { stroke: var(--border); stroke-width: 1; }
+.chart-sample .line { fill: none; stroke: var(--accent); stroke-width: 3; }
+.chart-sample .dot { fill: var(--accent); }
+.chart-sample .label { fill: var(--text-secondary); font-size: 13px; font-family: var(--font-sans); }
+.chart-sample .slice-a { fill: var(--accent); }
+.chart-sample .slice-b { fill: var(--surface-strong); }
+.chart-sample .slice-c { fill: var(--border); }

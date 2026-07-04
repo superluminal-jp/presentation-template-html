@@ -1,0 +1,23 @@
+{
+  "name": "ds-presentation-template",
+  "version": "0.1.0",
+  "private": true,
+  "description": "デジタル庁デザインシステム準拠 16:9 プレゼンテンプレート(HTML正本)",
+  "type": "module",
+  "scripts": {
+    "sync-tokens": "node scripts/sync-tokens.mjs",
+    "lint:tokens": "node scripts/lint-tokens.mjs",
+    "check:crossrefs": "node scripts/check-crossrefs.mjs",
+    "test:visual": "playwright test tests/visual",
+    "test:a11y": "playwright test tests/a11y",
+    "test:print": "playwright test tests/print",
+    "verify": "npm run lint:tokens && npm run check:crossrefs && npm run test:visual && npm run test:a11y && npm run test:print"
+  },
+  "dependencies": {
+    "@digital-go-jp/design-tokens": "2.0.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "@playwright/test": "^1.48.0"
+  }
+}

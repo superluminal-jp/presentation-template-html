@@ -1,0 +1,27 @@
+/* section — 章扉。ピーク配分/系列位置。大きな章番号 + 章題。 */
+.slide--section { background: var(--surface); }
+.slide--section .slide__stage { grid-template-rows: 1fr auto; align-content: center; }
+.slide--section .slide__stage > div { grid-column: 1 / -1; }
+.slide--section .section-no {
+  grid-column: 1 / -1;
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-bold);
+  color: var(--accent);
+  letter-spacing: 0.08em;
+}
+.slide--section .section-title {
+  grid-column: 1 / 11;
+  margin-top: var(--space-2);
+  font-size: var(--fs-display);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  color: var(--text-primary);
+}
+.slide--section .section-lead {
+  grid-column: 1 / 10;
+  grid-row: 2;
+  font-size: var(--fs-h3);
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-3);
+}

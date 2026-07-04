@@ -1,0 +1,130 @@
+/**
+ * slides.css — スライドシェル・道標(現在地)・注釈レイヤー・ツールバー。
+ * 依存: tokens.semantic.css, grid.css
+ */
+
+/* デッキ(ショーケース)コンテナ */
+.deck {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-8) 0;
+}
+.slide {
+  box-shadow: var(--elevation-card);
+  border-radius: var(--radius-m);
+}
+
+/* 見出し(アクションタイトル) */
+.slide__heading {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-heading);
+  color: var(--text-primary);
+}
+.slide__heading .u-accent { color: var(--accent); }
+
+/* 見出し下のアクセント罫 */
+.slide__heading::after {
+  content: "";
+  display: block;
+  width: var(--space-9);
+  height: var(--space-1);
+  margin-top: var(--space-3);
+  background: var(--accent);
+  border-radius: var(--radius-s);
+}
+
+/* 本文帯 */
+.slide__body { grid-row: 2; align-self: start; }
+
+/* フッタ(道標 + 出典 + ページ) */
+.slide__footer {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-4);
+  font-size: var(--fs-caption);
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-2);
+}
+.slide__citation { max-width: 66%; }
+
+/* 道標(サインポスティング/現在地) */
+.slide__signpost { display: flex; gap: var(--space-2); align-items: center; }
+.signpost__dot {
+  width: var(--space-2);
+  height: var(--space-2);
+  border-radius: var(--radius-l);
+  background: var(--border-strong);
+}
+.signpost__dot[aria-current="true"] { background: var(--accent); }
+
+/* --- 注釈レイヤー(既定非表示・トグル) --- */
+.slide__annotation {
+  position: absolute;
+  right: var(--space-5);
+  bottom: var(--space-8);
+  left: var(--space-5);
+  background: var(--accent-weak);
+  border: 1px solid var(--accent);
+  border-left-width: var(--space-1);
+  border-radius: var(--radius-m);
+  padding: var(--space-4) var(--space-5);
+  font-size: var(--fs-caption);
+  color: var(--text-primary);
+  box-shadow: var(--elevation-card);
+}
+.slide__annotation .annotation__intent { font-weight: var(--fw-bold); }
+.slide__annotation .annotation__practices { margin-top: var(--space-2); }
+
+/* 表示制御: ルートの data-annotations=off で全注釈を隠す(初期 off) */
+:root[data-annotations="off"] .slide__annotation,
+[data-annotation][hidden] { display: none; }
+:root[data-annotations="on"] .slide__annotation[hidden] { display: block; }
+
+/* 個別トグルボタン */
+.slide__annotation-toggle {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  font: inherit;
+  font-size: var(--fs-caption);
+  color: var(--accent);
+  background: var(--slide-bg);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-s);
+  padding: var(--space-1) var(--space-3);
+  cursor: pointer;
+}
+
+/* ツールバー(ショーケース操作。印刷では非表示) */
+.toolbar {
+  position: fixed;
+  top: var(--space-4);
+  right: var(--space-4);
+  z-index: 10;
+  display: flex;
+  gap: var(--space-2);
+  background: var(--slide-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  padding: var(--space-2) var(--space-3);
+  box-shadow: var(--elevation-card);
+}
+.toolbar button {
+  font: inherit;
+  font-size: var(--fs-caption);
+  color: var(--text-on-accent);
+  background: var(--accent);
+  border: 0;
+  border-radius: var(--radius-s);
+  padding: var(--space-2) var(--space-4);
+  cursor: pointer;
+}

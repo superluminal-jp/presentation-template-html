@@ -1,0 +1,59 @@
+# デジタル庁DS準拠 16:9 プレゼンテンプレート
+
+デジタル庁デザインシステム(DS)のデザイントークンのみを視覚の源泉とし、16:9(1280×720)固定グリッドで構築した、フレームワーク非依存の HTML プレゼンテンプレート。プレゼン/データ可視化/認知・行動心理の確立されたベストプラクティスを、出典付きの注釈として各スライドに埋め込む。
+
+## 特長
+
+- **DS 準拠**: 配色・タイポ・余白・角丸・陰影はすべて `@digital-go-jp/design-tokens@2.0.1`(vendor 固定)由来。ブランドキー色は `#0031d8`(デジタル庁 HP 基調)。
+- **コア8レイアウト**: 表紙 / 目次 / 章扉 / 本文 / 2カラム比較 / 図表 / まとめ / 参考。
+- **設計意図の注釈**: 各スライドに既定非表示・トグル可能な注釈(適用手法 + 出典)。キー `A` で全体トグル。
+- **アクセシブル**: 主要テキストは WCAG 2.2 AA コントラスト。
+- **更新追従**: DS 更新はセマンティック写像層のみで吸収(レイアウト無改修)。
+- **PPT 変換対応(構造)**: 命名スロット + 固定グリッドで、将来の編集可能 PowerPoint 変換に適合。
+
+## クイックスタート
+
+```bash
+npm install            # design-tokens@2.0.1(固定)を取得
+npm run sync-tokens    # tokens/vendor/tokens.css を生成(不可侵層)
+# index.html をブラウザで開く(ショーケース)。個別レイアウトは slides/0X-*.html
+```
+
+詳細は [仕様](specs/001-ds-presentation-template/spec.md) / [計画](specs/001-ds-presentation-template/plan.md) / [Quickstart](specs/001-ds-presentation-template/quickstart.md)。
+
+## ディレクトリ
+
+| パス | 役割 |
+|---|---|
+| `tokens/vendor/tokens.css` | DS トークン(v2.0.1 複製・不可侵) |
+| `styles/tokens.semantic.css` | セマンティック写像層(役割変数 + スペーシング) |
+| `styles/grid.css` / `base.css` / `slides.css` / `layouts/*` | グリッド・基盤・レイアウト |
+| `slides/0X-*.html` | レイアウト単体(著者コピー用) |
+| `index.html` | 8レイアウトのショーケースデック |
+| `assets/charts/*.svg` | トークン整形済みサンプル図(棒/折れ線/構成比) |
+| `js/annotations.js` | 注釈トグル |
+| `docs/practices.md` | 採用手法と出典(正本・ID 参照元) |
+| `docs/ds-version-map.md` | DS 更新ランブック |
+| `scripts/*` | sync-tokens / lint-tokens / check-crossrefs / split-slides |
+| `tests/*` | 検証(Playwright + axe + node チェック) |
+
+## 検証
+
+```bash
+npm run lint:tokens      # ハードコード検出(SC-02)
+npm run check:crossrefs  # 注釈↔出典の相互参照(SC-05/FR-013)
+node tests/a11y/contrast-tokens.mjs  # 役割色コントラスト(SC-04, node単体)
+npm run test:visual      # レンダリング/overflow/視覚回帰(SC-01/07, 要ブラウザ)
+npm run test:a11y        # axe コントラスト(SC-04, 要ブラウザ)
+npm run test:print       # 1スライド=1ページ(SC-01, 要ブラウザ)
+```
+
+`test:*` は `npm install` と `npx playwright install chromium`(ネットワーク要)後に実行。
+
+## フォント
+
+既定は非同梱(システム + Noto Sans JP フォールバック)。完全再現が必要な場合は [docs/font-embedding.md](docs/font-embedding.md)。
+
+## ライセンス / 出典
+
+デザイントークン: [@digital-go-jp/design-tokens](https://github.com/digital-go-jp/design-tokens)。採用プラクティスの出典は [docs/practices.md](docs/practices.md)。

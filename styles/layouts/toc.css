@@ -1,0 +1,29 @@
+/* toc — 目次 + 現在地(サインポスティング/ゴール勾配)。項目 ≤7(Miller)。 */
+.slide--toc .agenda {
+  grid-column: 1 / 9;
+  grid-row: 2;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+}
+.slide--toc .agenda li {
+  display: grid;
+  grid-template-columns: var(--space-7) 1fr;
+  align-items: baseline;
+  gap: var(--space-4);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--border);
+  font-size: var(--fs-h3);
+}
+.slide--toc .agenda .num { color: var(--accent); font-weight: var(--fw-bold); }
+.slide--toc .agenda li[aria-current="true"] { color: var(--accent); font-weight: var(--fw-bold); }
+.slide--toc .agenda li[aria-current="true"] .num::after { content: " ◀"; }
+.slide--toc .progress {
+  grid-column: 10 / -1;
+  grid-row: 2;
+  align-self: start;
+  font-size: var(--fs-caption);
+  color: var(--text-secondary);
+}

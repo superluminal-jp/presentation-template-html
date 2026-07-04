@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 320" role="img" aria-label="構成比（100%積み上げ）サンプル">
+  <style>
+    .slice-a { fill: var(--accent, #0031d8); }
+    .slice-b { fill: var(--surface-strong, #e6e6e6); }
+    .slice-c { fill: var(--border, #cccccc); }
+    .label { fill: var(--text-secondary, #666666); font: 13px 'Noto Sans JP', sans-serif; }
+    .label--on { fill: var(--text-on-accent, #ffffff); font: 13px 'Noto Sans JP', sans-serif; }
+  </style>
+  <rect class="slice-a" x="60" y="120" width="180" height="80" />
+  <rect class="slice-b" x="240" y="120" width="90" height="80" />
+  <rect class="slice-c" x="330" y="120" width="60" height="80" />
+  <text class="label--on" x="150" y="165" text-anchor="middle">55%</text>
+  <text class="label" x="285" y="165" text-anchor="middle">27%</text>
+  <text class="label" x="360" y="165" text-anchor="middle">18%</text>
+</svg>

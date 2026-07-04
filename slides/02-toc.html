@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ja" data-annotations="off">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>目次 — レイアウト単体</title>
+  <link rel="stylesheet" href="../tokens/vendor/tokens.css" />
+  <link rel="stylesheet" href="../styles/tokens.semantic.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/grid.css" />
+  <link rel="stylesheet" href="../styles/slides.css" />
+  <link rel="stylesheet" href="../styles/layouts/toc.css" />
+</head>
+<body>
+  <div class="deck">
+    <section class="slide slide--toc" data-layout="toc">
+      <div class="slide__stage">
+        <h2 class="slide__heading">本日は<span class="u-accent">3つの意思決定</span>に論点を集約します</h2>
+        <ol class="agenda">
+          <li aria-current="true"><span class="num">01</span><span>現状の課題（なぜ今か）</span></li>
+          <li><span class="num">02</span><span>選択肢の比較</span></li>
+          <li><span class="num">03</span><span>推奨案と根拠</span></li>
+          <li><span class="num">04</span><span>投資対効果</span></li>
+          <li><span class="num">05</span><span>意思決定のお願い</span></li>
+        </ol>
+        <p class="progress">5項目 / 現在地 01</p>
+        <div class="slide__footer">
+          <div class="slide__signpost" aria-label="現在地">
+            <span class="signpost__dot" aria-current="true"></span><span class="signpost__dot"></span><span class="signpost__dot"></span><span class="signpost__dot"></span><span class="signpost__dot"></span>
+          </div>
+          <span>2 / 8</span>
+        </div>
+      </div>
+      <button class="slide__annotation-toggle" type="button">i</button>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">項目は7±2に収め、現在地を示して離脱を防ぐ。</p>
+        <ul class="annotation__practices">
+          <li data-practice="D-miller">Millerの法則（→ #D-miller）</li>
+          <li data-practice="A-signposting">サインポスティング（→ #A-signposting）</li>
+          <li data-practice="E-goal-gradient">ゴール勾配（→ #E-goal-gradient）</li>
+        </ul>
+      </aside>
+    </section>
+  </div>
+  <script src="../js/annotations.js"></script>
+</body>
+</html>

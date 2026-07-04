@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 320" role="img" aria-label="棒グラフ サンプル">
+  <style>
+    .axis { stroke: var(--border, #cccccc); stroke-width: 1; }
+    .bar { fill: var(--accent, #0031d8); }
+    .bar--muted { fill: var(--border-strong, #999999); }
+    .label { fill: var(--text-secondary, #666666); font: 13px 'Noto Sans JP', sans-serif; }
+  </style>
+  <line class="axis" x1="60" y1="20" x2="60" y2="280" />
+  <line class="axis" x1="60" y1="280" x2="400" y2="280" />
+  <rect class="bar--muted" x="110" y="80" width="90" height="200" />
+  <rect class="bar" x="250" y="230" width="90" height="50" />
+  <text class="label" x="155" y="300" text-anchor="middle">A</text>
+  <text class="label" x="295" y="300" text-anchor="middle">B</text>
+</svg>

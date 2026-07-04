@@ -1,0 +1,71 @@
+/**
+ * tokens.semantic.css — セマンティック写像層(TokenMappingLayer)
+ *
+ * DS 更新を吸収する唯一の窓口(SC-07)。役割変数は必ず vendor の var(--color-*) を参照し、
+ * 生の色値・生の px を持たない(SC-02)。スペーシングは DS 非提供のため自前定義(DS 外)。
+ * デジタル庁ホームページ固有の配色差分は末尾の「ブランドオーバーレイ」でのみ上書きする。
+ *
+ * 依存: tokens/vendor/tokens.css(先に読み込むこと)
+ */
+
+:root {
+  /* --- 色ロール(すべて vendor トークン参照) --- */
+  --slide-bg: var(--color-neutral-white);
+  --surface: var(--color-neutral-solid-gray-50);
+  --surface-strong: var(--color-neutral-solid-gray-100);
+  --text-primary: var(--color-neutral-solid-gray-800);      /* #333 on #fff ≈ 12.6:1 (AA) */
+  --text-secondary: var(--color-neutral-solid-gray-600);    /* #666 on #fff ≈ 5.7:1 (AA) */
+  --text-on-accent: var(--color-neutral-white);             /* #fff on #0031d8 ≈ 10.4:1 (AA) */
+  --border: var(--color-neutral-solid-gray-200);
+  --border-strong: var(--color-neutral-solid-gray-400);
+  --accent: var(--color-key-800);                           /* #0031d8 = HP 基調(SC-08) */
+  --accent-weak: var(--color-key-50);
+  --accent-strong: var(--color-key-1000);
+  --state-success: var(--color-semantic-success-1);
+  --state-error: var(--color-semantic-error-1);
+  --state-warning: var(--color-semantic-warning-orange-1);
+
+  /* --- タイポロール(vendor 参照) --- */
+  --font-sans: var(--font-family-sans);
+  --font-mono: var(--font-family-mono);
+  --fw-normal: var(--font-weight-400);
+  --fw-bold: var(--font-weight-700);
+  --fs-display: var(--font-size-64);
+  --fs-h1: var(--font-size-36);
+  --fs-h2: var(--font-size-24);
+  --fs-h3: var(--font-size-20);
+  --fs-body: var(--font-size-18);
+  --fs-caption: var(--font-size-14);
+  --lh-tight: var(--line-height-120);
+  --lh-heading: var(--line-height-130);
+  --lh-body: var(--line-height-160);
+
+  /* --- 半径・陰影(vendor 別名) --- */
+  --radius-s: var(--border-radius-4);
+  --radius-m: var(--border-radius-8);
+  --radius-l: var(--border-radius-16);
+  --elevation-card: var(--elevation-2);
+
+  /* --- スペーシングスケール(DS 外・4/8px リズム) --- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+  --space-8: 48px;
+  --space-9: 64px;
+  --space-10: 80px;
+  --space-11: 96px;
+  --space-12: 128px;
+}
+
+/*
+ * ブランドオーバーレイ:
+ * デジタル庁ホームページ固有の配色差分が確認された場合のみ、ここで役割変数を上書きする。
+ * 現状は差分なし(DS カラートークン由来で整合)。差分は実サイトで確認のうえ追記する。
+ */
+:root {
+  /* 例) --accent: var(--color-key-900); */
+}
