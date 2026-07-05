@@ -89,21 +89,6 @@
 [data-annotation][hidden] { display: none; }
 :root[data-annotations="on"] .slide__annotation[hidden] { display: block; }
 
-/* 個別トグルボタン */
-.slide__annotation-toggle {
-  position: absolute;
-  top: var(--space-3);
-  right: var(--space-3);
-  font: inherit;
-  font-size: var(--fs-caption);
-  color: var(--accent);
-  background: var(--slide-bg);
-  border: 1px solid var(--accent);
-  border-radius: var(--radius-s);
-  padding: var(--space-1) var(--space-3);
-  cursor: pointer;
-}
-
 /* ツールバー(ショーケース操作。印刷では非表示) */
 .toolbar {
   position: fixed;

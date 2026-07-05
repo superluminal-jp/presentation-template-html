@@ -24,7 +24,7 @@
 ## トグル API
 
 - グローバル: `window.PresTemplate.toggleAnnotations(force?: boolean)` — 全スライドの注釈表示を切替(`force` 明示時はその状態に固定)。
-- 既定操作: キー `a` で全体トグル、各スライドの `.slide__annotation-toggle` ボタンで個別トグル。
+- 既定操作: キー `a` またはツールバーの `[data-annotation-toggle-all]` ボタンで全体トグル。
 - 状態は `document.documentElement` の `data-annotations="on|off"` に反映(CSS が `[hidden]` を制御)。
 - 初期状態: `off`(非表示)。
 

@@ -2,7 +2,7 @@
  * annotations.js — 注釈レイヤーのトグル(既定=非表示)。
  * 契約: contracts/annotation-contract.md
  * - window.PresTemplate.toggleAnnotations(force?)
- * - キー "a" で全体トグル / .slide__annotation-toggle で個別トグル
+ * - キー "a" またはツールバーのボタンで全体トグル
  * - 状態は documentElement[data-annotations="on|off"](初期 off)
  */
 (function () {
@@ -28,12 +28,6 @@
     return next;
   }
 
-  function toggleOne(el) {
-    const hidden = el.hasAttribute('hidden');
-    if (hidden) el.removeAttribute('hidden');
-    else el.setAttribute('hidden', '');
-  }
-
   document.addEventListener('keydown', (e) => {
     if (e.key === 'a' && !e.metaKey && !e.ctrlKey && !e.altKey) {
       const tag = (e.target && e.target.tagName) || '';
@@ -45,12 +39,6 @@
   document.addEventListener('click', (e) => {
     const all = e.target.closest('[data-annotation-toggle-all]');
     if (all) { toggleAnnotations(); return; }
-    const one = e.target.closest('.slide__annotation-toggle');
-    if (one) {
-      const slide = one.closest('.slide');
-      const ann = slide && slide.querySelector('[data-annotation]');
-      if (ann) toggleOne(ann);
-    }
   });
 
   window.PresTemplate = { toggleAnnotations };

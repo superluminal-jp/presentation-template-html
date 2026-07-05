@@ -19,11 +19,3 @@
 }
 .slide--toc .agenda .num { color: var(--accent); font-weight: var(--fw-bold); }
 .slide--toc .agenda li[aria-current="true"] { color: var(--accent); font-weight: var(--fw-bold); }
-.slide--toc .agenda li[aria-current="true"] .num::after { content: " ◀"; }
-.slide--toc .progress {
-  grid-column: 10 / -1;
-  grid-row: 2;
-  align-self: start;
-  font-size: var(--fs-caption);
-  color: var(--text-secondary);
-}
