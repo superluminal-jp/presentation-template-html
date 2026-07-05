@@ -69,3 +69,26 @@
 :root {
   /* 例) --accent: var(--color-key-900); */
 }
+
+/*
+ * カテゴリ配色(多系列チャート) — デジタル庁ダッシュボード実践ガイドブックの 7 パレット
+ * (Solid Gray/Blue/Light Blue/Cyan/Green/Orange/Red)= DS プリミティブに一致。
+ * 各色はチャート面として白背景に対し ≥3:1(グラフィック要素)。
+ */
+:root {
+  --cat-1: var(--color-key-800);                       /* blue */
+  --cat-2: var(--color-primitive-light-blue-700);      /* light-blue */
+  --cat-3: var(--color-primitive-cyan-800);            /* cyan */
+  --cat-4: var(--color-primitive-green-700);           /* green */
+  --cat-5: var(--color-primitive-orange-700);          /* orange */
+  --cat-6: var(--color-primitive-red-700);             /* red */
+  --cat-7: var(--color-neutral-solid-gray-600);        /* solid-gray */
+
+  /* 機密性トーン(1=公開可/2=要保護/3=厳重)。淡面 + 濃文字で AA。 */
+  --conf1-bg: var(--surface-strong);
+  --conf1-fg: var(--text-primary);
+  --conf2-bg: var(--color-primitive-orange-50);
+  --conf2-fg: var(--color-primitive-orange-900);
+  --conf3-bg: var(--color-primitive-red-50);
+  --conf3-fg: var(--color-primitive-red-900);
+}

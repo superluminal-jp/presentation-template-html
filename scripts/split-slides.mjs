@@ -30,7 +30,7 @@ const sections = [...html.matchAll(/<section class="slide[^]*?<\/section>/g)].ma
 function head(layout) {
   const cssLayout = `../styles/layouts/${layout}.css`;
   return `<!doctype html>
-<html lang="ja" data-annotations="off">
+<html lang="ja" data-annotations="off" data-org="（組織名）" data-copyright="© 2026 （組織名）" data-confidentiality="2">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -41,6 +41,7 @@ function head(layout) {
   <link rel="stylesheet" href="../styles/grid.css" />
   <link rel="stylesheet" href="../styles/slides.css" />
   <link rel="stylesheet" href="${cssLayout}" />
+  <link rel="stylesheet" href="../styles/frame.css" />
 </head>
 <body>
   <div class="deck">
@@ -48,6 +49,7 @@ function head(layout) {
 }
 const foot = `  </div>
   <script src="../js/annotations.js"></script>
+  <script src="../js/frame.js"></script>
 </body>
 </html>
 `;

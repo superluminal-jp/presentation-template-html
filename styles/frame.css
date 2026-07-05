@@ -1,0 +1,51 @@
+/**
+ * frame.css — スライド共通フレーム(feature 004)。
+ * 四隅の取扱区分/著作権/ページ番号。四隅の余白域に絶対配置し本文と非重複。印刷保持。
+ * 依存: tokens.semantic.css。マークアップは js/frame.js が注入。
+ */
+
+.slide__frame {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.slide__frame > * { position: absolute; font-size: var(--fs-caption); line-height: var(--lh-tight); }
+
+/* 右上: 取扱区分(組織限定 + 機密性) */
+.frame__classification {
+  top: var(--space-3);
+  right: var(--space-4);
+  display: grid;
+  gap: var(--space-1);
+  justify-items: end;
+  text-align: right;
+}
+.frame__scope { color: var(--text-secondary); }
+.frame__confidentiality {
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-s);
+  font-weight: var(--fw-bold);
+  background: var(--conf1-bg);
+  color: var(--conf1-fg);
+}
+
+/* 左下: Copyright / 右下: ページ番号 */
+.frame__copyright { left: var(--space-4); bottom: var(--space-3); color: var(--text-secondary); }
+.frame__pageno { right: var(--space-4); bottom: var(--space-3); color: var(--text-secondary); }
+
+/* 機密性トーン(1=公開可/2=要保護/3=厳重) */
+.slide[data-confidentiality="1"] .frame__confidentiality { background: var(--conf1-bg); color: var(--conf1-fg); }
+.slide[data-confidentiality="2"] .frame__confidentiality { background: var(--conf2-bg); color: var(--conf2-fg); }
+.slide[data-confidentiality="3"] .frame__confidentiality { background: var(--conf3-bg); color: var(--conf3-fg); }
+
+/* 濃色地スライド(表紙/クロージング=accent)ではフレーム文字を反転 */
+.slide--title .frame__copyright, .slide--title .frame__pageno, .slide--title .frame__scope,
+.slide--closing .frame__copyright, .slide--closing .frame__pageno, .slide--closing .frame__scope {
+  color: var(--text-on-accent);
+}
+
+/* 印刷: フレームは保持(取扱区分は配布物要件) */
+@media print {
+  .slide__frame { display: block !important; }
+}

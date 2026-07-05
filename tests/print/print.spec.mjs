@@ -21,6 +21,12 @@ test('print media applies one-slide-per-page breaks', async ({ page }) => {
   );
   expect(annPrintable).toBe(0);
 
+  // SC-006: 共通フレーム(取扱区分/Copyright/ページ番号)は印刷でも保持される
+  const framesHidden = await page.evaluate(() =>
+    [...document.querySelectorAll('.slide__frame')].filter((f) => getComputedStyle(f).display === 'none').length
+  );
+  expect(framesHidden).toBe(0);
+
   // PDF 生成(スモーク): 例外なく生成できること
   const pdf = await page.pdf({ width: '1280px', height: '720px', printBackground: true });
   expect(pdf.byteLength).toBeGreaterThan(1000);

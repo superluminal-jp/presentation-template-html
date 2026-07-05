@@ -16,6 +16,9 @@ const HEX = {
   'green-50': '#e6f5ec', 'green-900': '#115a36',
   'orange-50': '#ffeee2', 'orange-900': '#ac3e00',
   'red-50': '#fdeeee', 'red-900': '#ce0000',
+  // カテゴリ配色(多系列チャート面): 白背景 ≥3:1(feature 004)
+  'cat-1': '#0031d8', 'cat-2': '#0877d7', 'cat-3': '#008299',
+  'cat-4': '#1d8b56', 'cat-5': '#e25100', 'cat-6': '#fa0000', 'cat-7': '#666666',
 };
 
 function luminance(hex) {
@@ -39,6 +42,14 @@ const CASES = [
   ['success text on success pale', HEX['green-900'], HEX['green-50'], 4.5],
   ['warning text on warning pale', HEX['orange-900'], HEX['orange-50'], 4.5],
   ['error text on error pale', HEX['red-900'], HEX['red-50'], 4.5],
+  // カテゴリ配色: チャート面として白背景に ≥3:1(グラフィック)
+  ['cat-1 on white', HEX['cat-1'], HEX['neutral-white'], 3.0],
+  ['cat-2 on white', HEX['cat-2'], HEX['neutral-white'], 3.0],
+  ['cat-3 on white', HEX['cat-3'], HEX['neutral-white'], 3.0],
+  ['cat-4 on white', HEX['cat-4'], HEX['neutral-white'], 3.0],
+  ['cat-5 on white', HEX['cat-5'], HEX['neutral-white'], 3.0],
+  ['cat-6 on white', HEX['cat-6'], HEX['neutral-white'], 3.0],
+  ['cat-7 on white', HEX['cat-7'], HEX['neutral-white'], 3.0],
 ];
 
 let failed = 0;
