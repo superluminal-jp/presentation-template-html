@@ -12,6 +12,10 @@ const HEX = {
   'solid-gray-800': '#333333',   // --text-primary
   'solid-gray-600': '#666666',   // --text-secondary
   'key-800': '#0031d8',          // --accent
+  // 状態色コールアウト/バッジ: 淡面 + 濃文字(feature 003)
+  'green-50': '#e6f5ec', 'green-900': '#115a36',
+  'orange-50': '#ffeee2', 'orange-900': '#ac3e00',
+  'red-50': '#fdeeee', 'red-900': '#ce0000',
 };
 
 function luminance(hex) {
@@ -32,6 +36,9 @@ const CASES = [
   ['text-secondary on slide-bg', HEX['solid-gray-600'], HEX['neutral-white'], 4.5],
   ['accent on slide-bg (large/graphic)', HEX['key-800'], HEX['neutral-white'], 3.0],
   ['text-on-accent (white on accent)', HEX['neutral-white'], HEX['key-800'], 4.5],
+  ['success text on success pale', HEX['green-900'], HEX['green-50'], 4.5],
+  ['warning text on warning pale', HEX['orange-900'], HEX['orange-50'], 4.5],
+  ['error text on error pale', HEX['red-900'], HEX['red-50'], 4.5],
 ];
 
 let failed = 0;

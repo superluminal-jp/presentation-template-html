@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>コンポーネント集 — デジタル庁DS準拠テンプレート</title>
+  <link rel="stylesheet" href="tokens/vendor/tokens.css" />
+  <link rel="stylesheet" href="styles/tokens.semantic.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+  <style>
+    /* ページ骨格(役割変数のみ) */
+    .page { max-width: 960px; margin: 0 auto; padding: var(--space-8) var(--space-6); background: var(--slide-bg); }
+    .page__head { border-bottom: 2px solid var(--accent); padding-bottom: var(--space-4); margin-bottom: var(--space-7); }
+    .page__title { font-size: var(--fs-h1); font-weight: var(--fw-bold); }
+    .page__lead { color: var(--text-secondary); margin-top: var(--space-2); }
+    .comp { margin-bottom: var(--space-8); }
+    .comp__name { font-size: var(--fs-h2); font-weight: var(--fw-bold); }
+    .comp__note { color: var(--text-secondary); margin: var(--space-2) 0 var(--space-4); }
+    .comp__demo { padding: var(--space-5); border: 1px solid var(--border); border-radius: var(--radius-m); background: var(--slide-bg); display: grid; gap: var(--space-3); }
+    .comp__code { margin: var(--space-3) 0 0; padding: var(--space-4); background: var(--surface); border-radius: var(--radius-m); overflow-x: auto; font-size: var(--fs-caption); color: var(--text-primary); }
+    .row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
+    .back { font-size: var(--fs-caption); }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="page__head">
+      <h1 class="page__title">コンポーネント集</h1>
+      <p class="page__lead">スライドに差し込める再利用 UI 部品。すべてデザイントークン由来・WCAG 2.2 AA。各見本の下のコードをコピーして使えます。</p>
+      <p class="back"><a href="index.html">← ショーケース(16レイアウト)へ戻る</a></p>
+    </header>
+
+    <!-- 1 callout -->
+    <section class="comp">
+      <h2 class="comp__name">コールアウト <span class="badge">.callout</span></h2>
+      <p class="comp__note">注意喚起・補足。info/success/warning/error を意味づけトークンで色分け。</p>
+      <div class="comp__demo">
+        <div class="callout callout--info"><span class="callout__title">情報</span>補足的な案内を短く。</div>
+        <div class="callout callout--success"><span class="callout__title">成功</span>処理が正常に完了しました。</div>
+        <div class="callout callout--warning"><span class="callout__title">注意</span>期限が近づいています。</div>
+        <div class="callout callout--error"><span class="callout__title">エラー</span>入力に誤りがあります。</div>
+      </div>
+      <pre class="comp__code">&lt;div class="callout callout--success"&gt;
+  &lt;span class="callout__title"&gt;成功&lt;/span&gt;処理が正常に完了しました。
+&lt;/div&gt;</pre>
+    </section>
+
+    <!-- 2 badge -->
+    <section class="comp">
+      <h2 class="comp__name">バッジ <span class="badge">.badge</span></h2>
+      <p class="comp__note">状態やカテゴリの短いラベル。</p>
+      <div class="comp__demo">
+        <div class="row">
+          <span class="badge">既定</span>
+          <span class="badge badge--accent">重要</span>
+          <span class="badge badge--success">完了</span>
+          <span class="badge badge--warning">進行中</span>
+          <span class="badge badge--error">停止</span>
+        </div>
+      </div>
+      <pre class="comp__code">&lt;span class="badge badge--accent"&gt;重要&lt;/span&gt;</pre>
+    </section>
+
+    <!-- 3 tag -->
+    <section class="comp">
+      <h2 class="comp__name">タグ / チップ <span class="badge">.tag</span></h2>
+      <p class="comp__note">分類・キーワードの列挙。</p>
+      <div class="comp__demo">
+        <div class="row"><span class="tag">戦略</span><span class="tag">開発</span><span class="tag">デザイン</span><span class="tag">運用</span></div>
+      </div>
+      <pre class="comp__code">&lt;span class="tag"&gt;戦略&lt;/span&gt;</pre>
+    </section>
+
+    <!-- 4 button -->
+    <section class="comp">
+      <h2 class="comp__name">ボタン <span class="badge">.btn</span></h2>
+      <p class="comp__note">主/副/第三の3段階。操作領域は Fitts に配慮した最小高。</p>
+      <div class="comp__demo">
+        <div class="row">
+          <button class="btn btn--primary" type="button">主要アクション</button>
+          <button class="btn btn--secondary" type="button">副アクション</button>
+          <button class="btn btn--tertiary" type="button">第三アクション</button>
+        </div>
+      </div>
+      <pre class="comp__code">&lt;button class="btn btn--primary"&gt;主要アクション&lt;/button&gt;</pre>
+    </section>
+
+    <!-- 5 data-table -->
+    <section class="comp">
+      <h2 class="comp__name">データテーブル <span class="badge">.data-table</span></h2>
+      <p class="comp__note">数値は右寄せ(<code>td.num</code>)。ストライプで行を追いやすく。</p>
+      <div class="comp__demo">
+        <table class="data-table data-table--striped">
+          <thead><tr><th>指標</th><th class="num">前月</th><th class="num">当月</th></tr></thead>
+          <tbody>
+            <tr><td>作成時間(h)</td><td class="num">4.0</td><td class="num">1.0</td></tr>
+            <tr><td>レビュー往復</td><td class="num">2.0</td><td class="num">1.4</td></tr>
+            <tr><td>準拠率</td><td class="num">92%</td><td class="num">98%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <pre class="comp__code">&lt;table class="data-table data-table--striped"&gt; … &lt;/table&gt;</pre>
+    </section>
+
+    <!-- 6 progress -->
+    <section class="comp">
+      <h2 class="comp__name">プログレスバー <span class="badge">.progress</span></h2>
+      <p class="comp__note">進捗・達成率。幅は inline style で指定。</p>
+      <div class="comp__demo">
+        <div class="progress"><div class="progress__bar" style="width:75%"></div></div>
+        <div class="progress"><div class="progress__bar" style="width:40%"></div></div>
+      </div>
+      <pre class="comp__code">&lt;div class="progress"&gt;&lt;div class="progress__bar" style="width:75%"&gt;&lt;/div&gt;&lt;/div&gt;</pre>
+    </section>
+
+    <!-- 7 stat -->
+    <section class="comp">
+      <h2 class="comp__name">統計(KPI) <span class="badge">.stat</span></h2>
+      <p class="comp__note">単一指標の強調。ラベルと組み合わせて。</p>
+      <div class="comp__demo">
+        <div class="row" style="gap:var(--space-8)">
+          <div class="stat"><span class="stat__value">75%</span><span class="stat__label">作成時間 削減</span></div>
+          <div class="stat"><span class="stat__value">98%</span><span class="stat__label">準拠率</span></div>
+          <div class="stat"><span class="stat__value">4.5</span><span class="stat__label">満足度 / 5</span></div>
+        </div>
+      </div>
+      <pre class="comp__code">&lt;div class="stat"&gt;&lt;span class="stat__value"&gt;75%&lt;/span&gt;&lt;span class="stat__label"&gt;削減&lt;/span&gt;&lt;/div&gt;</pre>
+    </section>
+
+    <!-- 8 legend -->
+    <section class="comp">
+      <h2 class="comp__name">凡例 <span class="badge">.legend</span></h2>
+      <p class="comp__note">図表の色対応。役割色のスウォッチ。</p>
+      <div class="comp__demo">
+        <div class="legend">
+          <span class="legend__item"><span class="legend__swatch"></span>当社</span>
+          <span class="legend__item"><span class="legend__swatch legend__swatch--muted"></span>他社平均</span>
+          <span class="legend__item"><span class="legend__swatch legend__swatch--surface"></span>基準</span>
+        </div>
+      </div>
+      <pre class="comp__code">&lt;span class="legend__item"&gt;&lt;span class="legend__swatch"&gt;&lt;/span&gt;当社&lt;/span&gt;</pre>
+    </section>
+
+    <!-- 9 divider -->
+    <section class="comp">
+      <h2 class="comp__name">区切り <span class="badge">.divider</span></h2>
+      <p class="comp__note">セクションの視覚的分離。</p>
+      <div class="comp__demo">
+        <span>上のブロック</span><hr class="divider" /><span>下のブロック</span>
+      </div>
+      <pre class="comp__code">&lt;hr class="divider" /&gt;</pre>
+    </section>
+
+    <!-- 10 checklist -->
+    <section class="comp">
+      <h2 class="comp__name">チェックリスト <span class="badge">.checklist</span></h2>
+      <p class="comp__note">要件・完了項目。チェック印は成功色。</p>
+      <div class="comp__demo">
+        <ul class="checklist">
+          <li>トークン準拠(ハードコード0)</li>
+          <li>WCAG 2.2 AA</li>
+          <li>スライドへ差し込み可能</li>
+        </ul>
+      </div>
+      <pre class="comp__code">&lt;ul class="checklist"&gt;&lt;li&gt;項目&lt;/li&gt;&lt;/ul&gt;</pre>
+    </section>
+
+    <!-- 11 pull-quote -->
+    <section class="comp">
+      <h2 class="comp__name">引用ブロック <span class="badge">.pull-quote</span></h2>
+      <p class="comp__note">重要な一節・証言。出典は cite で。</p>
+      <div class="comp__demo">
+        <blockquote class="pull-quote">体裁調整が不要になり、内容の議論に集中できた。<cite>［氏名・肩書き］</cite></blockquote>
+      </div>
+      <pre class="comp__code">&lt;blockquote class="pull-quote"&gt;引用文&lt;cite&gt;出典&lt;/cite&gt;&lt;/blockquote&gt;</pre>
+    </section>
+
+    <!-- 12 kv -->
+    <section class="comp">
+      <h2 class="comp__name">キーバリュー <span class="badge">.kv</span></h2>
+      <p class="comp__note">属性・メタ情報の定義リスト。</p>
+      <div class="comp__demo">
+        <dl class="kv">
+          <div style="display:contents"><dt class="kv__k">対象</dt><dd class="kv__v">全社(6部署)</dd></div>
+          <div style="display:contents"><dt class="kv__k">期間</dt><dd class="kv__v">2026 Q3</dd></div>
+          <div style="display:contents"><dt class="kv__k">担当</dt><dd class="kv__v">プロダクト戦略</dd></div>
+        </dl>
+      </div>
+      <pre class="comp__code">&lt;dl class="kv"&gt;&lt;dt class="kv__k"&gt;対象&lt;/dt&gt;&lt;dd class="kv__v"&gt;全社&lt;/dd&gt;&lt;/dl&gt;</pre>
+    </section>
+
+  </main>
+</body>
+</html>
