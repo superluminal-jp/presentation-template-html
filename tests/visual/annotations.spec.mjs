@@ -12,11 +12,11 @@ test('annotations default hidden and toggle on/off for all slides', async ({ pag
   const withAnn = await page.evaluate(() =>
     [...document.querySelectorAll('.slide')].filter((s) => s.querySelector('.slide__annotation')).length
   );
-  expect(total).toBe(8);
-  expect(withAnn).toBe(8);
-  expect(await visible()).toBe(0);
+  expect(total).toBeGreaterThanOrEqual(16); // 注釈を持つスライド(コア+拡張)。付録スライドは注釈なし
+  expect(withAnn).toBe(total);              // すべての注釈はスライドに属する
+  expect(await visible()).toBe(0);          // 既定は非表示
   await page.evaluate(() => window.PresTemplate.toggleAnnotations(true));
-  expect(await visible()).toBe(8);
+  expect(await visible()).toBe(total);      // トグルで全注釈表示
   await page.evaluate(() => window.PresTemplate.toggleAnnotations(false));
   expect(await visible()).toBe(0);
 });

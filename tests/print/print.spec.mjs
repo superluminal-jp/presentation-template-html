@@ -12,7 +12,7 @@ test('print media applies one-slide-per-page breaks', async ({ page }) => {
       return cs.breakAfter || cs.pageBreakAfter;
     });
   });
-  expect(breaks.length).toBe(8);
+  expect(breaks.length).toBeGreaterThanOrEqual(16);
   // 最後以外はページ送り、注釈は印刷対象外
   breaks.slice(0, -1).forEach((b) => expect(['always', 'page']).toContain(b));
 

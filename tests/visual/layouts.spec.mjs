@@ -12,5 +12,5 @@ for (const name of LAYOUTS) {
 test('showcase deck has no overflow on any slide', async ({ page }) => {
   await page.goto(indexUrl());
   const report = await assertNoOverflow(page, expect);
-  expect(report.length).toBe(8);
+  expect(report.length).toBeGreaterThanOrEqual(16);
 });

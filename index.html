@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="styles/layouts/quote.css" />
   <link rel="stylesheet" href="styles/layouts/image-full.css" />
   <link rel="stylesheet" href="styles/layouts/closing.css" />
+  <link rel="stylesheet" href="styles/layouts/appendix.css" />
   <link rel="stylesheet" href="styles/components.css" />
 </head>
 <body>
@@ -454,6 +455,91 @@
           <li data-practice="A-pyramid">出典明示（→ practices.md #A-pyramid ほか）</li>
         </ul>
       </aside>
+    </section>
+
+    <!-- Appendix A: 状態と通知 -->
+    <section class="slide slide--appendix" data-layout="appendix-notice">
+      <div class="slide__stage">
+        <h2 class="slide__heading">付録A: <span class="u-accent">状態と通知</span>の部品活用例</h2>
+        <div class="appendix-grid">
+          <div class="cell">
+            <span class="cell__label">コールアウト（.callout）</span>
+            <div class="callout callout--info"><span class="callout__title">情報</span>補足的な案内を短く。</div>
+            <div class="callout callout--success"><span class="callout__title">成功</span>目標を達成しました。</div>
+            <div class="callout callout--warning"><span class="callout__title">注意</span>期限が近づいています。</div>
+            <div class="callout callout--error"><span class="callout__title">エラー</span>入力に誤りがあります。</div>
+          </div>
+          <div class="cell">
+            <span class="cell__label">バッジ（.badge）</span>
+            <div class="row"><span class="badge">既定</span><span class="badge badge--accent">重要</span><span class="badge badge--success">完了</span><span class="badge badge--warning">進行中</span><span class="badge badge--error">停止</span></div>
+            <span class="cell__label">タグ（.tag）</span>
+            <div class="row"><span class="tag">戦略</span><span class="tag">開発</span><span class="tag">デザイン</span><span class="tag">運用</span></div>
+            <span class="cell__label">ボタン（.btn）</span>
+            <div class="row"><button class="btn btn--primary" type="button">主要</button><button class="btn btn--secondary" type="button">副</button><button class="btn btn--tertiary" type="button">第三</button></div>
+          </div>
+        </div>
+        <div class="slide__footer"><span class="slide__citation">各部品の詳細は components.html を参照</span><span>Appendix A</span></div>
+      </div>
+    </section>
+
+    <!-- Appendix B: 指標の見せ方 -->
+    <section class="slide slide--appendix" data-layout="appendix-metrics">
+      <div class="slide__stage">
+        <h2 class="slide__heading">付録B: <span class="u-accent">指標</span>は表・バー・要約値で示します</h2>
+        <div class="appendix-grid appendix-grid--single">
+          <div class="stat-row">
+            <div class="stat"><span class="stat__value">75%</span><span class="stat__label">作成時間 削減</span></div>
+            <div class="stat"><span class="stat__value">98%</span><span class="stat__label">準拠率</span></div>
+            <div class="stat"><span class="stat__value">4.5</span><span class="stat__label">満足度 / 5</span></div>
+          </div>
+          <table class="data-table data-table--striped">
+            <thead><tr><th>指標</th><th class="num">前月</th><th class="num">当月</th><th class="num">目標</th></tr></thead>
+            <tbody>
+              <tr><td>作成時間（h）</td><td class="num">4.0</td><td class="num">1.0</td><td class="num">1.0</td></tr>
+              <tr><td>レビュー往復</td><td class="num">2.0</td><td class="num">1.4</td><td class="num">1.5</td></tr>
+              <tr><td>準拠率</td><td class="num">92%</td><td class="num">98%</td><td class="num">95%</td></tr>
+            </tbody>
+          </table>
+          <div class="progress"><div class="progress__bar" style="width:98%"></div></div>
+          <div class="legend">
+            <span class="legend__item"><span class="legend__swatch"></span>当月</span>
+            <span class="legend__item"><span class="legend__swatch legend__swatch--muted"></span>前月</span>
+            <span class="legend__item"><span class="legend__swatch legend__swatch--surface"></span>目標</span>
+          </div>
+        </div>
+        <div class="slide__footer"><span class="slide__citation">値はプレースホルダ</span><span>Appendix B</span></div>
+      </div>
+    </section>
+
+    <!-- Appendix C: まとめ部品 -->
+    <section class="slide slide--appendix" data-layout="appendix-summary">
+      <div class="slide__stage">
+        <h2 class="slide__heading">付録C: <span class="u-accent">要件・属性・声</span>を1枚に凝縮します</h2>
+        <div class="appendix-grid">
+          <div class="cell">
+            <span class="cell__label">チェックリスト（.checklist）</span>
+            <ul class="checklist">
+              <li>トークン準拠（ハードコード0）</li>
+              <li>WCAG 2.2 AA</li>
+              <li>スライドへ差し込み可能</li>
+            </ul>
+            <span class="cell__label">キーバリュー（.kv）</span>
+            <dl class="kv">
+              <dt class="kv__k">対象</dt><dd class="kv__v">全社（6部署）</dd>
+              <dt class="kv__k">期間</dt><dd class="kv__v">2026 Q3</dd>
+              <dt class="kv__k">担当</dt><dd class="kv__v">プロダクト戦略</dd>
+            </dl>
+          </div>
+          <div class="cell">
+            <span class="cell__label">引用ブロック（.pull-quote）</span>
+            <blockquote class="pull-quote">体裁調整が不要になり、内容の議論に集中できた。<cite>［氏名・肩書き］</cite></blockquote>
+            <span class="cell__label">統計 + プログレス</span>
+            <div class="stat"><span class="stat__value">3か月</span><span class="stat__label">投資回収の目安</span></div>
+            <div class="progress"><div class="progress__bar" style="width:60%"></div></div>
+          </div>
+        </div>
+        <div class="slide__footer"><span class="slide__citation">部品を組み合わせた実例</span><span>Appendix C</span></div>
+      </div>
     </section>
 
   </div>

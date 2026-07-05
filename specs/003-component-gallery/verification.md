@@ -26,3 +26,13 @@
 ## 収録コンポーネント(12)
 
 callout / badge / tag / btn / data-table / progress / stat / legend / divider / checklist / pull-quote / kv
+
+## 追加: 付録スライド(コンポーネント活用例)
+
+`index.html` 末尾に、部品を実 16:9 スライドで使った付録3枚を追加(`styles/layouts/appendix.css`):
+- Appendix A（appendix-notice）: callout / badge / tag / btn
+- Appendix B（appendix-metrics）: stat / data-table / progress / legend
+- Appendix C（appendix-summary）: checklist / kv / pull-quote / stat / progress
+
+検証(プレビュー実測): デック計 **19 スライド**、付録3枚とも 1280×720 で **overflow 0**、全19枚 overflow 0。付録は単体ファイル生成対象外(`split-slides` は ORDER 外を skip、標準16は不変)。Playwright のデック件数アサートを動的化(`>=16`)。lint:tokens / check:coverage / check:crossrefs 継続 PASS。
+
