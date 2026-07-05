@@ -31,3 +31,35 @@
 .legend__swatch--cat1 { background: var(--cat-1); }
 .legend__swatch--cat2 { background: var(--cat-4); }
 .legend__swatch--cat3 { background: var(--cat-5); }
+
+/* Appendix E: グラフ事例集(用途別のチャート選択) */
+.slide--appendix-graphs .graph-grid {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3) var(--space-8);
+  align-content: start;
+}
+.graph-cell { display: grid; gap: var(--space-1); align-content: start; }
+.graph-cell svg { width: 100%; height: 150px; }
+.graph-cap { font-size: var(--fs-caption); font-weight: var(--fw-bold); color: var(--text-secondary); }
+.graph-cap span { font-weight: var(--fw-normal); }
+
+/* 折れ線(多系列) */
+.g-line-1 { fill: none; stroke: var(--cat-1); stroke-width: 2.5; }
+.g-line-2 { fill: none; stroke: var(--cat-4); stroke-width: 2.5; }
+.g-line-3 { fill: none; stroke: var(--cat-5); stroke-width: 2.5; }
+.g-dot { fill: var(--cat-1); }
+/* 100%積み上げ棒 */
+.g-seg-1 { fill: var(--cat-1); }
+.g-seg-2 { fill: var(--cat-4); }
+.g-seg-3 { fill: var(--cat-5); }
+/* ドーナツ */
+.g-donut-1 { fill: none; stroke: var(--cat-1); stroke-width: 26; }
+.g-donut-2 { fill: none; stroke: var(--cat-4); stroke-width: 26; }
+.g-donut-3 { fill: none; stroke: var(--cat-5); stroke-width: 26; }
+.g-donut-label { fill: var(--text-secondary); font-size: 13px; font-family: var(--font-sans); }
+/* 散布図 */
+.g-pt-a { fill: var(--cat-1); }
+.g-pt-b { fill: var(--cat-5); }
