@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SlideLayoutData",
+  "description": "Node/Playwright 抽出ステップが出力し、Python/python-pptx 組み立てステップが読み込む中間データの契約(data-model.md 参照)。",
+  "type": "object",
+  "required": ["layouts"],
+  "properties": {
+    "tokens": {
+      "type": "object",
+      "description": "Global DS token role values resolved from :root computed styles, used by theme.py's ThemeMapping (data-model.md §4). Keys are token role names without the leading '--' (e.g. 'accent', 'text-primary', 'font-sans').",
+      "additionalProperties": { "type": "string" }
+    },
+    "layouts": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 16,
+      "items": { "$ref": "#/definitions/LayoutDefinition" }
+    }
+  },
+  "definitions": {
+    "LayoutDefinition": {
+      "type": "object",
+      "required": ["layout_id", "layout_name_ja", "source_path", "elements", "frame_elements"],
+      "properties": {
+        "layout_id": { "type": "string", "pattern": "^[0-9]{2}-[a-z-]+$" },
+        "layout_name_ja": { "type": "string", "minLength": 1 },
+        "source_path": { "type": "string" },
+        "elements": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/SlideElement" }
+        },
+        "frame_elements": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/FrameElement" }
+        }
+      }
+    },
+    "SlideElement": {
+      "type": "object",
+      "required": ["role", "bbox_px", "bbox_ratio", "computed_style", "reading_order_index"],
+      "properties": {
+        "role": {
+          "type": "string",
+          "enum": ["title", "subtitle", "body", "caption", "meta", "image", "chart", "other"]
+        },
+        "text": { "type": ["string", "null"] },
+        "bbox_px": { "$ref": "#/definitions/BBox" },
+        "bbox_ratio": { "$ref": "#/definitions/BBox" },
+        "computed_style": { "$ref": "#/definitions/ComputedStyle" },
+        "fallback": {
+          "type": "object",
+          "required": ["is_fallback"],
+          "properties": {
+            "is_fallback": { "type": "boolean" },
+            "reason": { "type": "string" },
+            "image_path": { "type": ["string", "null"] }
+          }
+        },
+        "alt_text_hint": { "type": ["string", "null"] },
+        "reading_order_index": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "BBox": {
+      "type": "object",
+      "required": ["x", "y", "w", "h"],
+      "properties": {
+        "x": { "type": "number" },
+        "y": { "type": "number" },
+        "w": { "type": "number" },
+        "h": { "type": "number" }
+      }
+    },
+    "ComputedStyle": {
+      "type": "object",
+      "required": ["color_hex", "font_family", "font_size_px", "font_weight", "line_height_px", "token_role"],
+      "properties": {
+        "color_hex": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+        "background_color_hex": { "type": ["string", "null"], "pattern": "^#[0-9A-Fa-f]{6}$" },
+        "font_family": { "type": "string" },
+        "font_size_px": { "type": "number" },
+        "font_weight": { "type": "number", "enum": [400, 700] },
+        "line_height_px": { "type": "number" },
+        "token_role": { "type": "string", "pattern": "^--" }
+      }
+    },
+    "FrameElement": {
+      "type": "object",
+      "required": ["kind", "text_template", "position"],
+      "properties": {
+        "kind": { "type": "string", "enum": ["classification", "copyright", "page_number"] },
+        "text_template": { "type": "string" },
+        "position": { "$ref": "#/definitions/BBox" }
+      }
+    }
+  }
+}

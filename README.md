@@ -58,6 +58,15 @@ npm run test:print       # 1スライド=1ページ(SC-01, 要ブラウザ)
 
 `test:*` は `npm install` と `npx playwright install chromium`(ネットワーク要)後に実行。
 
+## PowerPoint テンプレート(.potx)への変換
+
+`slides/` の 16 レイアウトを、PowerPoint の「新しいスライド」から選べるカスタムレイアウト入りの `.potx` に変換できる(詳細: [specs/005-pptx-export-script/quickstart.md](specs/005-pptx-export-script/quickstart.md))。
+
+```bash
+pip install -r scripts/pptx-template/requirements.txt  # python-pptx, lxml, pytest
+npm run build:potx      # dist/ds-presentation-template.potx を生成
+```
+
 ## フォント
 
 既定は非同梱(システム + Noto Sans JP フォールバック)。完全再現が必要な場合は [docs/font-embedding.md](docs/font-embedding.md)。
