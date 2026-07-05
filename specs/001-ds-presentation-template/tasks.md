@@ -76,7 +76,7 @@
 **Independent Test**: 注釈をトグル表示し、手法と出典 ID が示され、practices.md と巻末が相互参照できることを確認。
 
 - [x] T029 [P] [US2] `js/annotations.js` を実装: `window.PresTemplate.toggleAnnotations(force?)`、キー `a`、`documentElement[data-annotations]`、初期 `off`（annotation-contract.md 準拠）
-- [x] T030 [US2] `styles/slides.css` に注釈の表示制御 CSS を追加（`[data-annotations="off"]` 非表示、トグルボタン `.slide__annotation-toggle`）
+- [x] T030 [US2] `styles/slides.css` に注釈の表示制御 CSS を追加（`[data-annotations="off"]` 非表示。個別トグルボタンは後続の共通フレームと重なるため撤去）
 - [x] T031 [P] [US2] `docs/practices.md` を作成: 群 A〜E、各手法に `id` と書誌（requirements §3 を正本化。FR-008/SC-05）
 - [x] T032 [US2] 全8スライドに `[data-annotation][hidden]` ブロックを挿入（intent + `data-practice` ID 群。annotation-contract.md）
 - [x] T033 [US2] `slides/08-reference.html` の citation-list を practices.md の ID 参照で埋める（重複禁止・相互参照）

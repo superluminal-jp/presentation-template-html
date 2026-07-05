@@ -2,7 +2,7 @@
  * annotations.js — 注釈レイヤーのトグル(既定=非表示)。
  * 契約: contracts/annotation-contract.md
  * - window.PresTemplate.toggleAnnotations(force?)
- * - キー "a" またはツールバーのボタンで全体トグル
+ * - キー "a" / ツールバーで全体トグル
  * - 状態は documentElement[data-annotations="on|off"](初期 off)
  */
 (function () {
