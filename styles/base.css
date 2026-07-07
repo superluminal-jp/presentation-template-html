@@ -57,10 +57,13 @@ code, pre { font-family: var(--font-mono); }
 @media print {
   @page { size: 1280px 720px; margin: 0; }
   body { background: var(--slide-bg); }
-  .deck { display: block; }
+  /* slides.css の .deck(flex + gap + padding)は後読みのため同詳細度で勝ってしまう。!important で確実に無効化。 */
+  .deck { display: block !important; padding: 0 !important; gap: 0 !important; }
   .slide {
     page-break-after: always;
     break-after: page;
+    page-break-inside: avoid;
+    break-inside: avoid;
     box-shadow: none;
     margin: 0;
   }

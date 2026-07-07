@@ -108,8 +108,10 @@
 }
 .toolbar__title { font-size: var(--fs-caption); color: var(--text-secondary); font-weight: var(--fw-bold); }
 .toolbar__actions { display: flex; align-items: center; gap: var(--space-2); }
-/* バーの分だけショーケースの先頭に余白を確保(単体スライドには影響しない) */
-body:has(.toolbar) .deck { padding-top: var(--space-10); }
+/* バーの分だけショーケースの先頭に余白を確保(単体スライドには影響しない)。印刷ではバーを表示しないため screen 限定。 */
+@media screen {
+  body:has(.toolbar) .deck { padding-top: var(--space-10); }
+}
 /* 発表モードはキーボード操作(P/Esc/F)。バーは隠して重なりを完全に排除 */
 :root[data-mode="present"] .toolbar { display: none; }
 .toolbar button {
