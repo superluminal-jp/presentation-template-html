@@ -31,6 +31,19 @@ a { color: var(--accent); }
 
 code, pre { font-family: var(--font-mono); }
 
+/* フォーカスリング(SC-02 準拠・トークン由来)。:focus-visible でキーボード時のみ表示。
+   既定はアクセント色。濃色地(表紙/クロージング/アクセント地の操作要素)では白に反転して非文字コントラスト ≥3:1 を確保。 */
+:where(a, button, [tabindex]):focus-visible {
+  outline: var(--space-1) solid var(--accent);
+  outline-offset: var(--space-1);
+  border-radius: var(--radius-s);
+}
+.slide--title :focus-visible,
+.slide--closing :focus-visible,
+.toolbar button:focus-visible {
+  outline-color: var(--text-on-accent);
+}
+
 /* タイポ役割ユーティリティ */
 .u-display { font-size: var(--fs-display); font-weight: var(--fw-bold); line-height: var(--lh-tight); }
 .u-h1 { font-size: var(--fs-h1); font-weight: var(--fw-bold); line-height: var(--lh-heading); }

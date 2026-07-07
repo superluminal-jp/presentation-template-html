@@ -19,6 +19,14 @@
   slides.forEach((slide, i) => {
     const conf = slide.getAttribute('data-confidentiality') || defConf;
     slide.setAttribute('data-confidentiality', conf);
+
+    // アクセシブルな名前と位置(FR-003)。見出し語を名前に採り、位置を併記する。
+    // 支援技術が「スライド N / total: <見出し>」と読める。視覚表示は変えない。
+    const heading = slide.querySelector('h1, h2.slide__heading, .section-title, .title, .quote');
+    const name = (heading && heading.textContent.trim().replace(/\s+/g, ' ')) || slide.getAttribute('data-layout') || 'スライド';
+    slide.setAttribute('aria-roledescription', 'スライド');
+    slide.setAttribute('aria-label', (i + 1) + ' / ' + total + '：' + name);
+
     if (slide.querySelector('.slide__frame')) return;
 
     const frame = document.createElement('div');
