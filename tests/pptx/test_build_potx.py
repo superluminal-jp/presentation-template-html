@@ -55,6 +55,17 @@ def test_slide_size_is_widescreen(sample_layout_data):
     assert prs.slide_height == build_potx.layout_map.SLIDE_HEIGHT_EMU
 
 
+def test_custom_slide_layouts_relate_back_to_master(sample_layout_data):
+    """Every custom slideLayout part must carry an explicit relationship back
+    to its slideMaster (ECMA-376), or PowerPoint treats the package as
+    corrupt. python-pptx's SlideLayout.slide_master looks this relationship
+    up directly, so resolving it without error is the regression guard."""
+    prs, _ = build_potx.build_presentation(sample_layout_data)
+    master = prs.slide_masters[0]
+    for layout in master.slide_layouts:
+        assert layout.slide_master is master
+
+
 def test_placeholder_text_is_prompt_not_baked_in(sample_layout_data):
     prs, _ = build_potx.build_presentation(sample_layout_data)
     title_layout = next(

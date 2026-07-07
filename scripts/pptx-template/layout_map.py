@@ -110,6 +110,12 @@ def clone_layout(prs, layout_name: str):
     package = master.part.package
     partname = package.next_partname("/ppt/slideLayouts/slideLayout%d.xml")
     new_part = SlideLayoutPart(partname, CT.PML_SLIDE_LAYOUT, package, new_element)
+    # Every slideLayout part must carry a relationship back to its slideMaster
+    # (ECMA-376); python-pptx's SlideLayoutPart.slide_master looks this up via
+    # part_related_by(RT.SLIDE_MASTER). Without it PowerPoint treats the
+    # package as corrupt and either refuses to open it or silently repairs
+    # (drops) the offending layout.
+    new_part.relate_to(master.part, RT.SLIDE_MASTER)
 
     rId = master.part.relate_to(new_part, RT.SLIDE_LAYOUT)
     sldLayoutIdLst = master.part._element.find(qn("p:sldLayoutIdLst"))
