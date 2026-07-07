@@ -4,10 +4,13 @@
  * slides/NN-id.html の単体ファイル(著者コピー用 / 単体ビジュアルテスト用)を生成する。
  * 単一情報源(index.html)から派生させることで重複ドリフトを避ける。
  *
- * 使い方: node scripts/split-slides.mjs
+ * 使い方:
+ *   node scripts/split-slides.mjs            生成(slides/ を書き出す)
+ *   node scripts/split-slides.mjs --check    検査のみ(書き込まず、index.html と slides/ の乖離を検出)
+ *                                            乖離があれば該当ファイルを列挙して終了コード 1(FR-017)。
  */
 import { readFileSync, writeFileSync } from 'node:fs';
-import { resolve, dirname } from 'node:path';
+import { resolve, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -54,12 +57,43 @@ const foot = `  </div>
 </html>
 `;
 
-let count = 0;
-for (const sec of sections) {
-  const layout = (sec.match(/data-layout="([^"]+)"/) || [])[1];
-  if (!layout || !ORDER[layout]) continue;
-  const file = resolve(root, 'slides', `${ORDER[layout]}-${layout}.html`);
-  writeFileSync(file, head(layout) + '    ' + sec.trim() + '\n' + foot, 'utf8');
-  count++;
+/** レイアウト単体ファイルの期待内容を組み立てる(生成・検査で共通利用)。 */
+function renderStandalone(layout, sec) {
+  return head(layout) + '    ' + sec.trim() + '\n' + foot;
 }
-console.log(`[split-slides] generated ${count} standalone layout file(s) in slides/.`);
+
+/** index.html の各 slide セクションを {file, layout, content} に写像する。 */
+function expectedFiles() {
+  const out = [];
+  for (const sec of sections) {
+    const layout = (sec.match(/data-layout="([^"]+)"/) || [])[1];
+    if (!layout || !ORDER[layout]) continue;
+    out.push({
+      file: resolve(root, 'slides', `${ORDER[layout]}-${layout}.html`),
+      layout,
+      content: renderStandalone(layout, sec),
+    });
+  }
+  return out;
+}
+
+const CHECK = process.argv.includes('--check');
+const files = expectedFiles();
+
+if (CHECK) {
+  const drifted = [];
+  for (const { file, content } of files) {
+    let actual = null;
+    try { actual = readFileSync(file, 'utf8'); } catch { actual = null; }
+    if (actual !== content) drifted.push(file);
+  }
+  if (drifted.length) {
+    console.error(`[split-slides] FAIL — ${drifted.length} file(s) drifted from index.html:`);
+    for (const f of drifted) console.error(`  ${relative(root, f)}  (run: node scripts/split-slides.mjs)`);
+    process.exit(1);
+  }
+  console.log(`[split-slides] PASS — slides/ が index.html と一致(${files.length} file(s))。`);
+} else {
+  for (const { file, content } of files) writeFileSync(file, content, 'utf8');
+  console.log(`[split-slides] generated ${files.length} standalone layout file(s) in slides/.`);
+}

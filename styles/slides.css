@@ -27,14 +27,14 @@
 }
 .slide__heading .u-accent { color: var(--accent); }
 
-/* 見出し下のアクセント罫 */
+/* 見出し下の罫(構造装飾)。アクセントは単一焦点のために温存し、ここは中立色にする(Von Restorff)。 */
 .slide__heading::after {
   content: "";
   display: block;
   width: var(--space-9);
   height: var(--space-1);
   margin-top: var(--space-3);
-  background: var(--accent);
+  background: var(--border-strong);
   border-radius: var(--radius-s);
 }
 
@@ -112,6 +112,30 @@
   border-radius: var(--radius-s);
   padding: var(--space-2) var(--space-4);
   cursor: pointer;
+}
+
+/* --- 発表モード(feature 005 / US3)。オプトイン。@media screen 限定で印刷は不変(1枚=1ページを保持)。 --- */
+@media screen {
+  :root[data-mode="present"] { overflow: hidden; }
+  :root[data-mode="present"] .deck {
+    position: fixed;
+    inset: 0;
+    padding: 0;
+    gap: 0;
+    overflow: hidden;
+    background: var(--surface-strong);
+    z-index: 1;
+  }
+  :root[data-mode="present"] .slide { display: none; }
+  /* アクティブ 1 枚をビューポート中央に固定し、縮尺で収める(サイズ非依存で確実に中央)。 */
+  :root[data-mode="present"] .slide[data-active] {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(var(--present-scale, 1));
+    transform-origin: center center;
+  }
 }
 
 /* --- 拡張レイアウト共通ユーティリティ(feature 002) --- */

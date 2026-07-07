@@ -31,17 +31,18 @@
 </head>
 <body>
   <div class="toolbar">
+    <button type="button" data-present-toggle>発表モード（P）</button>
     <button type="button" data-annotation-toggle-all aria-pressed="false">注釈の表示/非表示（A）</button>
     <a class="btn btn--secondary" href="components.html">コンポーネント集</a>
   </div>
 
-  <div class="deck">
+  <main class="deck">
 
     <!-- 01 title -->
     <section class="slide slide--title" data-layout="title">
       <div class="slide__stage">
         <div>
-          <p class="title">意思決定を<br />3つに絞り、10分で合意する</p>
+          <h1 class="title">意思決定を<br />3つに絞り、10分で合意する</h1>
           <p class="subtitle">デジタル庁デザインシステム準拠 プレゼンテンプレート</p>
         </div>
         <div class="meta">
@@ -174,7 +175,7 @@
           </svg>
         </div>
         <div class="takeaway">
-          <p class="lead">約<span class="u-accent">75%</span>削減</p>
+          <p class="lead">約75%削減</p>
           <p>基準値（4時間）を先に示し、削減幅の解釈を助ける。</p>
         </div>
         <div class="slide__footer">
@@ -536,7 +537,7 @@
           </div>
           <div class="cell ms-chart">
             <span class="cell__label">多系列チャート（カテゴリ配色 = DS 7パレット由来）</span>
-            <svg viewBox="0 0 420 260" role="img" aria-label="四半期別・3系列の棒グラフ（企画・開発・運用）">
+            <svg viewBox="0 0 420 260" role="img" data-series="3" aria-label="四半期別・3系列の棒グラフ（企画・開発・運用）">
               <line class="ms-axis" x1="48" y1="20" x2="48" y2="210" />
               <line class="ms-axis" x1="48" y1="210" x2="400" y2="210" />
               <rect class="ms-1" x="60" y="130" width="20" height="80" /><rect class="ms-2" x="84" y="90" width="20" height="120" /><rect class="ms-3" x="108" y="150" width="20" height="60" />
@@ -545,6 +546,9 @@
               <text class="ms-label" x="94" y="228" text-anchor="middle">Q1</text>
               <text class="ms-label" x="214" y="228" text-anchor="middle">Q2</text>
               <text class="ms-label" x="334" y="228" text-anchor="middle">Q3</text>
+              <text class="series-label" x="310" y="134" text-anchor="middle">企画</text>
+              <text class="series-label" x="334" y="24" text-anchor="middle">開発</text>
+              <text class="series-label" x="358" y="94" text-anchor="middle">運用</text>
             </svg>
             <div class="legend">
               <span class="legend__item"><span class="legend__swatch legend__swatch--cat1"></span>企画</span>
@@ -564,40 +568,51 @@
         <div class="graph-grid">
           <div class="graph-cell">
             <span class="graph-cap">多系列 折れ線 <span>— 時系列トレンドの比較</span></span>
-            <svg viewBox="0 0 340 150" role="img" aria-label="多系列の折れ線グラフ">
+            <svg viewBox="0 0 340 150" role="img" data-series="3" aria-label="多系列の折れ線グラフ（企画・開発・運用）">
               <line class="ms-axis" x1="36" y1="10" x2="36" y2="120" /><line class="ms-axis" x1="36" y1="120" x2="320" y2="120" />
               <polyline class="g-line-1" points="50,95 110,78 170,82 230,52 300,40" />
               <polyline class="g-line-2" points="50,105 110,100 170,88 230,84 300,70" />
               <polyline class="g-line-3" points="50,112 110,108 170,104 230,102 300,96" />
+              <text class="series-label" x="305" y="42" text-anchor="start">企画</text>
+              <text class="series-label" x="305" y="72" text-anchor="start">開発</text>
+              <text class="series-label" x="305" y="99" text-anchor="start">運用</text>
             </svg>
           </div>
           <div class="graph-cell">
             <span class="graph-cap">100% 積み上げ棒 <span>— 構成比の推移</span></span>
-            <svg viewBox="0 0 340 150" role="img" aria-label="100%積み上げ棒グラフ">
+            <svg viewBox="0 0 360 150" role="img" data-series="3" aria-label="100%積み上げ棒グラフ（企画・開発・運用の構成比）">
               <line class="ms-axis" x1="36" y1="10" x2="36" y2="120" /><line class="ms-axis" x1="36" y1="120" x2="320" y2="120" />
               <rect class="g-seg-1" x="60" y="20" width="44" height="34" /><rect class="g-seg-2" x="60" y="54" width="44" height="42" /><rect class="g-seg-3" x="60" y="96" width="44" height="24" />
               <rect class="g-seg-1" x="132" y="20" width="44" height="48" /><rect class="g-seg-2" x="132" y="68" width="44" height="34" /><rect class="g-seg-3" x="132" y="102" width="44" height="18" />
               <rect class="g-seg-1" x="204" y="20" width="44" height="30" /><rect class="g-seg-2" x="204" y="50" width="44" height="46" /><rect class="g-seg-3" x="204" y="96" width="44" height="24" />
               <rect class="g-seg-1" x="276" y="20" width="44" height="52" /><rect class="g-seg-2" x="276" y="72" width="44" height="30" /><rect class="g-seg-3" x="276" y="102" width="44" height="18" />
+              <text class="series-label" x="324" y="50" text-anchor="start">企画</text>
+              <text class="series-label" x="324" y="90" text-anchor="start">開発</text>
+              <text class="series-label" x="324" y="114" text-anchor="start">運用</text>
             </svg>
           </div>
           <div class="graph-cell">
             <span class="graph-cap">ドーナツ <span>— 単一の構成比</span></span>
-            <svg viewBox="0 0 340 150" role="img" aria-label="ドーナツグラフ（構成比 55/27/18%）">
-              <g transform="rotate(-90 170 75)">
-                <circle class="g-donut-1" cx="170" cy="75" r="55" stroke-dasharray="190 345.6" stroke-dashoffset="0" />
-                <circle class="g-donut-2" cx="170" cy="75" r="55" stroke-dasharray="93 345.6" stroke-dashoffset="-190" />
-                <circle class="g-donut-3" cx="170" cy="75" r="55" stroke-dasharray="62 345.6" stroke-dashoffset="-283" />
+            <svg viewBox="0 0 340 150" role="img" data-series="3" aria-label="ドーナツグラフ（構成比 A55/B27/C18%）">
+              <g transform="rotate(-90 130 75)">
+                <circle class="g-donut-1" cx="130" cy="75" r="55" stroke-dasharray="190 345.6" stroke-dashoffset="0" />
+                <circle class="g-donut-2" cx="130" cy="75" r="55" stroke-dasharray="93 345.6" stroke-dashoffset="-190" />
+                <circle class="g-donut-3" cx="130" cy="75" r="55" stroke-dasharray="62 345.6" stroke-dashoffset="-283" />
               </g>
-              <text class="g-donut-label" x="170" y="80" text-anchor="middle">構成比</text>
+              <text class="g-donut-label" x="130" y="80" text-anchor="middle">構成比</text>
+              <text class="series-label" x="212" y="58" text-anchor="start">A 55%</text>
+              <text class="series-label" x="212" y="80" text-anchor="start">B 27%</text>
+              <text class="series-label" x="212" y="102" text-anchor="start">C 18%</text>
             </svg>
           </div>
           <div class="graph-cell">
             <span class="graph-cap">散布図 <span>— 2群の相関・分布</span></span>
-            <svg viewBox="0 0 340 150" role="img" aria-label="散布図（2群）">
+            <svg viewBox="0 0 340 150" role="img" data-series="2" aria-label="散布図（2群 群A・群B）">
               <line class="ms-axis" x1="36" y1="10" x2="36" y2="120" /><line class="ms-axis" x1="36" y1="120" x2="320" y2="120" />
               <circle class="g-pt-a" cx="70" cy="100" r="4" /><circle class="g-pt-a" cx="92" cy="86" r="4" /><circle class="g-pt-a" cx="112" cy="92" r="4" /><circle class="g-pt-a" cx="132" cy="72" r="4" /><circle class="g-pt-a" cx="150" cy="78" r="4" /><circle class="g-pt-a" cx="170" cy="62" r="4" />
               <circle class="g-pt-b" cx="180" cy="108" r="4" /><circle class="g-pt-b" cx="204" cy="96" r="4" /><circle class="g-pt-b" cx="224" cy="100" r="4" /><circle class="g-pt-b" cx="252" cy="86" r="4" /><circle class="g-pt-b" cx="280" cy="82" r="4" /><circle class="g-pt-b" cx="300" cy="68" r="4" />
+              <text class="series-label" x="100" y="48" text-anchor="middle">群A</text>
+              <text class="series-label" x="266" y="56" text-anchor="middle">群B</text>
             </svg>
           </div>
         </div>
@@ -605,8 +620,9 @@
       </div>
     </section>
 
-  </div>
+  </main>
   <script src="js/annotations.js"></script>
   <script src="js/frame.js"></script>
+  <script src="js/present.js"></script>
 </body>
 </html>

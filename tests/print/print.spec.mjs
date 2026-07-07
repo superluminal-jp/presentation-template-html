@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { indexUrl } from './_fixtures.mjs';
+import { indexUrl } from '../visual/_fixtures.mjs';
 
 // T025 / SC-01: 印刷で 1スライド=1ページ。各 .slide に page-break-after が効いていることを検証。
 test('print media applies one-slide-per-page breaks', async ({ page }) => {
