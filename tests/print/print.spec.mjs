@@ -16,6 +16,16 @@ test('print media applies one-slide-per-page breaks', async ({ page }) => {
   // 最後以外はページ送り、注釈は印刷対象外
   breaks.slice(0, -1).forEach((b) => expect(['always', 'page']).toContain(b));
 
+  // .deck の flex/gap/padding(画面表示・ツールバー分の余白確保用)が印刷に漏れると
+  // スライド高さ(720px)+ 余白が @page 高さを超え、1枚が複数ページに分裂する。
+  const deckPrintStyle = await page.evaluate(() => {
+    const cs = getComputedStyle(document.querySelector('.deck'));
+    return { display: cs.display, paddingTop: cs.paddingTop, paddingBottom: cs.paddingBottom };
+  });
+  expect(deckPrintStyle.display).toBe('block');
+  expect(deckPrintStyle.paddingTop).toBe('0px');
+  expect(deckPrintStyle.paddingBottom).toBe('0px');
+
   const annPrintable = await page.evaluate(() =>
     [...document.querySelectorAll('.slide__annotation')].filter((a) => getComputedStyle(a).display !== 'none').length
   );
