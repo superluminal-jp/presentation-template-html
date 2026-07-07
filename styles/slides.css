@@ -89,20 +89,29 @@
 [data-annotation][hidden] { display: none; }
 :root[data-annotations="on"] .slide__annotation[hidden] { display: block; }
 
-/* ツールバー(ショーケース操作。印刷では非表示) */
+/* ツールバー(ショーケース操作)。全幅トップバーにして見出しへの重なりを防ぐ。
+   スライドはバーの下から始まる(.deck の上余白)。発表モード・印刷では非表示。 */
 .toolbar {
   position: fixed;
-  top: var(--space-4);
-  right: var(--space-4);
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 10;
   display: flex;
-  gap: var(--space-2);
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
   background: var(--slide-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-m);
-  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-2) var(--space-5);
   box-shadow: var(--elevation-card);
 }
+.toolbar__title { font-size: var(--fs-caption); color: var(--text-secondary); font-weight: var(--fw-bold); }
+.toolbar__actions { display: flex; align-items: center; gap: var(--space-2); }
+/* バーの分だけショーケースの先頭に余白を確保(単体スライドには影響しない) */
+body:has(.toolbar) .deck { padding-top: var(--space-10); }
+/* 発表モードはキーボード操作(P/Esc/F)。バーは隠して重なりを完全に排除 */
+:root[data-mode="present"] .toolbar { display: none; }
 .toolbar button {
   font: inherit;
   font-size: var(--fs-caption);
