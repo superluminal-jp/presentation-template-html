@@ -1,12 +1,15 @@
-/* compare — 2カラム比較。フレーミング/近接/C.R.A.P.。 */
+/* compare — 2カラム比較。Minto ピラミッド(結論先行)/フレーミング/近接/C.R.A.P.。
+   行構成: 見出し / 結論(答え) / 根拠(2カラム) / フッタ。結論を根拠の上に置く。 */
+.slide--compare .slide__stage { grid-template-rows: auto auto 1fr auto; }
 .slide--compare .cols {
   grid-column: 1 / -1;
-  grid-row: 2;
+  grid-row: 3;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-6);
   align-items: start;
 }
+.slide--compare .slide__footer { grid-row: 4; }
 .slide--compare .col {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -18,11 +21,16 @@
 .slide--compare .col--accent { border-color: var(--accent); border-top: var(--space-1) solid var(--accent); }
 .slide--compare .col h3 { font-size: var(--fs-h2); }
 .slide--compare .col ul { margin: 0; padding-left: var(--space-5); font-size: var(--fs-body); display: grid; gap: var(--space-2); }
+/* 結論(答え)を上部に置く目立つバー(統括思想)。根拠より先に読ませる。 */
 .slide--compare .verdict {
   grid-column: 1 / -1;
-  grid-row: 3;
-  align-self: center;
+  grid-row: 2;
+  align-self: start;
   font-size: var(--fs-h3);
   font-weight: var(--fw-bold);
   color: var(--accent);
+  background: var(--accent-weak);
+  border-left: var(--space-1) solid var(--accent);
+  border-radius: var(--radius-m);
+  padding: var(--space-3) var(--space-4);
 }

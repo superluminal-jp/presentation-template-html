@@ -13,8 +13,8 @@
 .slide--matrix .axis-y {
   grid-column: 1;
   grid-row: 1 / 3;
+  /* 縦書き(上→下)で「効果 高 → 低」。上=高が上段(効果大)と一致。180°回転はしない(反転防止)。 */
   writing-mode: vertical-rl;
-  transform: rotate(180deg);
   text-align: center;
   color: var(--text-secondary);
   font-size: var(--fs-caption);

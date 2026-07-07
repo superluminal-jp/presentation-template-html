@@ -1,6 +1,6 @@
-/* section — 章扉。ピーク配分/系列位置。大きな章番号 + 章題。 */
+/* section — 章扉。Minto ピラミッド(統括思想を先に)/近接。章番号 + 章題 + 主張を一群に。 */
 .slide--section { background: var(--surface); }
-.slide--section .slide__stage { grid-template-rows: 1fr auto; align-content: center; }
+.slide--section .slide__stage { grid-template-rows: auto auto; align-content: center; row-gap: var(--space-5); }
 .slide--section .slide__stage > div { grid-column: 1 / -1; }
 .slide--section .section-no {
   grid-column: 1 / -1;
@@ -17,11 +17,13 @@
   line-height: var(--lh-tight);
   color: var(--text-primary);
 }
+/* 章の主張(統括思想)。タイトル直下に近接配置し、主要色で目立たせる(脇役の灰にしない)。 */
 .slide--section .section-lead {
   grid-column: 1 / 10;
   grid-row: 2;
-  font-size: var(--fs-h3);
-  color: var(--text-secondary);
-  border-top: 1px solid var(--border);
-  padding-top: var(--space-3);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-bold);
+  color: var(--text-primary);
+  border-left: var(--space-1) solid var(--accent);
+  padding-left: var(--space-4);
 }
