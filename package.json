@@ -10,6 +10,8 @@
     "check:crossrefs": "node scripts/check-crossrefs.mjs",
     "check:coverage": "node scripts/check-practice-coverage.mjs",
     "check:slides": "node scripts/split-slides.mjs --check",
+    "sync:dads": "node scripts/sync-dads.mjs",
+    "check:dads": "node scripts/sync-dads.mjs --check",
     "test:visual": "playwright test tests/visual",
     "test:a11y": "playwright test tests/a11y",
     "test:print": "playwright test tests/print",

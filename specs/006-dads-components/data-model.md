@@ -33,6 +33,10 @@ Drives which files the sync script fetches per component. Defined as a list in `
 - `progress-indicator`: `progress-indicator.css`, `static.html`
 - `breadcrumb`: `breadcrumb.css`, `plain.html`, `with-home-icon.html`, `with-visible-label.html`
 - `radio`: `radio.css`, `standalone.html`, `stacked.html`
+- `link`: `link.css` — **dependency only** (list uses `.dads-link`); not its own gallery section
+- `form-control-label`: `form-control-label.css` — **dependency only** (checkbox/radio stacked use `.dads-form-control-label`); not its own gallery section
+
+**Implementation note (discovered during build)**: the upstream component HTML are full standalone documents that also `<link>` sibling-component CSS (`link.css`, `form-control-label.css`) and `global.css`. The two sibling stylesheets are vendored (above). `global.css` is **not** vendored — it re-defines tokens (already in `tokens/vendor/tokens.css`) and page-wide resets (already in `styles/base.css`, which supplies `box-sizing`/`font-family`); only its `.dads-u-visually-hidden` utility is reproduced locally in `styles/dads-components.css`. The `static.html` progress indicator is an icon-based passive indicator (not a percentage bar), so the per-instance `--value` is unused and no inline `--value` is set. DADS focus outlines (black `--color-neutral-black`) are harmonized to the deck's `--accent` in `styles/dads-components.css` (color only) to satisfy the feature-005 single-accent focus-ring a11y contract.
 
 **Validation**: Every listed file MUST exist at the pinned SHA (sync errors and exits non-zero if a fetch 404s). No `*.js`, `*.ts`, `*.mdx`, `*.test.*`, `*.vrt.*` may be listed (FR-008).
 

@@ -1,0 +1,63 @@
+/*
+ * dads-components.css — デジタル庁デザインシステム(DADS)公式コンポーネントの集約層。
+ * vendor/dads-components/ 配下の無改変 CSS を @import し、components.html のギャラリーで
+ * 描画するための最小限の補助(ユーティリティ / カード画像プレースホルダ)のみを加える。
+ *
+ * 依存: tokens/vendor/tokens.css(全 DADS トークン変数を供給), styles/base.css
+ *       (box-sizing / font-family のリセットを供給)。両者は components.html が先に読み込む。
+ * 方針: 既存 styles/components.css は不変更。DADS は .dads-* 名前空間なので既存部品と衝突しない。
+ *       vendor 配下は手編集せず `npm run sync:dads` の結果を正とする。
+ */
+
+/* ── 依存 CSS(他コンポーネントが参照。単体ギャラリー掲載はしない) ── */
+@import url("../vendor/dads-components/link/link.css");
+@import url("../vendor/dads-components/form-control-label/form-control-label.css");
+
+/* ── 掲載コンポーネントの公式 CSS(無改変) ── */
+@import url("../vendor/dads-components/card/card-example-1.css");
+@import url("../vendor/dads-components/card/card-example-2.css");
+@import url("../vendor/dads-components/list/list.css");
+@import url("../vendor/dads-components/checkbox/checkbox.css");
+@import url("../vendor/dads-components/radio/radio.css");
+@import url("../vendor/dads-components/progress-indicator/progress-indicator.css");
+@import url("../vendor/dads-components/breadcrumb/breadcrumb.css");
+
+/*
+ * DADS の視覚的非表示ユーティリティ。上流では global.css が提供するが、global.css は
+ * トークン再定義とページ全体リセットを含み既存部品へ漏れるため取り込まず、breadcrumb 等が
+ * 使う本ユーティリティのみを局所提供する(DADS 標準の clip 実装)。
+ */
+.dads-u-visually-hidden {
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  width: 1px !important;
+}
+
+/*
+ * カード画像プレースホルダ。写真アセット(card-*.jpg)は取り込まないため、example-2 の
+ * 画像領域はギャラリー側で <div class="dads-card-example-2__image-img"> に置換する。
+ * その塗りを中立トークンで与える(ハードコード hex なし)。
+ */
+.dads-card-example-2__image-img {
+  background-color: var(--color-neutral-solid-gray-100);
+}
+
+/*
+ * フォーカスリング色をデッキ標準のアクセント(--accent)へ統一(feature 005 の a11y 契約:
+ * 対話要素は単一のアクセントリング)。DADS 既定は黒アウトライン(--color-neutral-black)だが、
+ * 可視性・太さ・オフセットは公式のまま、色のみ統一する(構造・クラスは無改変)。
+ * セレクタは各公式規則と同形にして詳細度を一致させ、後読みで確実に上書きする。
+ */
+.dads-card-example-1:focus-visible,
+.dads-card-example-2__learn-more:focus-visible,
+.dads-card-example-2__function > button:focus-visible,
+.dads-link:focus-visible,
+.dads-breadcrumb__link:focus-visible,
+.dads-checkbox__input:focus,
+.dads-radio__input:focus {
+  outline-color: var(--accent);
+}

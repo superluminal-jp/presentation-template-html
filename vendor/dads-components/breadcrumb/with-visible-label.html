@@ -1,0 +1,65 @@
+<!--
+  出典：デジタル庁デザインシステム (Digital Agency Design System)
+  Source: https://github.com/digital-go-jp/design-system-example-components-html/blob/3b34f4c3553fa3bee90bfd8b6fe962ac3055107d/src/components/breadcrumb/with-visible-label.html
+  Commit: 3b34f4c3553fa3bee90bfd8b6fe962ac3055107d
+  Retrieved: 2026-07-11
+  Tokens: @digital-go-jp/design-tokens@2.0.1
+  License: MIT — vendored unmodified via `npm run sync:dads`. DO NOT hand-edit.
+-->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Breadcrumb</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../global.css">
+<link rel="stylesheet" href="breadcrumb.css">
+</head>
+<body>
+
+<nav class="dads-breadcrumb" aria-labelledby="breadcrumb-label">
+  <span id="breadcrumb-label" class="dads-breadcrumb__label">現在位置</span>
+  <ol class="dads-breadcrumb__list">
+    <li class="dads-breadcrumb__item">
+      <a class="dads-breadcrumb__link" href="#">ホーム</a>
+      <span class="dads-breadcrumb__separator">
+        <svg class="dads-breadcrumb__separator-icon" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+          <path d="M4.5 11L4 10.5L8 6.5L4 2.5L4.5 2L9 6.5L4.5 11Z" fill="currentcolor" />
+        </svg>
+      </span>
+    </li>
+    <li class="dads-breadcrumb__item">
+      <a class="dads-breadcrumb__link" href="#">組織情報</a>
+      <span class="dads-breadcrumb__separator">
+        <svg class="dads-breadcrumb__separator-icon" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+          <path d="M4.5 11L4 10.5L8 6.5L4 2.5L4.5 2L9 6.5L4.5 11Z" fill="currentcolor" />
+        </svg>
+      </span>
+    </li>
+    <li class="dads-breadcrumb__item">
+      <a class="dads-breadcrumb__link" href="#">長いページタイトルが入ります長いページタイトルが入ります</a>
+      <span class="dads-breadcrumb__separator">
+        <svg class="dads-breadcrumb__separator-icon" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+          <path d="M4.5 11L4 10.5L8 6.5L4 2.5L4.5 2L9 6.5L4.5 11Z" fill="currentcolor" />
+        </svg>
+      </span>
+    </li>
+    <li class="dads-breadcrumb__item">
+      <a class="dads-breadcrumb__link" href="#">長いページタイトルが入ります長いページタイトルが入ります</a>
+      <span class="dads-breadcrumb__separator">
+        <svg class="dads-breadcrumb__separator-icon" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+          <path d="M4.5 11L4 10.5L8 6.5L4 2.5L4.5 2L9 6.5L4.5 11Z" fill="currentcolor" />
+        </svg>
+      </span>
+    </li>
+    <li class="dads-breadcrumb__item" aria-current="page">
+      長いページタイトルが入ります長いページタイトルが入ります
+    </li>
+  </ol>
+</nav>
+
+</body>
+</html>

@@ -27,8 +27,8 @@ Single static project. Repo-root paths: `scripts/`, `vendor/`, `styles/`, `compo
 
 **Purpose**: Scaffolding for the vendored tree and npm entry points.
 
-- [ ] T001 [P] Create the vendored component directory scaffold `vendor/dads-components/{card,list,checkbox,progress-indicator,breadcrumb,radio}/` (add a `.gitkeep` in each so the empty dirs commit)
-- [ ] T002 [P] Add `"sync:dads": "node scripts/sync-dads.mjs"` and `"check:dads": "node scripts/sync-dads.mjs --check"` to the `scripts` block of `package.json` (do NOT add to `verify` — `check:dads` needs network per research R3)
+- [X] T001 [P] Create the vendored component directory scaffold `vendor/dads-components/{card,list,checkbox,progress-indicator,breadcrumb,radio}/` (add a `.gitkeep` in each so the empty dirs commit)
+- [X] T002 [P] Add `"sync:dads": "node scripts/sync-dads.mjs"` and `"check:dads": "node scripts/sync-dads.mjs --check"` to the `scripts` block of `package.json` (do NOT add to `verify` — `check:dads` needs network per research R3)
 
 ---
 
@@ -38,10 +38,10 @@ Single static project. Repo-root paths: `scripts/`, `vendor/`, `styles/`, `compo
 
 **⚠️ CRITICAL**: No user story work can begin until `vendor/dads-components/**` is populated.
 
-- [ ] T003 Create `scripts/sync-dads.mjs` with in-script constants (`REPO`, `SHA=3b34f4c3553fa3bee90bfd8b6fe962ac3055107d`, `RAW_BASE`, `TOKEN_VERSION='@digital-go-jp/design-tokens@2.0.1'`, `DEST_ROOT='vendor/dads-components'`) and the `MANIFEST` (6 components → CSS/HTML file lists) exactly as listed in `data-model.md` (Component Manifest Entry). Model structure on `scripts/sync-tokens.mjs`.
-- [ ] T004 Implement write-mode in `scripts/sync-dads.mjs`: HTTPS GET each manifest file from `RAW_BASE`, error+exit 1 on non-200, prepend the provenance header (CSS `/* */`, HTML `<!-- -->`) with fields per `contracts/sync-dads-cli.md`, write byte-identical body to `vendor/dads-components/<name>/<basename>` (depends on T003)
-- [ ] T005 Run `npm run sync:dads` to populate `vendor/dads-components/**`; visually confirm 6 dirs contain the expected CSS/HTML (no `.js/.ts/.mdx/.vrt/.test` files) (depends on T004)
-- [ ] T006 Guard token resolution: extract `var(--…)` refs from the vendored component CSS and confirm every design-token var (all except the per-instance `--value`) is defined in `tokens/vendor/tokens.css`; fail loudly if any are missing (depends on T005)
+- [X] T003 Create `scripts/sync-dads.mjs` with in-script constants (`REPO`, `SHA=3b34f4c3553fa3bee90bfd8b6fe962ac3055107d`, `RAW_BASE`, `TOKEN_VERSION='@digital-go-jp/design-tokens@2.0.1'`, `DEST_ROOT='vendor/dads-components'`) and the `MANIFEST` (6 components → CSS/HTML file lists) exactly as listed in `data-model.md` (Component Manifest Entry). Model structure on `scripts/sync-tokens.mjs`.
+- [X] T004 Implement write-mode in `scripts/sync-dads.mjs`: HTTPS GET each manifest file from `RAW_BASE`, error+exit 1 on non-200, prepend the provenance header (CSS `/* */`, HTML `<!-- -->`) with fields per `contracts/sync-dads-cli.md`, write byte-identical body to `vendor/dads-components/<name>/<basename>` (depends on T003)
+- [X] T005 Run `npm run sync:dads` to populate `vendor/dads-components/**`; visually confirm 6 dirs contain the expected CSS/HTML (no `.js/.ts/.mdx/.vrt/.test` files) (depends on T004)
+- [X] T006 Guard token resolution: extract `var(--…)` refs from the vendored component CSS and confirm every design-token var (all except the per-instance `--value`) is defined in `tokens/vendor/tokens.css`; fail loudly if any are missing (depends on T005)
 
 **Checkpoint**: Vendored, provenance-stamped component files exist and their tokens resolve. User stories can begin.
 
@@ -55,19 +55,19 @@ Single static project. Repo-root paths: `scripts/`, `vendor/`, `styles/`, `compo
 
 ### Implementation for User Story 1
 
-- [ ] T007 [P] [US1] Create `styles/dads-components.css`: `@import` each of the 6 vendored component CSS files (relative `../vendor/dads-components/<name>/<file>.css`), add the card image placeholder rule (neutral fill via `var(--color-neutral-solid-gray-100)`; documented single hex exception only if no token fits), and any minimal static-state scoping — no overrides of upstream token-driven colors/spacing (per `contracts/gallery-ui.md`)
-- [ ] T008 [US1] Add `<link rel="stylesheet" href="styles/dads-components.css" />` to `components.html` `<head>`, placed AFTER `styles/components.css` (leave the `styles/components.css` link and file untouched — SC-002)
-- [ ] T009 [US1] Add the card gallery `<section class="comp">` to `components.html` using 2–3 non-photo vendored variants with the placeholder in place of `<img>`
-- [ ] T010 [US1] Add the list (箇条書きリスト) gallery section to `components.html` from the vendored markup
-- [ ] T011 [US1] Add the checkbox gallery section to `components.html` showing unchecked + checked static states (no indeterminate)
-- [ ] T012 [US1] Add the progress-indicator gallery section to `components.html` using the static markup with `style="--value: <n>"` inline (no JS)
-- [ ] T013 [US1] Add the breadcrumb (パンくず) gallery section to `components.html` from the vendored markup (plain / with-home-icon / with-visible-label)
-- [ ] T014 [US1] Add the radio gallery section to `components.html` showing standalone + stacked static states
+- [X] T007 [P] [US1] Create `styles/dads-components.css`: `@import` each of the 6 vendored component CSS files (relative `../vendor/dads-components/<name>/<file>.css`), add the card image placeholder rule (neutral fill via `var(--color-neutral-solid-gray-100)`; documented single hex exception only if no token fits), and any minimal static-state scoping — no overrides of upstream token-driven colors/spacing (per `contracts/gallery-ui.md`)
+- [X] T008 [US1] Add `<link rel="stylesheet" href="styles/dads-components.css" />` to `components.html` `<head>`, placed AFTER `styles/components.css` (leave the `styles/components.css` link and file untouched — SC-002)
+- [X] T009 [US1] Add the card gallery `<section class="comp">` to `components.html` using 2–3 non-photo vendored variants with the placeholder in place of `<img>`
+- [X] T010 [US1] Add the list (箇条書きリスト) gallery section to `components.html` from the vendored markup
+- [X] T011 [US1] Add the checkbox gallery section to `components.html` showing unchecked + checked static states (no indeterminate)
+- [X] T012 [US1] Add the progress-indicator gallery section to `components.html` using the static markup with `style="--value: <n>"` inline (no JS)
+- [X] T013 [US1] Add the breadcrumb (パンくず) gallery section to `components.html` from the vendored markup (plain / with-home-icon / with-visible-label)
+- [X] T014 [US1] Add the radio gallery section to `components.html` showing standalone + stacked static states
 
 > T009–T014 all edit `components.html` (same file) → run sequentially, not in parallel.
 
-- [ ] T015 [US1] Render `components.html` in a browser: confirm all 6 components are styled (0 unstyled/broken — SC-001); regenerate the `components.html` visual baseline via `npm run test:visual` if the change is intended
-- [ ] T016 [US1] Run `npm run test:a11y` against `components.html`; confirm axe passes with the new sections (labels/aria from upstream markup intact, single `<h1>` preserved)
+- [X] T015 [US1] Render `components.html` in a browser: confirm all 6 components are styled (0 unstyled/broken — SC-001); regenerate the `components.html` visual baseline via `npm run test:visual` if the change is intended
+- [X] T016 [US1] Run `npm run test:a11y` against `components.html`; confirm axe passes with the new sections (labels/aria from upstream markup intact, single `<h1>` preserved)
 
 **Checkpoint**: MVP — the six official components are usable from the gallery.
 
@@ -81,9 +81,9 @@ Single static project. Repo-root paths: `scripts/`, `vendor/`, `styles/`, `compo
 
 ### Implementation for User Story 2
 
-- [ ] T017 [US2] Implement `--check` mode in `scripts/sync-dads.mjs`: fetch each manifest file at the pinned SHA, read the local vendored file and strip its provenance header, byte-compare bodies, collect mismatches/missing, exit 1 with the offending paths (else exit 0) — same contract as `check:slides` (`contracts/sync-dads-cli.md`)
-- [ ] T018 [US2] Verify reproducibility: re-run `npm run sync:dads` and confirm `git diff --stat vendor/dads-components` is empty; run `npm run check:dads` and confirm exit 0 (SC-003)
-- [ ] T019 [US2] Verify drift detection: temporarily edit one vendored file, confirm `npm run check:dads` exits 1 and names it, then revert (SC-004)
+- [X] T017 [US2] Implement `--check` mode in `scripts/sync-dads.mjs`: fetch each manifest file at the pinned SHA, read the local vendored file and strip its provenance header, byte-compare bodies, collect mismatches/missing, exit 1 with the offending paths (else exit 0) — same contract as `check:slides` (`contracts/sync-dads-cli.md`)
+- [X] T018 [US2] Verify reproducibility: re-run `npm run sync:dads` and confirm `git diff --stat vendor/dads-components` is empty; run `npm run check:dads` and confirm exit 0 (SC-003)
+- [X] T019 [US2] Verify drift detection: temporarily edit one vendored file, confirm `npm run check:dads` exits 1 and names it, then revert (SC-004)
 
 **Checkpoint**: Update + drift-audit workflow works.
 
@@ -97,8 +97,8 @@ Single static project. Repo-root paths: `scripts/`, `vendor/`, `styles/`, `compo
 
 ### Implementation for User Story 3
 
-- [ ] T020 [US3] Confirm the provenance header emitted by `scripts/sync-dads.mjs` includes all fields — `出典：デジタル庁デザインシステム`, source URL, commit SHA, retrieval date, `@digital-go-jp/design-tokens@2.0.1`, and the MIT/"vendored unmodified — do not hand-edit" line; adjust the header builder and re-run `npm run sync:dads` if any field is missing (per `contracts/sync-dads-cli.md`)
-- [ ] T021 [US3] Verify 100% of files under `vendor/dads-components/**` carry the complete header (grep the source marker across all vendored CSS/HTML) (SC-005)
+- [X] T020 [US3] Confirm the provenance header emitted by `scripts/sync-dads.mjs` includes all fields — `出典：デジタル庁デザインシステム`, source URL, commit SHA, retrieval date, `@digital-go-jp/design-tokens@2.0.1`, and the MIT/"vendored unmodified — do not hand-edit" line; adjust the header builder and re-run `npm run sync:dads` if any field is missing (per `contracts/sync-dads-cli.md`)
+- [X] T021 [US3] Verify 100% of files under `vendor/dads-components/**` carry the complete header (grep the source marker across all vendored CSS/HTML) (SC-005)
 
 **Checkpoint**: License/attribution compliance verified.
 
@@ -106,9 +106,9 @@ Single static project. Repo-root paths: `scripts/`, `vendor/`, `styles/`, `compo
 
 ## Phase 6: Polish & Cross-Cutting Concerns
 
-- [ ] T022 [P] Add a short usage note (sync:dads / check:dads, pinned-SHA update flow) to `docs/practices.md` or the repo README, cross-referencing `specs/006-dads-components/quickstart.md`
-- [ ] T023 Run `npm run verify` (offline chain: lint:tokens, check:crossrefs, check:coverage, check:slides, test:visual, test:a11y, test:print) — all green (SC-006)
-- [ ] T024 Confirm no scope leakage: `git diff --stat styles/components.css index.html` is empty and no new files under `js/` (SC-002, FR-008, FR-010)
+- [X] T022 [P] Add a short usage note (sync:dads / check:dads, pinned-SHA update flow) to `docs/practices.md` or the repo README, cross-referencing `specs/006-dads-components/quickstart.md`
+- [X] T023 Run `npm run verify` (offline chain: lint:tokens, check:crossrefs, check:coverage, check:slides, test:visual, test:a11y, test:print) — all green (SC-006)
+- [X] T024 Confirm no scope leakage: `git diff --stat styles/components.css index.html` is empty and no new files under `js/` (SC-002, FR-008, FR-010)
 
 ---
 

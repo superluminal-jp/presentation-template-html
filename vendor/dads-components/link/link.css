@@ -1,0 +1,45 @@
+/*
+  出典：デジタル庁デザインシステム (Digital Agency Design System)
+  Source: https://github.com/digital-go-jp/design-system-example-components-html/blob/3b34f4c3553fa3bee90bfd8b6fe962ac3055107d/src/components/link/link.css
+  Commit: 3b34f4c3553fa3bee90bfd8b6fe962ac3055107d
+  Retrieved: 2026-07-11
+  Tokens: @digital-go-jp/design-tokens@2.0.1
+  License: MIT — vendored unmodified via `npm run sync:dads`. DO NOT hand-edit.
+*/
+.dads-link:any-link {
+  color: var(--color-primitive-blue-1000);
+  text-decoration: underline;
+  text-decoration-thickness: calc(1 / 16 * 1rem);
+  text-underline-offset: calc(3 / 16 * 1rem);
+}
+
+.dads-link:visited {
+  color: var(--color-primitive-magenta-900);
+}
+
+@media (hover: hover) {
+  .dads-link:hover {
+    color: var(--color-primitive-blue-900);
+    text-decoration-thickness: calc(3 / 16 * 1rem);
+  }
+}
+
+.dads-link:active {
+  color: var(--color-primitive-orange-800);
+  text-decoration-thickness: calc(1 / 16 * 1rem);
+}
+
+.dads-link:focus-visible {
+  outline: calc(4 / 16 * 1rem) solid var(--color-neutral-black);
+  outline-offset: calc(2 / 16 * 1rem);
+  border-radius: calc(4 / 16 * 1rem);
+  background-color: var(--color-primitive-yellow-300);
+  box-shadow: 0 0 0 calc(2 / 16 * 1rem) var(--color-primitive-yellow-300);
+}
+
+.dads-link__icon {
+  display: inline-block;
+  width: calc(16 / 16 * 1rem);
+  height: calc(16 / 16 * 1rem);
+  vertical-align: -0.15em;
+}
