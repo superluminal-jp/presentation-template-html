@@ -1,8 +1,5 @@
 import { test, expect } from '@playwright/test';
 import { indexUrl } from '../visual/_fixtures.mjs';
-import { pathToFileURL } from 'node:url';
-import { resolve } from 'node:path';
-import { repoRoot } from '../visual/_fixtures.mjs';
 
 // FR-001 / SC-002 / C1: キーボードフォーカス時に可視のフォーカスリングが出る。
 // :focus-visible はキーボード(Tab)操作でのみ一致するため、Tab で巡回して確認する。
@@ -43,12 +40,9 @@ function assertVisibleTokenRing(seen) {
   }
 }
 
+// index.html は付録(コンポーネント一本化先)の操作要素も含むため、この 1 本で
+// デッキ全体のフォーカスリングを検証する(旧コンポーネント集ページ用テストは統合)。
 test('index: interactive elements show a visible focus ring on keyboard focus', async ({ page }) => {
   await page.goto(indexUrl());
-  assertVisibleTokenRing(await tabAndCollect(page));
-});
-
-test('components: interactive elements show a visible focus ring on keyboard focus', async ({ page }) => {
-  await page.goto(pathToFileURL(resolve(repoRoot, 'components.html')).href);
   assertVisibleTokenRing(await tabAndCollect(page));
 });

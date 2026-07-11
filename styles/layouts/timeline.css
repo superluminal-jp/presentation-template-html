@@ -1,28 +1,78 @@
-/* timeline — 時系列/ロードマップ。一貫性/SCQA/サインポスティング。 */
+/* timeline — 時系列/ロードマップ。SCQA(状況→時系列)/一貫性/サインポスティング/ゴール勾配。
+   プロセス(順序)と差別化するため、時期ラベル・方向軸・進捗状態で「時間」を明示する。 */
 .slide--timeline .timeline {
   grid-column: 1 / -1;
   grid-row: 2;
   align-self: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 1fr;
   gap: var(--space-4);
   position: relative;
 }
+
+/* 連結線: マーカー中心(space-6 の半分)を貫く水平軸。右端は矢尻ぶん空ける。 */
 .slide--timeline .timeline::before {
   content: "";
   position: absolute;
   left: 0;
-  right: 0;
-  top: var(--space-3);
+  right: var(--space-5);
+  top: calc(var(--space-6) / 2);
   height: 2px;
   background: var(--border);
+  transform: translateY(-1px);
 }
+
+/* 方向の手がかり(時間の流れ →)。軸終端の矢尻。 */
+.slide--timeline .timeline::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: calc(var(--space-6) / 2);
+  width: 0;
+  height: 0;
+  border-top: var(--space-2) solid transparent;
+  border-bottom: var(--space-2) solid transparent;
+  border-left: var(--space-3) solid var(--border);
+  transform: translateY(-50%);
+}
+
 .slide--timeline .step {
   display: grid;
+  justify-items: start;
   gap: var(--space-2);
   align-content: start;
 }
+/* マーカーは第1行(軸上)。時期→ラベル→本文の順に下へ。 */
 .slide--timeline .step__marker { position: relative; z-index: 1; }
+
+/* 時期(時間アンカー) */
+.slide--timeline .step__time {
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-bold);
+  color: var(--text-secondary);
+}
 .slide--timeline .step__label { font-weight: var(--fw-bold); font-size: var(--fs-h3); }
 .slide--timeline .step__body { font-size: var(--fs-body); color: var(--text-secondary); }
+
+/* 進捗状態: 済=塗り / 現在=塗り+ハロー環 / 未来=中立の枠(中抜き)。
+   済・現在を目立たせ、ゴール勾配(進捗)と現在地(道標)を軸上に表現する。 */
+.slide--timeline .step[data-state="done"] .step__marker {
+  background: var(--accent);
+  color: var(--text-on-accent);
+}
+.slide--timeline .step[data-state="current"] .step__marker {
+  background: var(--accent);
+  color: var(--text-on-accent);
+  box-shadow: 0 0 0 var(--space-1) var(--accent-weak);
+}
+.slide--timeline .step[data-state="current"] .step__time { color: var(--accent); }
+.slide--timeline .step[data-state="upcoming"] .step__marker {
+  background: var(--slide-bg);
+  color: var(--text-secondary);
+  border: 2px solid var(--border-strong);
+}
+.slide--timeline .step[data-state="upcoming"] .step__label { color: var(--text-secondary); }

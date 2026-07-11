@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="styles/layouts/closing.css" />
   <link rel="stylesheet" href="styles/layouts/appendix.css" />
   <link rel="stylesheet" href="styles/components.css" />
+  <link rel="stylesheet" href="styles/dads-components.css" />
   <link rel="stylesheet" href="styles/frame.css" />
 </head>
 <body>
@@ -35,7 +36,6 @@
     <div class="toolbar__actions">
       <button type="button" data-present-toggle>発表モード（P）</button>
       <button type="button" data-annotation-toggle-all aria-pressed="false">注釈の表示/非表示（A）</button>
-      <a class="btn btn--secondary" href="components.html">コンポーネント集</a>
     </div>
   </div>
 
@@ -49,7 +49,7 @@
           <p class="subtitle">デジタル庁DS準拠・このデック自体が使い方の見本です</p>
         </div>
         <div class="meta">
-          <span>16レイアウト</span><span>12コンポーネント</span><span>DS v2.0.1 準拠</span>
+          <span>16レイアウト</span><span>20コンポーネント</span><span>DS v2.0.1 準拠</span>
         </div>
       </div>
       <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
@@ -242,9 +242,9 @@
         <h2 class="slide__heading">ダッシュボードは<span class="u-accent">6件以内</span>のKPIを整列します</h2>
         <div class="kpi-grid">
           <div class="tile"><span class="tile__label">レイアウト</span><span class="tile__value">16</span><span class="tile__sub">コア8+拡張8</span></div>
-          <div class="tile tile--highlight"><span class="tile__label">コンポーネント</span><span class="tile__value">12</span><span class="tile__sub">再利用可</span></div>
+          <div class="tile tile--highlight"><span class="tile__label">コンポーネント</span><span class="tile__value">20</span><span class="tile__sub">自作14+公式6</span></div>
           <div class="tile"><span class="tile__label">採用手法</span><span class="tile__value">37</span><span class="tile__sub">出典付き</span></div>
-          <div class="tile"><span class="tile__label">付録スライド</span><span class="tile__value">5</span><span class="tile__sub">実例</span></div>
+          <div class="tile"><span class="tile__label">付録スライド</span><span class="tile__value">8</span><span class="tile__sub">実例</span></div>
           <div class="tile"><span class="tile__label">DS準拠</span><span class="tile__value">100%</span><span class="tile__sub">トークン参照</span></div>
           <div class="tile"><span class="tile__label">ハードコード</span><span class="tile__value">0</span><span class="tile__sub">lint検証</span></div>
         </div>
@@ -265,23 +265,44 @@
     <section class="slide slide--timeline" data-layout="timeline">
       <div class="slide__stage">
         <h2 class="slide__heading">タイムラインは<span class="u-accent">時系列で全体像</span>を示します</h2>
-        <div class="timeline">
-          <div class="step"><span class="step__marker">1</span><span class="step__label">選ぶ</span><span class="step__body">レイアウトを複製</span></div>
-          <div class="step"><span class="step__marker">2</span><span class="step__label">書く</span><span class="step__body">主張と根拠を入力</span></div>
-          <div class="step"><span class="step__marker">3</span><span class="step__label">整える</span><span class="step__body">トークン内で調整</span></div>
-          <div class="step"><span class="step__marker">4</span><span class="step__label">配る</span><span class="step__body">印刷・PDFで共有</span></div>
-        </div>
+        <ol class="timeline" aria-label="4ステップの時間軸（週単位・左から右へ進行）">
+          <li class="step" data-state="done">
+            <span class="step__marker" aria-hidden="true">1</span>
+            <span class="step__time">0週</span>
+            <span class="step__label">選ぶ</span>
+            <span class="step__body">レイアウトを複製</span>
+          </li>
+          <li class="step" data-state="current" aria-current="step">
+            <span class="step__marker" aria-hidden="true">2</span>
+            <span class="step__time">1週</span>
+            <span class="step__label">書く</span>
+            <span class="step__body">主張と根拠を入力</span>
+          </li>
+          <li class="step" data-state="upcoming">
+            <span class="step__marker" aria-hidden="true">3</span>
+            <span class="step__time">2週</span>
+            <span class="step__label">整える</span>
+            <span class="step__body">トークン内で調整</span>
+          </li>
+          <li class="step" data-state="upcoming">
+            <span class="step__marker" aria-hidden="true">4</span>
+            <span class="step__time">4週</span>
+            <span class="step__label">配る</span>
+            <span class="step__body">印刷・PDFで共有</span>
+          </li>
+        </ol>
         <div class="slide__footer">
           <div class="slide__signpost" aria-label="現在地"><span class="signpost__dot" aria-current="true"></span><span class="signpost__dot"></span><span class="signpost__dot"></span><span class="signpost__dot"></span></div>
           
         </div>
       </div>
       <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
-        <p class="annotation__intent">時間軸で全体像を提示(状況→行動)。反復する体裁で見通しを与える。</p>
+        <p class="annotation__intent">時間軸で全体像を提示(状況→行動)。時期ラベルと方向で「時間」を明示し、済/現在/未来の状態で進捗と現在地を示す(プロセス=順序との差別化)。</p>
         <ul class="annotation__practices">
           <li data-practice="A-scqa">SCQA（→ #A-scqa）</li>
           <li data-practice="A-consistency">一貫性/テンプレート化（→ #A-consistency）</li>
           <li data-practice="A-signposting">サインポスティング（→ #A-signposting）</li>
+          <li data-practice="E-goal-gradient">進捗/ゴール勾配（→ #E-goal-gradient）</li>
         </ul>
       </aside>
     </section>
@@ -450,6 +471,8 @@
             <div class="callout callout--success"><span class="callout__title">成功</span>目標を達成しました。</div>
             <div class="callout callout--warning"><span class="callout__title">注意</span>期限が近づいています。</div>
             <div class="callout callout--error"><span class="callout__title">エラー</span>入力に誤りがあります。</div>
+            <span class="cell__label">区切り（.divider）</span>
+            <hr class="divider" />
           </div>
           <div class="cell">
             <span class="cell__label">バッジ（.badge）</span>
@@ -460,7 +483,7 @@
             <div class="row"><button class="btn btn--primary" type="button">主要</button><button class="btn btn--secondary" type="button">副</button><button class="btn btn--tertiary" type="button">第三</button></div>
           </div>
         </div>
-        <div class="slide__footer"><span class="slide__citation">各部品の詳細は components.html を参照</span></div>
+        <div class="slide__footer"><span class="slide__citation">全コンポーネントの実例は付録A〜Hに集約</span></div>
       </div>
     </section>
 
@@ -620,6 +643,172 @@
           </div>
         </div>
         <div class="slide__footer"><span class="slide__citation">系列色は --cat-1..7（DS 7パレット）。用途に応じ選択(Cleveland–McGill)・装飾排除(データインク)</span></div>
+      </div>
+    </section>
+
+    <!-- Appendix F: プレゼン向け部品(バナー・ステップナビ) -->
+    <section class="slide slide--appendix" data-layout="appendix-presentation">
+      <div class="slide__stage">
+        <h2 class="slide__heading">付録F: <span class="u-accent">告知と手順</span>の部品活用例</h2>
+        <div class="appendix-grid appendix-grid--single">
+          <div class="cell">
+            <span class="cell__label">バナー（.banner） — 全幅の告知帯</span>
+            <div class="banner banner--info"><span class="banner__label">お知らせ</span>新しいテンプレートを公開しました。表紙・章扉の重要通知に。</div>
+            <div class="banner banner--emergency"><span class="banner__label">緊急</span>システム障害が発生しています。至急ご確認ください。</div>
+            <span class="cell__label">ステップナビゲーション（.step-nav） — 手順の道標(済/現在/未来)</span>
+            <ol class="step-nav">
+              <li class="step-nav__item" data-state="done">選ぶ</li>
+              <li class="step-nav__item" aria-current="step">書く</li>
+              <li class="step-nav__item">整える</li>
+              <li class="step-nav__item">配る</li>
+            </ol>
+          </div>
+        </div>
+        <div class="slide__footer"><span class="slide__citation">バナー=通知/緊急、ステップナビ=済/現在/未来。DS の notification/emergency-banner・step-navigation に着想した自作部品(トークン準拠)</span></div>
+      </div>
+    </section>
+
+    <!-- Appendix G: DADS 公式コンポーネント ①(カード・リスト・パンくず) -->
+    <section class="slide slide--appendix" data-layout="appendix-dads-1">
+      <div class="slide__stage">
+        <h2 class="slide__heading">付録G: <span class="u-accent">DADS 公式コンポーネント ①</span>（カード・リスト・パンくず）</h2>
+        <div class="appendix-grid">
+          <div class="cell">
+            <span class="cell__label">カード（.dads-card-example-2）</span>
+            <ul class="dads-card-example-2-list">
+              <li>
+                <div class="dads-card-example-2">
+                  <div class="dads-card-example-2__main">
+                    <div class="dads-card-example-2__main-header">
+                      <h3 class="dads-card-example-2__heading">地域緑化事業</h3>
+                    </div>
+                    <p class="dads-card-example-2__contents">住民の皆さまが参加できる地域緑化事業を行っています。地域交流を促進するとともに、地域の景観美化を目的としています。</p>
+                    <div class="dads-card-example-2__divider"></div>
+                    <div class="dads-card-example-2__links">
+                      <a class="dads-card-example-2__learn-more" href="#">詳しくみる</a>
+                    </div>
+                  </div>
+                  <div class="dads-card-example-2__image">
+                    <div class="dads-card-example-2__image-img" role="img" aria-label="画像プレースホルダ"></div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="cell">
+            <span class="cell__label">箇条書きリスト（.dads-list）</span>
+            <ul class="dads-list" data-spacing="4">
+              <li>短いテキスト</li>
+              <li>これは少し長めのテキストサンプルです。</li>
+              <li>
+                ネストされたリスト
+                <ul class="dads-list" data-marker="number" data-spacing="4">
+                  <li><span>1. </span><span>番号付きリストの項目</span></li>
+                  <li><a class="dads-link" href="#"><span>2. </span><span>リンクを含む項目</span></a></li>
+                </ul>
+              </li>
+            </ul>
+            <span class="cell__label">パンくずリスト（.dads-breadcrumb）</span>
+            <nav class="dads-breadcrumb" aria-labelledby="dads-bc-label">
+              <span id="dads-bc-label" class="dads-u-visually-hidden">現在位置</span>
+              <ol class="dads-breadcrumb__list">
+                <li class="dads-breadcrumb__item">
+                  <a class="dads-breadcrumb__link" href="#">
+                    <svg class="dads-breadcrumb__link-icon" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                      <path d="M3 13L3 6L8 2L13 6V13H9V9H7V13H3Z" fill="currentcolor"/>
+                    </svg>
+                    ホーム
+                  </a>
+                  <span class="dads-breadcrumb__separator">
+                    <svg class="dads-breadcrumb__separator-icon" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+                      <path d="M4.5 11L4 10.5L8 6.5L4 2.5L4.5 2L9 6.5L4.5 11Z" fill="currentcolor" />
+                    </svg>
+                  </span>
+                </li>
+                <li class="dads-breadcrumb__item">
+                  <a class="dads-breadcrumb__link" href="#">組織情報</a>
+                  <span class="dads-breadcrumb__separator">
+                    <svg class="dads-breadcrumb__separator-icon" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+                      <path d="M4.5 11L4 10.5L8 6.5L4 2.5L4.5 2L9 6.5L4.5 11Z" fill="currentcolor" />
+                    </svg>
+                  </span>
+                </li>
+                <li class="dads-breadcrumb__item" aria-current="page">
+                  デザインシステムの導入
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+        <div class="slide__footer"><span class="slide__citation">デジタル庁DS公式サンプルの無改変同梱（vendor/dads-components, MIT）。styles/dads-components.css で描画</span></div>
+      </div>
+    </section>
+
+    <!-- Appendix H: DADS 公式コンポーネント ②(チェックボックス・ラジオ・進捗) -->
+    <section class="slide slide--appendix" data-layout="appendix-dads-2">
+      <div class="slide__stage">
+        <h2 class="slide__heading">付録H: <span class="u-accent">DADS 公式コンポーネント ②</span>（チェックボックス・ラジオ・進捗）</h2>
+        <div class="appendix-grid">
+          <div class="cell">
+            <span class="cell__label">チェックボックス（.dads-checkbox）</span>
+            <fieldset class="dads-form-control-label" data-size="sm" aria-describedby="dads-cb-support">
+              <legend class="dads-form-control-label__label">
+                東京23区
+                <span class="dads-form-control-label__requirement" data-required="true">※必須</span>
+              </legend>
+              <p id="dads-cb-support" class="dads-form-control-label__support-text">該当するすべての区を選択してください。</p>
+              <div>
+                <label class="dads-checkbox" data-size="sm">
+                  <span class="dads-checkbox__checkbox"><input class="dads-checkbox__input" type="checkbox" checked></span>
+                  <span class="dads-checkbox__label">足立区</span>
+                </label>
+                <label class="dads-checkbox" data-size="sm">
+                  <span class="dads-checkbox__checkbox"><input class="dads-checkbox__input" type="checkbox"></span>
+                  <span class="dads-checkbox__label">荒川区</span>
+                </label>
+              </div>
+            </fieldset>
+            <span class="cell__label">ラジオボタン（.dads-radio）</span>
+            <fieldset class="dads-form-control-label" data-size="sm" aria-describedby="dads-radio-support">
+              <legend class="dads-form-control-label__label">お住まいの区</legend>
+              <p id="dads-radio-support" class="dads-form-control-label__support-text">いずれか一つを選択。</p>
+              <div>
+                <label class="dads-radio" data-size="sm">
+                  <span class="dads-radio__radio"><input class="dads-radio__input" type="radio" name="dads-ward" checked></span>
+                  <span class="dads-radio__label">足立区</span>
+                </label>
+                <label class="dads-radio" data-size="sm">
+                  <span class="dads-radio__radio"><input class="dads-radio__input" type="radio" name="dads-ward"></span>
+                  <span class="dads-radio__label">荒川区</span>
+                </label>
+              </div>
+            </fieldset>
+          </div>
+          <div class="cell">
+            <span class="cell__label">プログレスインジケーター（.dads-progress-indicator） — 静的(処理中)</span>
+            <div class="row">
+              <dads-progress-indicator class="dads-progress-indicator" data-type="stacked" intent="passive" active>
+                <svg class="dads-progress-indicator__static" width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                  <path fill="currentcolor" d="M17 15c0 2.5 2.2 7 7 7s7-5 7-7H17ZM15 42h18c0-2-1-4.5-1-4.5L24 34l-8 3.5S15 40 15 42Z"/>
+                  <path fill="none" stroke="currentcolor" stroke-width="2" d="M24 24C34.5 24 35.5 6 35.5 4.8V4M24 24C13.5 24 12.5 6 12.5 4.8V4M24 24c7 0 11.5 11.8 11.5 18.3V44M24 24c-7 0-11.5 11.8-11.5 18.3V44M9 4h30M9 44h30"/>
+                  <circle cx="24" cy="28" r="1" fill="currentcolor"/>
+                  <circle cx="24" cy="31" r="1" fill="currentcolor"/>
+                </svg>
+                <span class="dads-progress-indicator__label">処理中</span>
+              </dads-progress-indicator>
+              <dads-progress-indicator class="dads-progress-indicator" data-type="inlined" intent="passive" active>
+                <svg class="dads-progress-indicator__static" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path fill="currentcolor" d="M9 6c0 1.8 1.1 5 3.5 5S16 7.4 16 6H9ZM8 21h9c0-1-.5-2.2-.5-2.2l-4-1.8-4 1.8S8 20 8 21Z"/>
+                  <path fill="none" stroke="currentcolor" d="M4 1.5h17m-17 21h17M6 1.5C6 5.1 7.6 12 12.5 12S18.9 5 19 1.5M19 22.5c.3-3.7-2.2-10.5-6.5-10.5S5.7 18.8 6 22.5"/>
+                  <circle cx="12.5" cy="13.5" r=".5" fill="currentcolor"/>
+                  <circle cx="12.5" cy="15.5" r=".5" fill="currentcolor"/>
+                </svg>
+                <span class="dads-progress-indicator__label">処理中</span>
+              </dads-progress-indicator>
+            </div>
+          </div>
+        </div>
+        <div class="slide__footer"><span class="slide__citation">デジタル庁DS公式サンプルの無改変同梱（vendor/dads-components, MIT）。styles/dads-components.css で描画</span></div>
       </div>
     </section>
 

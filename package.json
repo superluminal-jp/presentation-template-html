@@ -12,6 +12,7 @@
     "check:slides": "node scripts/split-slides.mjs --check",
     "sync:dads": "node scripts/sync-dads.mjs",
     "check:dads": "node scripts/sync-dads.mjs --check",
+    "build:pptx": "node scripts/pptx/build-pptx.mjs",
     "test:visual": "playwright test tests/visual",
     "test:a11y": "playwright test tests/a11y",
     "test:print": "playwright test tests/print",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.0",
-    "@playwright/test": "^1.48.0"
+    "@playwright/test": "^1.48.0",
+    "pptxgenjs": "^4.0.1"
   }
 }
