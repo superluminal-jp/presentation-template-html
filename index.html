@@ -265,23 +265,44 @@
     <section class="slide slide--timeline" data-layout="timeline">
       <div class="slide__stage">
         <h2 class="slide__heading">タイムラインは<span class="u-accent">時系列で全体像</span>を示します</h2>
-        <div class="timeline">
-          <div class="step"><span class="step__marker">1</span><span class="step__label">選ぶ</span><span class="step__body">レイアウトを複製</span></div>
-          <div class="step"><span class="step__marker">2</span><span class="step__label">書く</span><span class="step__body">主張と根拠を入力</span></div>
-          <div class="step"><span class="step__marker">3</span><span class="step__label">整える</span><span class="step__body">トークン内で調整</span></div>
-          <div class="step"><span class="step__marker">4</span><span class="step__label">配る</span><span class="step__body">印刷・PDFで共有</span></div>
-        </div>
+        <ol class="timeline" aria-label="4ステップの時間軸（週単位・左から右へ進行）">
+          <li class="step" data-state="done">
+            <span class="step__marker" aria-hidden="true">1</span>
+            <span class="step__time">0週</span>
+            <span class="step__label">選ぶ</span>
+            <span class="step__body">レイアウトを複製</span>
+          </li>
+          <li class="step" data-state="current" aria-current="step">
+            <span class="step__marker" aria-hidden="true">2</span>
+            <span class="step__time">1週</span>
+            <span class="step__label">書く</span>
+            <span class="step__body">主張と根拠を入力</span>
+          </li>
+          <li class="step" data-state="upcoming">
+            <span class="step__marker" aria-hidden="true">3</span>
+            <span class="step__time">2週</span>
+            <span class="step__label">整える</span>
+            <span class="step__body">トークン内で調整</span>
+          </li>
+          <li class="step" data-state="upcoming">
+            <span class="step__marker" aria-hidden="true">4</span>
+            <span class="step__time">4週</span>
+            <span class="step__label">配る</span>
+            <span class="step__body">印刷・PDFで共有</span>
+          </li>
+        </ol>
         <div class="slide__footer">
           <div class="slide__signpost" aria-label="現在地"><span class="signpost__dot" aria-current="true"></span><span class="signpost__dot"></span><span class="signpost__dot"></span><span class="signpost__dot"></span></div>
           
         </div>
       </div>
       <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
-        <p class="annotation__intent">時間軸で全体像を提示(状況→行動)。反復する体裁で見通しを与える。</p>
+        <p class="annotation__intent">時間軸で全体像を提示(状況→行動)。時期ラベルと方向で「時間」を明示し、済/現在/未来の状態で進捗と現在地を示す(プロセス=順序との差別化)。</p>
         <ul class="annotation__practices">
           <li data-practice="A-scqa">SCQA（→ #A-scqa）</li>
           <li data-practice="A-consistency">一貫性/テンプレート化（→ #A-consistency）</li>
           <li data-practice="A-signposting">サインポスティング（→ #A-signposting）</li>
+          <li data-practice="E-goal-gradient">進捗/ゴール勾配（→ #E-goal-gradient）</li>
         </ul>
       </aside>
     </section>
