@@ -1,10 +1,10 @@
 /*
  * dads-components.css — デジタル庁デザインシステム(DADS)公式コンポーネントの集約層。
- * vendor/dads-components/ 配下の無改変 CSS を @import し、components.html のギャラリーで
+ * vendor/dads-components/ 配下の無改変 CSS を @import し、デッキの付録スライド(G/H)で
  * 描画するための最小限の補助(ユーティリティ / カード画像プレースホルダ)のみを加える。
  *
  * 依存: tokens/vendor/tokens.css(全 DADS トークン変数を供給), styles/base.css
- *       (box-sizing / font-family のリセットを供給)。両者は components.html が先に読み込む。
+ *       (box-sizing / font-family のリセットを供給)。両者は index.html が先に読み込む。
  * 方針: 既存 styles/components.css は不変更。DADS は .dads-* 名前空間なので既存部品と衝突しない。
  *       vendor 配下は手編集せず `npm run sync:dads` の結果を正とする。
  */

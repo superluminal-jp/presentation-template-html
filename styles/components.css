@@ -143,3 +143,51 @@
 .kv { display: grid; grid-template-columns: max-content 1fr; gap: var(--space-2) var(--space-5); }
 .kv__k { color: var(--text-secondary); font-size: var(--fs-caption); }
 .kv__v { color: var(--text-primary); }
+
+/* 13) バナー(通知・緊急) — 全幅の告知帯(DS notification/emergency-banner に着想) */
+.banner {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  background: var(--surface);
+  color: var(--text-primary);
+  font-size: var(--fs-body);
+}
+.banner__label { flex: none; font-weight: var(--fw-bold); }
+.banner--info { background: var(--accent-weak); border-color: var(--accent); }
+.banner--info .banner__label { color: var(--accent-strong); }
+.banner--emergency { background: var(--color-primitive-red-50); border-color: var(--color-semantic-error-1); }
+.banner--emergency .banner__label { color: var(--color-primitive-red-900); }
+
+/* 14) ステップナビゲーション — 手順の道標(DS step-navigation に着想) */
+.step-nav { display: flex; flex-wrap: wrap; gap: var(--space-2); list-style: none; padding: 0; margin: 0; counter-reset: step; }
+.step-nav__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-full);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: var(--fs-caption);
+}
+.step-nav__item::before {
+  counter-increment: step;
+  content: counter(step);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-5);
+  height: var(--space-5);
+  border-radius: var(--radius-full);
+  background: var(--text-secondary);
+  color: var(--text-on-accent);
+  font-weight: var(--fw-bold);
+}
+.step-nav__item[data-state="done"] { color: var(--text-primary); }
+.step-nav__item[data-state="done"]::before { background: var(--accent); }
+.step-nav__item[aria-current="step"] { background: var(--accent-weak); color: var(--accent-strong); font-weight: var(--fw-bold); }
+.step-nav__item[aria-current="step"]::before { background: var(--accent); }

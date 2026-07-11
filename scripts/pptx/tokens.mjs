@@ -17,6 +17,13 @@ export const COLOR = {
   borderStrong: '999999', // --border-strong -> solid-gray-400
   accent: '0017C1', // --accent       -> key-900 -> blue-900
   accentWeak: 'E8F1FE', // --accent-weak  -> key-50  -> blue-50
+  // state colors (weak bg / strong text) for callouts & banners
+  successWeak: 'E6F5EC', // green-50
+  successText: '115A36', // green-900
+  warningWeak: 'FFEEE2', // orange-50
+  warningText: 'AC3E00', // orange-900
+  errorWeak: 'FDEEEE', // red-50
+  errorText: 'CE0000', // red-900
 };
 
 // Font families (theme fonts). Noto Sans JP is the design-system face; when it

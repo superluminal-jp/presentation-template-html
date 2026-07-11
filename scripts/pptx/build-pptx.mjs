@@ -110,6 +110,10 @@ export function buildDeck() {
     { fn: slideImageFull, accent: false },
     { fn: slideClosing, accent: true },
     { fn: slideReference, accent: false },
+    { fn: slideApxNotice, accent: false },
+    { fn: slideApxBanner, accent: false },
+    { fn: slideApxMetrics, accent: false },
+    { fn: slideApxDads, accent: false },
   ];
 
   // Capture each created slide (without threading a handle through every
@@ -615,6 +619,201 @@ function slideReference(pptx) {
     );
   });
   footer(s, pptx, '全出典は docs/practices.md を参照（本スライドは抜粋）');
+}
+
+// Small bold caption used as a component label inside appendix slides.
+function cellLabel(s, text, x, y, w) {
+  s.addText(text, {
+    x, y, w, h: 0.3, fontFace: FONT.sans, fontSize: SIZE.caption, bold: true,
+    color: COLOR.textSecondary, align: 'left', valign: 'top',
+  });
+}
+
+// A1 — Appendix: state & notice (callout / badge / tag / button / divider)
+function slideApxNotice(pptx) {
+  const s = pptx.addSlide();
+  s.background = { color: COLOR.slideBg };
+  heading(s, pptx, [{ text: '付録: ' }, { text: '状態と通知', accent: true }, { text: 'の部品' }]);
+  const top = 1.6;
+  const cx = gx(1);
+  const cwid = gw(6);
+  const callouts = [
+    ['情報', '補足的な案内を短く。', COLOR.accentWeak, COLOR.accent],
+    ['成功', '目標を達成しました。', COLOR.successWeak, COLOR.successText],
+    ['注意', '期限が近づいています。', COLOR.warningWeak, COLOR.warningText],
+    ['エラー', '入力に誤りがあります。', COLOR.errorWeak, COLOR.errorText],
+  ];
+  const ch = 0.92;
+  cellLabel(s, 'コールアウト（.callout）', cx, top - 0.35, cwid);
+  callouts.forEach(([label, text, bg, bar], i) => {
+    const y = top + i * (ch + 0.12);
+    s.addShape(pptx.ShapeType.rect, { x: cx, y, w: cwid, h: ch, fill: { color: bg }, line: { type: 'none' } });
+    s.addShape(pptx.ShapeType.rect, { x: cx, y, w: 0.06, h: ch, fill: { color: bar }, line: { type: 'none' } });
+    s.addText(
+      [{ text: `${label}  `, options: { bold: true, color: bar } }, { text, options: { color: COLOR.textPrimary } }],
+      { x: cx + 0.2, y, w: cwid - 0.35, h: ch, fontFace: FONT.sans, fontSize: SIZE.body, align: 'left', valign: 'middle' },
+    );
+  });
+  // right column: badges / tags / buttons / divider
+  const rx = gx(8);
+  const rwid = gw(5);
+  cellLabel(s, 'バッジ / タグ', rx, top - 0.35, rwid);
+  const badges = [
+    ['既定', COLOR.surface, COLOR.textPrimary], ['重要', COLOR.accent, COLOR.textOnAccent],
+    ['完了', COLOR.successWeak, COLOR.successText], ['進行中', COLOR.warningWeak, COLOR.warningText],
+    ['停止', COLOR.errorWeak, COLOR.errorText],
+  ];
+  let bx = rx;
+  badges.forEach(([t, bg, fg]) => {
+    const w = 0.9;
+    s.addShape(pptx.ShapeType.roundRect, { x: bx, y: top, w, h: 0.42, rectRadius: 0.2, fill: { color: bg }, line: { color: COLOR.border, width: 0.5 } });
+    s.addText(t, { x: bx, y: top, w, h: 0.42, fontFace: FONT.sans, fontSize: SIZE.caption, color: fg, align: 'center', valign: 'middle' });
+    bx += w + 0.12;
+  });
+  cellLabel(s, 'ボタン（主 / 副 / 第三）', rx, top + 0.7, rwid);
+  const btns = [['主要', COLOR.accent, COLOR.textOnAccent, 'none'], ['副', COLOR.slideBg, COLOR.accent, 'accent'], ['第三', COLOR.slideBg, COLOR.textSecondary, 'border']];
+  let btx = rx;
+  const bty = top + 1.1;
+  btns.forEach(([t, bg, fg, edge]) => {
+    const w = 1.15;
+    s.addShape(pptx.ShapeType.roundRect, {
+      x: btx, y: bty, w, h: 0.5, rectRadius: 0.06, fill: { color: bg },
+      line: edge === 'none' ? { type: 'none' } : { color: edge === 'accent' ? COLOR.accent : COLOR.border, width: 1 },
+    });
+    s.addText(t, { x: btx, y: bty, w, h: 0.5, fontFace: FONT.sans, fontSize: SIZE.caption, bold: true, color: fg, align: 'center', valign: 'middle' });
+    btx += w + 0.15;
+  });
+  cellLabel(s, '区切り（.divider）', rx, bty + 0.75, rwid);
+  s.addShape(pptx.ShapeType.line, { x: rx, y: bty + 1.15, w: rwid, h: 0, line: { color: COLOR.border, width: 1 } });
+  footer(s, pptx, '状態色は info/success/warning/error を意味づけトークンで色分け');
+}
+
+// A2 — Appendix: banner & step-nav (presentation-oriented components)
+function slideApxBanner(pptx) {
+  const s = pptx.addSlide();
+  s.background = { color: COLOR.slideBg };
+  heading(s, pptx, [{ text: '付録: ' }, { text: '告知と手順', accent: true }, { text: 'の部品' }]);
+  let y = 1.65;
+  cellLabel(s, 'バナー（通知・緊急）— 全幅の告知帯', gx(1), y, CW);
+  y += 0.42;
+  s.addShape(pptx.ShapeType.rect, { x: gx(1), y, w: CW, h: 0.7, fill: { color: COLOR.accentWeak }, line: { color: COLOR.accent, width: 1 } });
+  s.addText([{ text: 'お知らせ  ', options: { bold: true, color: COLOR.accent } }, { text: '新しいテンプレートを公開しました。', options: { color: COLOR.textPrimary } }],
+    { x: gx(1) + 0.25, y, w: CW - 0.5, h: 0.7, fontFace: FONT.sans, fontSize: SIZE.body, align: 'left', valign: 'middle' });
+  y += 0.85;
+  s.addShape(pptx.ShapeType.rect, { x: gx(1), y, w: CW, h: 0.7, fill: { color: COLOR.errorWeak }, line: { color: COLOR.errorText, width: 1 } });
+  s.addText([{ text: '緊急  ', options: { bold: true, color: COLOR.errorText } }, { text: 'システム障害が発生しています。至急ご確認ください。', options: { color: COLOR.textPrimary } }],
+    { x: gx(1) + 0.25, y, w: CW - 0.5, h: 0.7, fontFace: FONT.sans, fontSize: SIZE.body, align: 'left', valign: 'middle' });
+  y += 1.05;
+  cellLabel(s, 'ステップナビゲーション（済 / 現在 / 未来）', gx(1), y, CW);
+  y += 0.45;
+  const steps = [['選ぶ', 'done'], ['書く', 'current'], ['整える', 'upcoming'], ['配る', 'upcoming']];
+  let sx = gx(1);
+  steps.forEach(([lab, st], i) => {
+    const up = st === 'upcoming';
+    const cur = st === 'current';
+    const pillW = 1.6;
+    const md = 0.36;
+    s.addShape(pptx.ShapeType.roundRect, { x: sx, y, w: pillW, h: 0.5, rectRadius: 0.25, fill: { color: cur ? COLOR.accentWeak : COLOR.surface }, line: { type: 'none' } });
+    s.addShape(pptx.ShapeType.ellipse, { x: sx + 0.1, y: y + 0.07, w: md, h: md, fill: { color: up ? COLOR.textSecondary : COLOR.accent }, line: { type: 'none' } });
+    s.addText(String(i + 1), { x: sx + 0.1, y: y + 0.07, w: md, h: md, fontFace: FONT.sans, fontSize: 9, bold: true, color: COLOR.textOnAccent, align: 'center', valign: 'middle' });
+    s.addText(lab, { x: sx + 0.54, y, w: pillW - 0.62, h: 0.5, fontFace: FONT.sans, fontSize: SIZE.caption, bold: !up, color: cur ? COLOR.accent : (up ? COLOR.textSecondary : COLOR.textPrimary), align: 'left', valign: 'middle' });
+    sx += pillW + 0.15;
+  });
+  footer(s, pptx, 'バナー=通知/緊急、ステップナビ=済/現在/未来');
+}
+
+// A3 — Appendix: metrics & summary (native table + progress/stat/checklist/kv)
+function slideApxMetrics(pptx) {
+  const s = pptx.addSlide();
+  s.background = { color: COLOR.slideBg };
+  heading(s, pptx, [{ text: '付録: ' }, { text: '指標とまとめ', accent: true }, { text: 'の部品' }]);
+  const top = 1.6;
+  cellLabel(s, 'データテーブル（.data-table）', gx(1), top - 0.35, gw(7));
+  const hcell = (t) => ({ text: t, options: { bold: true, color: COLOR.textOnAccent, fill: { color: COLOR.accent }, align: 'left' } });
+  const num = (t) => ({ text: t, options: { align: 'right', color: COLOR.textPrimary } });
+  const rows = [
+    [hcell('指標'), { ...hcell('前月'), options: { ...hcell('前月').options, align: 'right' } }, { ...hcell('当月'), options: { ...hcell('当月').options, align: 'right' } }, { ...hcell('目標'), options: { ...hcell('目標').options, align: 'right' } }],
+    [{ text: '作成時間(h)', options: { color: COLOR.textPrimary } }, num('4.0'), num('1.0'), num('1.0')],
+    [{ text: 'レビュー往復', options: { color: COLOR.textPrimary, fill: { color: COLOR.surface } } }, { ...num('2.0'), options: { align: 'right', color: COLOR.textPrimary, fill: { color: COLOR.surface } } }, { ...num('1.4'), options: { align: 'right', color: COLOR.textPrimary, fill: { color: COLOR.surface } } }, { ...num('1.5'), options: { align: 'right', color: COLOR.textPrimary, fill: { color: COLOR.surface } } }],
+    [{ text: '準拠率', options: { color: COLOR.textPrimary } }, num('92%'), num('98%'), num('95%')],
+  ];
+  s.addTable(rows, {
+    x: gx(1), y: top, w: gw(7), colW: [gw(7) - 3 * 1.0, 1.0, 1.0, 1.0],
+    rowH: 0.42, fontFace: FONT.sans, fontSize: SIZE.caption, valign: 'middle',
+    border: { type: 'solid', color: COLOR.border, pt: 0.5 },
+  });
+  // right column: progress + stat
+  const rx = gx(9);
+  const rwid = gw(4);
+  cellLabel(s, 'プログレス（.progress）98%', rx, top - 0.35, rwid);
+  s.addShape(pptx.ShapeType.roundRect, { x: rx, y: top, w: rwid, h: 0.28, rectRadius: 0.14, fill: { color: COLOR.surface }, line: { type: 'none' } });
+  s.addShape(pptx.ShapeType.roundRect, { x: rx, y: top, w: rwid * 0.98, h: 0.28, rectRadius: 0.14, fill: { color: COLOR.accent }, line: { type: 'none' } });
+  cellLabel(s, '統計（.stat）', rx, top + 0.55, rwid);
+  s.addText('75%', { x: rx, y: top + 0.9, w: rwid, h: 0.7, fontFace: FONT.sans, fontSize: SIZE.display, bold: true, color: COLOR.accent, align: 'left' });
+  s.addText('作成時間 削減', { x: rx, y: top + 1.65, w: rwid, h: 0.3, fontFace: FONT.sans, fontSize: SIZE.caption, color: COLOR.textSecondary, align: 'left' });
+  // bottom: checklist + kv
+  const by = top + 2.7;
+  cellLabel(s, 'チェックリスト（.checklist）', gx(1), by, gw(6));
+  ['トークン準拠（ハードコード0）', 'WCAG 2.2 AA', 'スライドへ差し込み可能'].forEach((t, i) => {
+    const yy = by + 0.35 + i * 0.4;
+    s.addText('✓', { x: gx(1), y: yy, w: 0.3, h: 0.35, fontFace: FONT.sans, fontSize: SIZE.body, bold: true, color: COLOR.successText, align: 'left' });
+    s.addText(t, { x: gx(1) + 0.35, y: yy, w: gw(6) - 0.35, h: 0.35, fontFace: FONT.sans, fontSize: SIZE.body, color: COLOR.textPrimary, align: 'left', valign: 'middle' });
+  });
+  cellLabel(s, 'キーバリュー（.kv）', gx(8), by, gw(5));
+  [['対象', '全社（6部署）'], ['期間', '2026 Q3'], ['担当', 'プロダクト戦略']].forEach(([k, v], i) => {
+    const yy = by + 0.35 + i * 0.4;
+    s.addText(k, { x: gx(8), y: yy, w: 1.5, h: 0.35, fontFace: FONT.sans, fontSize: SIZE.caption, color: COLOR.textSecondary, align: 'left', valign: 'middle' });
+    s.addText(v, { x: gx(8) + 1.6, y: yy, w: gw(5) - 1.6, h: 0.35, fontFace: FONT.sans, fontSize: SIZE.body, color: COLOR.textPrimary, align: 'left', valign: 'middle' });
+  });
+  footer(s, pptx, '数値は右寄せ・ストライプで可読性を確保（ネイティブ表）');
+}
+
+// A4 — Appendix: DADS official (card / checkbox / radio / breadcrumb, approximated)
+function slideApxDads(pptx) {
+  const s = pptx.addSlide();
+  s.background = { color: COLOR.slideBg };
+  heading(s, pptx, [{ text: '付録: ' }, { text: 'DADS 公式コンポーネント', accent: true }]);
+  const top = 1.6;
+  // card (left)
+  cellLabel(s, 'カード（.dads-card）', gx(1), top - 0.35, gw(6));
+  const cardH = 3.0;
+  s.addShape(pptx.ShapeType.roundRect, { x: gx(1), y: top, w: gw(6), h: cardH, rectRadius: 0.06, fill: { color: COLOR.slideBg }, line: { color: COLOR.border, width: 1 } });
+  s.addShape(pptx.ShapeType.rect, { x: gx(1) + 0.15, y: top + 0.15, w: gw(6) - 0.3, h: 1.1, fill: { color: COLOR.surface }, line: { type: 'none' } });
+  s.addText('画像プレースホルダ', { x: gx(1) + 0.15, y: top + 0.15, w: gw(6) - 0.3, h: 1.1, fontFace: FONT.sans, fontSize: SIZE.caption, color: COLOR.textSecondary, align: 'center', valign: 'middle' });
+  s.addText('地域緑化事業', { x: gx(1) + 0.3, y: top + 1.35, w: gw(6) - 0.6, h: 0.4, fontFace: FONT.sans, fontSize: SIZE.h3, bold: true, color: COLOR.textPrimary, align: 'left' });
+  s.addText('住民が参加できる地域緑化事業。地域交流の促進と景観美化を目的としています。', { x: gx(1) + 0.3, y: top + 1.8, w: gw(6) - 0.6, h: 0.7, fontFace: FONT.sans, fontSize: SIZE.caption, color: COLOR.textSecondary, align: 'left', valign: 'top', lineSpacingMultiple: 1.3 });
+  s.addText('詳しくみる →', { x: gx(1) + 0.3, y: top + cardH - 0.5, w: gw(6) - 0.6, h: 0.35, fontFace: FONT.sans, fontSize: SIZE.caption, bold: true, color: COLOR.accent, align: 'left' });
+  // right column: checkbox / radio / breadcrumb
+  const rx = gx(8);
+  const rwid = gw(5);
+  cellLabel(s, 'チェックボックス（.dads-checkbox）', rx, top - 0.35, rwid);
+  const cbItems = [['足立区', true], ['荒川区', false]];
+  cbItems.forEach(([lab, on], i) => {
+    const yy = top + i * 0.45;
+    s.addShape(pptx.ShapeType.roundRect, { x: rx, y: yy, w: 0.28, h: 0.28, rectRadius: 0.04, fill: { color: on ? COLOR.accent : COLOR.slideBg }, line: { color: on ? COLOR.accent : COLOR.borderStrong, width: 1.5 } });
+    if (on) s.addText('✓', { x: rx, y: yy, w: 0.28, h: 0.28, fontFace: FONT.sans, fontSize: 10, bold: true, color: COLOR.textOnAccent, align: 'center', valign: 'middle' });
+    s.addText(lab, { x: rx + 0.4, y: yy, w: rwid - 0.4, h: 0.28, fontFace: FONT.sans, fontSize: SIZE.body, color: COLOR.textPrimary, align: 'left', valign: 'middle' });
+  });
+  const radioY = top + 1.15;
+  cellLabel(s, 'ラジオボタン（.dads-radio）', rx, radioY - 0.35, rwid);
+  const rItems = [['足立区', true], ['荒川区', false]];
+  rItems.forEach(([lab, on], i) => {
+    const yy = radioY + i * 0.45;
+    s.addShape(pptx.ShapeType.ellipse, { x: rx, y: yy, w: 0.28, h: 0.28, fill: { color: COLOR.slideBg }, line: { color: on ? COLOR.accent : COLOR.borderStrong, width: 1.5 } });
+    if (on) s.addShape(pptx.ShapeType.ellipse, { x: rx + 0.07, y: yy + 0.07, w: 0.14, h: 0.14, fill: { color: COLOR.accent }, line: { type: 'none' } });
+    s.addText(lab, { x: rx + 0.4, y: yy, w: rwid - 0.4, h: 0.28, fontFace: FONT.sans, fontSize: SIZE.body, color: COLOR.textPrimary, align: 'left', valign: 'middle' });
+  });
+  const bcY = radioY + 1.15;
+  cellLabel(s, 'パンくずリスト（.dads-breadcrumb）', rx, bcY - 0.35, rwid);
+  s.addText(
+    [
+      { text: 'ホーム', options: { color: COLOR.accent } }, { text: '  ＞  ', options: { color: COLOR.textSecondary } },
+      { text: '組織情報', options: { color: COLOR.accent } }, { text: '  ＞  ', options: { color: COLOR.textSecondary } },
+      { text: 'デザインシステムの導入', options: { color: COLOR.textPrimary } },
+    ],
+    { x: rx, y: bcY, w: rwid, h: 0.4, fontFace: FONT.sans, fontSize: SIZE.caption, align: 'left', valign: 'middle' },
+  );
+  footer(s, pptx, 'デジタル庁DS公式コンポーネントの体裁をネイティブ図形で近似（HTML付録G/Hに対応）');
 }
 
 async function main() {
