@@ -4,11 +4,12 @@
 
 ## 実装ステップ(概略)
 
-1. **付録に不足分を追加(index.html)**
+1. **付録に不足分+新規を追加(index.html / styles)**
    - 区切り(divider)の見本を付録A(または C)に追加。
+   - 新規自作 2 種(バナー〔通知・緊急〕/ステップナビゲーション)の CSS を `styles/components.css` に追加し、付録A/C に見本を配置。
    - 新設「付録F: DADS 公式コンポーネント」に 6 種(カード/箇条書きリスト/チェックボックス/ラジオ/プログレスインジケーター/パンくず)を埋め込み。
    - `<head>` に `styles/dads-components.css` をリンク。
-2. **数値表記の整合(index.html)**: 「12コンポーネント」→「18」、ダッシュボードタイルを更新。
+2. **数値表記の整合(index.html)**: 「12コンポーネント」→「20」、ダッシュボードタイルを更新。
 3. **生成物を再生成**: `node scripts/split-slides.mjs`。
 4. **独立ページ廃止**: `components.html` を削除し、`index.html` のナビリンク・`README.md`・`CLAUDE.md`(SPECKIT ブロック)・CSS/スクリプトのコメント参照を除去。
 5. **a11y テスト再ポイント**: `tests/a11y/components-a11y.spec.mjs`・`focus-a11y.spec.mjs` をデッキ(付録)対象に変更。
@@ -32,7 +33,7 @@ grep -rI "components.html" --exclude-dir=node_modules --exclude-dir=.git --exclu
 
 ## 完了の目安(Success Criteria 対応)
 
-- SC-001: 18 種すべてが付録に出現 → INV-1
+- SC-001: 20 種すべてが付録に出現 → INV-1
 - SC-002: `components.html` 不在・参照 0 → INV-6/7
 - SC-003: 検証スイート緑 → INV-2/3/4/5 + crossrefs/coverage
 - SC-004: pptx に付録・ラスタ 0 → INV-9/10/11

@@ -4,7 +4,7 @@
 
 ## C1. デッキ付録の内容契約(HTML)
 
-- **INV-1(網羅)**: 台帳 18 種すべてが、生成後の `slides/*.html` および `index.html` 付録スライド上に、判別可能な形で 1 回以上出現する。
+- **INV-1(網羅)**: 台帳 20 種すべてが、生成後の `slides/*.html` および `index.html` 付録スライド上に、判別可能な形で 1 回以上出現する。
 - **INV-2(トークン準拠)**: 付録スライドの体裁はトークン参照のみ。`npm run lint:tokens` が PASS。
 - **INV-3(生成整合)**: `index.html` 変更後に `node scripts/split-slides.mjs` を実行し、`npm run check:slides` が PASS(乖離 0)。
 - **INV-4(a11y)**: 付録を含む全レイアウトで axe コントラスト違反 0。`npm run test:a11y` PASS。
@@ -17,6 +17,7 @@
   - 注: `specs/` 配下の歴史的記録は除外。CLAUDE.md/README では過去形の記述に留め、リンク/読込を残さない。
 - **INV-7**: `components.html` ファイルが存在しない。
 - **INV-8(残置)**: `styles/components.css`・`styles/dads-components.css`・`tokens/vendor/**`・`vendor/dads-components/**` は存在し続ける。
+  - 検証: 上記パスの存在を明示確認する(受け入れ束に含める)。
 
 ## C3. PPTX エクスポート契約
 
@@ -40,4 +41,6 @@ npm run test:a11y
 npm run test:visual         # baseline 更新後
 npm run build:pptx          # + pptx 付録の pic 不在チェック
 ! grep -rI "components.html" --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=specs .
+# INV-8 残置確認
+test -f styles/components.css && test -f styles/dads-components.css && test -d vendor/dads-components && test -d tokens/vendor
 ```
