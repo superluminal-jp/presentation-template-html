@@ -8,14 +8,14 @@
 npm run build:pptx      # -> dist/sample-deck.pptx
 ```
 
-`dist/` は Git 管理外。生成物は PowerPoint / Keynote / Google スライドで開ける。
+生成物 `dist/sample-deck.pptx` は Git 追跡対象(`dist/` の他生成物は管理外)。PowerPoint / Keynote / Google スライドで開ける。
 
 ## 構成
 
 | ファイル | 役割 |
 |---|---|
-| `tokens.mjs` | デザイントークンの解決値(色 / フォント / サイズ)。`styles/tokens.semantic.css` を `tokens/vendor/tokens.css` 経由で解決した hex を集約(手維持) |
-| `build-pptx.mjs` | スライド生成器。`buildDeck()` が全スライドを組み立て、共通チャーム(機密区分 / 著作権 / ページ番号のプレースホルダ)を各スライドに付与 |
+| `tokens.mjs` | デザイントークンの解決値(色 / フォント / サイズ)。`styles/tokens.semantic.css` を `tokens/vendor/tokens.css` 経由で解決した hex を集約(手維持)。`CAT`(ダッシュボード多系列 7 パレット)/ `THEME`(テーマ配色 override マップ)を含む |
+| `build-pptx.mjs` | スライド生成器。`buildDeck()` が全スライドを組み立て、共通チャーム(機密区分 / 著作権 / ページ番号のプレースホルダ)を各スライドに付与。書き出し後に `applyDsTheme()` が `ppt/theme/theme1.xml` の配色を DS パレットへ差し替える |
 
 ## 出力内容(20 スライド)
 
@@ -25,7 +25,9 @@ npm run build:pptx      # -> dist/sample-deck.pptx
 ## 方針・整合
 
 - キャンバス 1280×720 px = 13.333×7.5 in(16:9)。px→pt は ×0.75、px→in は ÷96。
-- 配色はトークン解決値に一致(accent `#0017C1` ほか)。テーマフォントは Noto Sans JP。
+- 配色はトークン解決値に一致(プライマリ青 `--accent` = key-800 `#0031d8` = デジタル庁 HP 基調)。テーマフォントは Noto Sans JP。
+- **テーマ配色 override**: pptxgenjs は Office 既定スキーム(`accent1=#4472C4` ほか)を固定出力するため、`applyDsTheme()` で `theme1.xml` の `accent1`=DS 青 / `accent2–6`=DS カテゴリ色 / `text2`・`bg2`=DS グレーに差し替える。これにより **PowerPoint で後から挿入する図形・グラフの既定色が DS 青**になる(描画済み図形は元から明示 fill で DS 色)。
+- ダッシュボードの強調タイルは HTML テンプレート同様(グレー面 + 青トップボーダー + 青数値)。青ベタ塗りは使わない。
 - 図表スライドとダッシュボード / グラフ系の SVG は簡略化または省略(コンポーネントの体裁が伝わることを優先)。
 
 ## 制約(既知)

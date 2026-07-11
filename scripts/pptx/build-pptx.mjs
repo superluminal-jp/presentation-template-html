@@ -13,9 +13,10 @@
 
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
-import { mkdirSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import PptxGenJS from 'pptxgenjs';
-import { COLOR, FONT, SIZE } from './tokens.mjs';
+import JSZip from 'jszip';
+import { COLOR, FONT, SIZE, THEME } from './tokens.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT_DIR = resolve(__dirname, '../../dist');
@@ -398,9 +399,9 @@ function slideDashboard(pptx) {
   heading(s, pptx, [{ text: 'ダッシュボードは' }, { text: '6件以内', accent: true }, { text: 'のKPIを整列します' }]);
   const tiles = [
     ['レイアウト', '16', 'コア8+拡張8', false],
-    ['コンポーネント', '12', '再利用可', true],
+    ['コンポーネント', '20', '自作14+公式6', true],
     ['採用手法', '37', '出典付き', false],
-    ['付録スライド', '5', '実例', false],
+    ['付録スライド', '8', '実例', false],
     ['DS準拠', '100%', 'トークン参照', false],
     ['ハードコード', '0', 'lint検証', false],
   ];
@@ -411,16 +412,20 @@ function slideDashboard(pptx) {
   tiles.forEach(([label, value, sub, hi], i) => {
     const x = gx(1) + (i % cols) * (tw + gap);
     const y = BODY_TOP + Math.floor(i / cols) * (th + gap);
+    // Every tile is a gray surface; the highlight is marked by an accent (blue)
+    // border + thick top bar + accent value text — not a solid fill. Mirrors
+    // `.tile` / `.tile--highlight` in styles/slides.css (blue accent over gray).
     s.addShape(pptx.ShapeType.roundRect, {
       x, y, w: tw, h: th, rectRadius: 0.06,
-      fill: { color: hi ? COLOR.accent : COLOR.surface },
-      line: hi ? { type: 'none' } : { color: COLOR.border, width: 1 },
+      fill: { color: COLOR.surface },
+      line: { color: hi ? COLOR.accent : COLOR.border, width: 1 },
     });
-    const fg = hi ? COLOR.textOnAccent : COLOR.textPrimary;
-    const sub2 = hi ? COLOR.accentWeak : COLOR.textSecondary;
-    s.addText(label, { x: x + 0.28, y: y + 0.24, w: tw - 0.56, h: 0.4, fontFace: FONT.sans, fontSize: SIZE.caption, color: sub2, align: 'left' });
-    s.addText(value, { x: x + 0.28, y: y + 0.62, w: tw - 0.56, h: 0.9, fontFace: FONT.sans, fontSize: 40, bold: true, color: fg, align: 'left' });
-    s.addText(sub, { x: x + 0.28, y: th > 1.9 ? y + th - 0.5 : y + 1.5, w: tw - 0.56, h: 0.35, fontFace: FONT.sans, fontSize: SIZE.caption, color: sub2, align: 'left' });
+    if (hi) { // border-top: space-1 (4px) accent bar
+      s.addShape(pptx.ShapeType.rect, { x, y, w: tw, h: 0.042, fill: { color: COLOR.accent }, line: { type: 'none' } });
+    }
+    s.addText(label, { x: x + 0.28, y: y + 0.24, w: tw - 0.56, h: 0.4, fontFace: FONT.sans, fontSize: SIZE.caption, color: COLOR.textSecondary, align: 'left' });
+    s.addText(value, { x: x + 0.28, y: y + 0.62, w: tw - 0.56, h: 0.9, fontFace: FONT.sans, fontSize: 40, bold: true, color: hi ? COLOR.accent : COLOR.textPrimary, align: 'left' });
+    s.addText(sub, { x: x + 0.28, y: th > 1.9 ? y + th - 0.5 : y + 1.5, w: tw - 0.56, h: 0.35, fontFace: FONT.sans, fontSize: SIZE.caption, color: COLOR.textSecondary, align: 'left' });
   });
   footer(s, pptx, '使い方: 注目1件を強調・6件以内に抑える');
 }
@@ -816,10 +821,35 @@ function slideApxDads(pptx) {
   footer(s, pptx, 'デジタル庁DS公式コンポーネントの体裁をネイティブ図形で近似（HTML付録G/Hに対応）');
 }
 
+// Rewrite the hard-coded Office accent/gray values in `ppt/theme/theme1.xml`
+// with the DS palette (THEME). This is what makes shapes/charts inserted later
+// in PowerPoint default to DS blue rather than Office #4472C4. Regex targets the
+// `<a:slot><a:srgbClr val="…"/></a:slot>` structure so it is agnostic to the
+// specific pptxgenjs default values.
+function patchThemeColors(xml) {
+  const slot = (name, hex) =>
+    (xml = xml.replace(
+      new RegExp(`(<a:${name}><a:srgbClr val=")[0-9A-Fa-f]{6}("/></a:${name}>)`),
+      `$1${hex}$2`,
+    ));
+  for (const [name, hex] of Object.entries(THEME)) slot(name, hex);
+  return xml;
+}
+
+async function applyDsTheme(filePath) {
+  const zip = await JSZip.loadAsync(readFileSync(filePath));
+  const themePath = 'ppt/theme/theme1.xml';
+  const entry = zip.file(themePath);
+  if (!entry) throw new Error(`${themePath} not found in ${filePath}`);
+  zip.file(themePath, patchThemeColors(await entry.async('string')));
+  writeFileSync(filePath, await zip.generateAsync({ type: 'nodebuffer', compression: 'DEFLATE' }));
+}
+
 async function main() {
   mkdirSync(OUT_DIR, { recursive: true });
   const pptx = buildDeck();
   await pptx.writeFile({ fileName: OUT_FILE });
+  await applyDsTheme(OUT_FILE);
   console.log(`Wrote ${OUT_FILE}`);
 }
 
