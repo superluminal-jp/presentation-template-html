@@ -6,3 +6,9 @@
 
 Active tech: static HTML/CSS + minimal vanilla JS; DS tokens `@digital-go-jp/design-tokens@2.0.1` (pinned, vendored, immutable) mapped via `styles/tokens.semantic.css`; validation with Playwright + axe-core + token lint. Present mode is opt-in (default `review`) so native-size tests stay green.
 <!-- SPECKIT END -->
+
+## パッケージ管理
+Node/Python 等のライブラリはシステム全体ではなく、プロジェクトスコープでインストールすること。
+- Node: `npm install <pkg>` / `npm install -D <pkg>`(`package.json`/`package-lock.json` に記録)。`npm install -g` は避ける。
+- Python: venv 等のプロジェクトローカル環境にインストールし、システム Python への直接 `pip install` は避ける。
+- 使い捨て実行(`npx <pkg>`, `uvx <pkg>` など)はこの限りではない。
