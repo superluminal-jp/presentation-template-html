@@ -13,10 +13,12 @@
     "sync:dads": "node scripts/sync-dads.mjs",
     "check:dads": "node scripts/sync-dads.mjs --check",
     "build:pptx": "node scripts/pptx/build-pptx.mjs",
+    "build:pdf": "node scripts/pdf/build-pdf.mjs",
+    "check:pdf": "node scripts/pdf/check-pdf.mjs",
     "test:visual": "playwright test tests/visual",
     "test:a11y": "playwright test tests/a11y",
     "test:print": "playwright test tests/print",
-    "verify": "npm run lint:tokens && npm run check:crossrefs && npm run check:coverage && npm run check:slides && npm run test:visual && npm run test:a11y && npm run test:print"
+    "verify": "npm run lint:tokens && npm run check:crossrefs && npm run check:coverage && npm run check:slides && npm run test:visual && npm run test:a11y && npm run test:print && npm run build:pdf && npm run check:pdf"
   },
   "dependencies": {
     "@digital-go-jp/design-tokens": "2.0.1"

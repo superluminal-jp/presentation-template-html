@@ -4,11 +4,12 @@ Thumbs.db
 
 # Node / build
 node_modules/
-# Track the built PPTX artifact; ignore everything else in dist/.
+# Track the built PPTX + PDF artifacts; ignore everything else in dist/.
 # `!dist/` re-includes the dir so the negation below can win over the global ignore of `dist`.
 !dist/
 dist/*
 !dist/sample-deck.pptx
+!dist/deck.pdf
 build/
 *.log
 
