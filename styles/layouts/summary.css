@@ -5,7 +5,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-6);
-  align-content: center;
+  align-content: start;
 }
 .slide--summary .key {
   display: grid;

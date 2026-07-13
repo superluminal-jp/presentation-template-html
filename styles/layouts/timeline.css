@@ -3,7 +3,7 @@
 .slide--timeline .timeline {
   grid-column: 1 / -1;
   grid-row: 2;
-  align-self: center;
+  align-self: start;
   list-style: none;
   margin: 0;
   padding: 0;
