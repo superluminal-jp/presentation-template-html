@@ -25,8 +25,8 @@ description: "Task list for HTML→PDF confirmation flow evaluated by Claude Cod
 
 **Purpose**: PDF 関連コードの置き場と成果物規約の確認
 
-- [ ] T001 `scripts/pdf/` ディレクトリを新設し、`scripts/pptx/README.md` に倣った近接ドキュメント雛形 `scripts/pdf/README.md` を作成する
-- [ ] T002 成果物 `dist/deck.pdf`・`dist/pdf-pages/` が既存 `.gitignore`（`dist/*`、`!dist/sample-deck.pptx` のみ例外）で追跡外になることを確認し、その旨を `scripts/pdf/README.md` に明記する（追加の無視設定は不要／FR-011）
+- [x] T001 `scripts/pdf/` ディレクトリを新設し、`scripts/pptx/README.md` に倣った近接ドキュメント雛形 `scripts/pdf/README.md` を作成する
+- [x] T002 成果物 `dist/deck.pdf`・`dist/pdf-pages/` が既存 `.gitignore`（`dist/*`、`!dist/sample-deck.pptx` のみ例外）で追跡外になることを確認し、その旨を `scripts/pdf/README.md` に明記する（追加の無視設定は不要／FR-011）
 
 ---
 
@@ -36,9 +36,9 @@ description: "Task list for HTML→PDF confirmation flow evaluated by Claude Cod
 
 **⚠️ CRITICAL**: このフェーズ完了までユーザーストーリー作業は開始できない
 
-- [ ] T003 `scripts/pdf/build-pdf.mjs` を実装する（Playwright chromium で `index.html` を `file://` で開き、`emulateMedia({media:'print'})` の上で `page.pdf({width:'1280px',height:'720px',printBackground:true})` を `dist/deck.pdf` に出力。`--out <path>` / `--png`（`dist/pdf-pages/NN.png`）対応。stdout に `[build:pdf] wrote <path> (N pages)`。Chromium 未導入時は `npx playwright install chromium` を促し非0終了。版面 CSS は新規定義せず既存 `@media print` のみ使用／FR-010, 契約 `contracts/build-pdf-cli.md`）
-- [ ] T004 `package.json` の `scripts` に `"build:pdf": "node scripts/pdf/build-pdf.mjs"` を追加する
-- [ ] T005 `npm run build:pdf` を実行し `dist/deck.pdf` が生成され、stdout のページ数が表示されることを確認する（生成成功のスモーク）
+- [x] T003 `scripts/pdf/build-pdf.mjs` を実装する（Playwright chromium で `index.html` を `file://` で開き、`emulateMedia({media:'print'})` の上で `page.pdf({width:'1280px',height:'720px',printBackground:true})` を `dist/deck.pdf` に出力。`--out <path>` / `--png`（`dist/pdf-pages/NN.png`）対応。stdout に `[build:pdf] wrote <path> (N pages)`。Chromium 未導入時は `npx playwright install chromium` を促し非0終了。版面 CSS は新規定義せず既存 `@media print` のみ使用／FR-010, 契約 `contracts/build-pdf-cli.md`）
+- [x] T004 `package.json` の `scripts` に `"build:pdf": "node scripts/pdf/build-pdf.mjs"` を追加する
+- [x] T005 `npm run build:pdf` を実行し `dist/deck.pdf` が生成され、stdout のページ数が表示されることを確認する（生成成功のスモーク）
 
 **Checkpoint**: PDF 成果物が再現可能に生成できる
 
@@ -52,9 +52,9 @@ description: "Task list for HTML→PDF confirmation flow evaluated by Claude Cod
 
 ### Implementation for User Story 1
 
-- [ ] T006 [US1] `scripts/pdf/README.md` に評価手続きを記載する（`contracts/evaluation-rubric.md` を参照し、build:pdf → Read `pages` で全ページ読込 → A 描画破綻/B 設計適合を適用 → C 表形式レポート、`UNEVALUABLE` は合格にしない／FR-003, FR-013）
-- [ ] T007 [US1] リポジトリ直下 `README.md` に「PDF で確認する（Claude Code）」節を追加する（起動方法・出力先・評価観点・レポート様式／FR-012, 近接ドキュメント）
-- [ ] T008 [US1] 確認フローを実際に実行して基準レポートを作成する（`npm run build:pdf` → Claude Code が `dist/deck.pdf` を Read `pages` で全ページ評価 → `contracts/evaluation-rubric.md` の C 様式で `specs/008-html-pdf-preview/evaluation-report.md` に出力。全スライドを網羅すること／SC-001, SC-005）
+- [x] T006 [US1] `scripts/pdf/README.md` に評価手続きを記載する（`contracts/evaluation-rubric.md` を参照し、build:pdf → Read `pages` で全ページ読込 → A 描画破綻/B 設計適合を適用 → C 表形式レポート、`UNEVALUABLE` は合格にしない／FR-003, FR-013）
+- [x] T007 [US1] リポジトリ直下 `README.md` に「PDF で確認する（Claude Code）」節を追加する（起動方法・出力先・評価観点・レポート様式／FR-012, 近接ドキュメント）
+- [x] T008 [US1] 確認フローを実際に実行して基準レポートを作成する（`npm run build:pdf` → Claude Code が `dist/deck.pdf` を Read `pages` で全ページ評価 → `contracts/evaluation-rubric.md` の C 様式で `specs/008-html-pdf-preview/evaluation-report.md` に出力。全スライドを網羅すること／SC-001, SC-005）
 
 **Checkpoint**: US1 単独で「Claude Code による PDF 評価」が成立（MVP）
 
@@ -68,8 +68,8 @@ description: "Task list for HTML→PDF confirmation flow evaluated by Claude Cod
 
 ### Implementation for User Story 2
 
-- [ ] T009 [P] [US2] `README.md`／`specs/008-html-pdf-preview/quickstart.md` にブラウザ確認手順を記載する（`index.html` を `file://` で開く、発表モード `P`・注釈トグル `A` を観察、環境が無ければスキップ可／FR-007）
-- [ ] T010 [US2] Claude Code が Chromium で `index.html` を開き、全スライドの画面表示と1つ以上の対話挙動を観察し、その所見を `specs/008-html-pdf-preview/evaluation-report.md` に追記する（SC-006）
+- [x] T009 [P] [US2] `README.md`／`specs/008-html-pdf-preview/quickstart.md` にブラウザ確認手順を記載する（`index.html` を `file://` で開く、発表モード `P`・注釈トグル `A` を観察、環境が無ければスキップ可／FR-007）
+- [x] T010 [US2] Claude Code が Chromium で `index.html` を開き、全スライドの画面表示と1つ以上の対話挙動を観察し、その所見を `specs/008-html-pdf-preview/evaluation-report.md` に追記する（SC-006）
 
 **Checkpoint**: US1 に加え、対話挙動を含む観察が評価に反映される
 
@@ -83,13 +83,13 @@ description: "Task list for HTML→PDF confirmation flow evaluated by Claude Cod
 
 ### Tests for User Story 3 ⚠️（先行・RED）
 
-- [ ] T011 [P] [US3] `tests/print/pdf-artifact.spec.mjs` を追加する（RED）: `index.html` から PDF を生成し、ページ数が `.slide` 実数と一致すること・`byteLength>1024` を検証（`tests/visual/_fixtures.mjs` の `indexUrl` を利用、枚数はハードコードしない）
+- [x] T011 [P] [US3] `tests/print/pdf-artifact.spec.mjs` を追加する（RED）: `index.html` から PDF を生成し、ページ数が `.slide` 実数と一致すること・`byteLength>1024` を検証（`tests/visual/_fixtures.mjs` の `indexUrl` を利用、枚数はハードコードしない）
 
 ### Implementation for User Story 3
 
-- [ ] T012 [US3] `scripts/pdf/check-pdf.mjs` を実装する（`dist/deck.pdf` の存在と `byteLength>1024`、PDF の `/Type /Page`（`/Pages` 除外）出現数を `index.html` の `.slide` 実数と照合、不一致で stderr に期待/実測を出し非0終了、PASS 時 `[check:pdf] PASS — N ページ` ／契約 `contracts/build-pdf-cli.md`, FR-008）
-- [ ] T013 [US3] `package.json` に `"check:pdf": "node scripts/pdf/check-pdf.mjs"` を追加し、`verify` チェーンへ `build:pdf` → `check:pdf` を結線する（FR-009／T004 と同一ファイルのため T004 の後）
-- [ ] T014 [US3] 注入不備の検出を検証する（あるスライドに一時的にオーバーフローを混入 → `npm run build:pdf` → `check:pdf` と Claude Code 評価の双方が当該不備を検出することを確認 → 変更を復元。混入版はコミットしない／SC-003, SC-004）
+- [x] T012 [US3] `scripts/pdf/check-pdf.mjs` を実装する（`dist/deck.pdf` の存在と `byteLength>1024`、PDF の `/Type /Page`（`/Pages` 除外）出現数を `index.html` の `.slide` 実数と照合、不一致で stderr に期待/実測を出し非0終了、PASS 時 `[check:pdf] PASS — N ページ` ／契約 `contracts/build-pdf-cli.md`, FR-008）
+- [x] T013 [US3] `package.json` に `"check:pdf": "node scripts/pdf/check-pdf.mjs"` を追加し、`verify` チェーンへ `build:pdf` → `check:pdf` を結線する（FR-009／T004 と同一ファイルのため T004 の後）
+- [x] T014 [US3] 注入不備の検出を検証する（あるスライドに一時的にオーバーフローを混入 → `npm run build:pdf` → `check:pdf` と Claude Code 評価の双方が当該不備を検出することを確認 → 変更を復元。混入版はコミットしない／SC-003, SC-004）
 
 **Checkpoint**: 決定的ガードが `verify` に載り、既知不備の検出可能性が担保される
 
@@ -99,9 +99,9 @@ description: "Task list for HTML→PDF confirmation flow evaluated by Claude Cod
 
 **Purpose**: ドキュメント整合と全体検証
 
-- [ ] T015 [P] `README.md` / `scripts/pdf/README.md` / `specs/008-html-pdf-preview/quickstart.md` の記述重複を排し相互リンクで整合させる（No Redundancy／Proximity）
-- [ ] T016 `npm run verify` を実行し、新規 `build:pdf`／`check:pdf` を含め全チェーンが green であることを確認する
-- [ ] T017 `specs/008-html-pdf-preview/quickstart.md` の手順どおりにエンドツーエンドで再実行し、SC-001〜SC-008 の充足を確認する
+- [x] T015 [P] `README.md` / `scripts/pdf/README.md` / `specs/008-html-pdf-preview/quickstart.md` の記述重複を排し相互リンクで整合させる（No Redundancy／Proximity）
+- [x] T016 `npm run verify` を実行し、新規 `build:pdf`／`check:pdf` を含め全チェーンが green であることを確認する
+- [x] T017 `specs/008-html-pdf-preview/quickstart.md` の手順どおりにエンドツーエンドで再実行し、SC-001〜SC-008 の充足を確認する
 
 ---
 
