@@ -6,9 +6,9 @@ test('deck: per-slide screenshot regression', async ({ page }) => {
   await page.goto(indexUrl());
   const slides = page.locator('.slide');
   const n = await slides.count();
-  // コア16 + 付録8(A–H) = 24。付録 F/G/H は feature 007 でコンポーネント一本化により追加。
+  // コア16 + 付録9(A–I) = 25。付録I はグリッド(12カラム×3行)の下地を可視化する説明スライド。
   // スライド増減時はこの値とベースラインを更新する。
-  expect(n).toBe(24);
+  expect(n).toBe(25);
   for (let i = 0; i < n; i++) {
     const layout = await slides.nth(i).getAttribute('data-layout');
     await expect(slides.nth(i)).toHaveScreenshot(`deck-${layout}.png`, { maxDiffPixelRatio: 0.001 });

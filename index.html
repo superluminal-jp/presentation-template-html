@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="styles/layouts/image-full.css" />
   <link rel="stylesheet" href="styles/layouts/closing.css" />
   <link rel="stylesheet" href="styles/layouts/appendix.css" />
+  <link rel="stylesheet" href="styles/layouts/grid-guide.css" />
   <link rel="stylesheet" href="styles/components.css" />
   <link rel="stylesheet" href="styles/dads-components.css" />
   <link rel="stylesheet" href="styles/frame.css" />
@@ -244,7 +245,7 @@
           <div class="tile"><span class="tile__label">レイアウト</span><span class="tile__value">16</span><span class="tile__sub">コア8+拡張8</span></div>
           <div class="tile tile--highlight"><span class="tile__label">コンポーネント</span><span class="tile__value">20</span><span class="tile__sub">自作14+公式6</span></div>
           <div class="tile"><span class="tile__label">採用手法</span><span class="tile__value">37</span><span class="tile__sub">出典付き</span></div>
-          <div class="tile"><span class="tile__label">付録スライド</span><span class="tile__value">8</span><span class="tile__sub">実例</span></div>
+          <div class="tile"><span class="tile__label">付録スライド</span><span class="tile__value">9</span><span class="tile__sub">実例</span></div>
           <div class="tile"><span class="tile__label">DS準拠</span><span class="tile__value">100%</span><span class="tile__sub">トークン参照</span></div>
           <div class="tile"><span class="tile__label">ハードコード</span><span class="tile__value">0</span><span class="tile__sub">lint検証</span></div>
         </div>
@@ -809,6 +810,53 @@
           </div>
         </div>
         <div class="slide__footer"><span class="slide__citation">デジタル庁DS公式サンプルの無改変同梱（vendor/dads-components, MIT）。styles/dads-components.css で描画</span></div>
+      </div>
+    </section>
+
+    <!-- Appendix I: グリッド(12カラムの下地) -->
+    <section class="slide slide--appendix slide--grid-guide" data-layout="appendix-grid">
+      <div class="slide__stage">
+        <h2 class="slide__heading">全レイアウトは<span class="u-accent">12カラム × 3行</span>のグリッドに載ります</h2>
+        <div class="grid-demo">
+          <div class="grid-demo__safe">
+            <span class="grid-demo__safe-label">安全域（本文領域） — 上下32px・左右48pxの内側</span>
+            <div class="grid-demo__row">
+              <span class="grid-demo__row-tag"><b>行1</b> auto ── 見出し（アクションタイトル）</span>
+            </div>
+            <div class="grid-demo__row grid-demo__row--body">
+              <span class="grid-demo__row-tag"><b>行2</b> 1fr ── 本文・図版（12カラムで割り付け）</span>
+              <div class="grid-demo__cols" aria-label="12カラムの下地（各列は1/12・列間ガター24px）">
+                <span class="grid-demo__col">1</span>
+                <span class="grid-demo__col">2</span>
+                <span class="grid-demo__col">3</span>
+                <span class="grid-demo__col">4</span>
+                <span class="grid-demo__col">5</span>
+                <span class="grid-demo__col">6</span>
+                <span class="grid-demo__col">7</span>
+                <span class="grid-demo__col">8</span>
+                <span class="grid-demo__col">9</span>
+                <span class="grid-demo__col">10</span>
+                <span class="grid-demo__col">11</span>
+                <span class="grid-demo__col">12</span>
+              </div>
+              <div class="grid-demo__spans" aria-label="割り付け例（.col-4 と .col-8 で12列を分割）">
+                <span class="grid-demo__span grid-demo__span--a">.col-4（本文）</span>
+                <span class="grid-demo__span grid-demo__span--b">.col-8（図版・コンポーネント）</span>
+              </div>
+            </div>
+            <div class="grid-demo__row">
+              <span class="grid-demo__row-tag"><b>行3</b> auto ── フッタ（道標・出典・ページ番号）</span>
+            </div>
+          </div>
+          <div class="grid-demo__specs">
+            <span class="grid-demo__spec"><b>キャンバス</b> 1280×720px（16:9固定）</span>
+            <span class="grid-demo__spec"><b>カラム</b> 12（各1fr等分）</span>
+            <span class="grid-demo__spec"><b>行</b> auto / 1fr / auto の3行</span>
+            <span class="grid-demo__spec"><b>ガター</b> 列間24px / 行間16px</span>
+            <span class="grid-demo__spec"><b>安全余白</b> 左右48px / 上下32px</span>
+          </div>
+        </div>
+        <div class="slide__footer"><span class="slide__citation">下地は styles/grid.css の変数と同一値（12カラム・3行 auto/1fr/auto）。配置は生pxではなく --space-* とカラムスパンで指定（整列・一貫性）</span></div>
       </div>
     </section>
 
