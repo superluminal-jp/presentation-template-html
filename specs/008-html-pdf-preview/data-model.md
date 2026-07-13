@@ -12,7 +12,7 @@
 
 ## Entity: PDF 出力 (PDF Artifact)
 
-- **表現**: `dist/deck.pdf`（バージョン管理外）
+- **表現**: `dist/deck.pdf`（追跡対象。PPTX 成果物と同様に `.gitignore` 例外指定）
 - **属性**:
   - `pageCount`: 整数。= 正本デックの `slides[]` 件数。
   - `pageSize`: 1280×720px 相当（16:9）。

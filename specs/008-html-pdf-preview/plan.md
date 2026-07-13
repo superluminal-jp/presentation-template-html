@@ -14,7 +14,7 @@
 
 **Primary Dependencies**: `@playwright/test`（chromium、既存 devDependency）を PDF 生成・ブラウザ観察に流用。新規依存なし（PDF パーサ等の追加を避ける）
 
-**Storage**: ファイルシステム成果物 `dist/deck.pdf`（および任意の per-slide PNG）。`dist/*` は既に `.gitignore` 済み（`dist/sample-deck.pptx` のみ追跡）
+**Storage**: ファイルシステム成果物 `dist/deck.pdf`（追跡対象）と、任意の per-slide PNG（追跡外）。`.gitignore` は `dist/*` を無視しつつ `!dist/sample-deck.pptx`・`!dist/deck.pdf` を例外として追跡
 
 **Testing**: 既存 `verify` チェーン（Playwright + axe-core + node lint スクリプト）。決定的な下地チェックを追加し `test:print` 相当の枠へ組込
 
@@ -24,7 +24,7 @@
 
 **Performance Goals**: PDF 生成は数秒オーダー。性能はクリティカルでない
 
-**Constraints**: 版面は `@media print` を単一の正として再利用（二重定義禁止）。依存追加を避ける。成果物はバージョン管理外。スライド枚数はハードコードせず `.slide` 実数に追随
+**Constraints**: 版面は `@media print` を単一の正として再利用（二重定義禁止）。依存追加を避ける。生成 PDF は追跡（PPTX と同様）／PNG 等は追跡外。スライド枚数はハードコードせず `.slide` 実数に追随
 
 **Scale/Scope**: 約 25 スライド（16 レイアウト＋付録 A–I）
 
@@ -79,12 +79,12 @@ tests/
 └── print/
     └── pdf-artifact.spec.mjs  # 新規（任意）: build:pdf 後の成果物条件を Playwright で回帰
 dist/
-└── deck.pdf                   # 生成物（.gitignore 済み。dist/* は追跡外）
+└── deck.pdf                   # 生成物（追跡対象。.gitignore の !dist/deck.pdf で例外指定）
 README.md                      # 確認フロー節を追記（近接ドキュメント）
 package.json                   # scripts に build:pdf / check:pdf を追加、verify に結線
 ```
 
-**Structure Decision**: 既存の `scripts/<domain>/` パターン（例: `scripts/pptx/`）に合わせ、PDF 関連を `scripts/pdf/` に集約。成果物は既存の `dist/` ＋ `.gitignore` 規約を再利用（新規の無視設定は不要）。テストは既存 `tests/print/` 配下に追加し、`verify` の `test:print` 経路に自然に含める。
+**Structure Decision**: 既存の `scripts/<domain>/` パターン（例: `scripts/pptx/`）に合わせ、PDF 関連を `scripts/pdf/` に集約。成果物は既存の `dist/` を再利用し、`sample-deck.pptx` と同様に `dist/deck.pdf` を `.gitignore` の例外として追跡する。テストは既存 `tests/print/` 配下に追加し、`verify` の `test:print` 経路に自然に含める。
 
 ## Complexity Tracking
 

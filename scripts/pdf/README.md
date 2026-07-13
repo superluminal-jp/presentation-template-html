@@ -20,7 +20,8 @@
 ## 成果物とバージョン管理
 
 - 出力: `dist/deck.pdf`、任意で `dist/pdf-pages/NN.png`。
-- 既存 `.gitignore` の `dist/*`(例外は `!dist/sample-deck.pptx` のみ)で**追跡外**。追加の無視設定は不要。
+- `dist/deck.pdf` は**追跡対象**(`.gitignore` の `!dist/deck.pdf` で例外指定。`sample-deck.pptx` と同様、ビルド不要でレビュー・閲覧可能)。per-slide PNG 等その他の生成物は `dist/*` により追跡外。
+- 注意: デック変更のたびに PDF が再コミットされ差分が出る(意図的。レビュー容易性を優先)。
 
 ## Claude Code による評価手順
 

@@ -99,7 +99,7 @@ npm run build:pdf        # index.html → dist/deck.pdf(--png で dist/pdf-pages
 npm run check:pdf        # 決定的チェック: ページ数 == スライド枚数・生成成功
 ```
 
-Claude Code の手順: `build:pdf` → `dist/deck.pdf` を Read ツールの `pages` で全ページ読込 → 描画破綻(見切れ/ページ分裂/フレーム欠落/重なり)と設計適合(DS 配色・アクションタイトル・視覚階層・コントラスト)を評価 → スライド単位の表でレポート(`UNEVALUABLE` は合格扱いにしない)。可能なら `index.html` をブラウザで開き発表モード `P`・注釈トグル `A` を観察して所見を補強する。`dist/` は Git 管理外。
+Claude Code の手順: `build:pdf` → `dist/deck.pdf` を Read ツールの `pages` で全ページ読込 → 描画破綻(見切れ/ページ分裂/フレーム欠落/重なり)と設計適合(DS 配色・アクションタイトル・視覚階層・コントラスト)を評価 → スライド単位の表でレポート(`UNEVALUABLE` は合格扱いにしない)。可能なら `index.html` をブラウザで開き発表モード `P`・注釈トグル `A` を観察して所見を補強する。`dist/deck.pdf` は追跡対象(`sample-deck.pptx` と同様、ビルド不要でレビュー可)、per-slide PNG 等は Git 管理外。
 
 ## フォント
 

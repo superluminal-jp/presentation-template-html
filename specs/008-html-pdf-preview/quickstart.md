@@ -5,7 +5,7 @@
 ## 前提
 
 - `npm install` 済み、`npx playwright install chromium` 済み（Chromium 必須）。
-- 生成物は `dist/`（バージョン管理外）。
+- 生成物は `dist/`。`dist/deck.pdf` は追跡対象（PPTX と同様）、per-slide PNG 等は追跡外。
 
 ## 手順（Claude Code 主体）
 

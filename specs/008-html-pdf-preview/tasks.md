@@ -26,7 +26,7 @@ description: "Task list for HTML→PDF confirmation flow evaluated by Claude Cod
 **Purpose**: PDF 関連コードの置き場と成果物規約の確認
 
 - [x] T001 `scripts/pdf/` ディレクトリを新設し、`scripts/pptx/README.md` に倣った近接ドキュメント雛形 `scripts/pdf/README.md` を作成する
-- [x] T002 成果物 `dist/deck.pdf`・`dist/pdf-pages/` が既存 `.gitignore`（`dist/*`、`!dist/sample-deck.pptx` のみ例外）で追跡外になることを確認し、その旨を `scripts/pdf/README.md` に明記する（追加の無視設定は不要／FR-011）
+- [x] T002 `.gitignore` に `!dist/deck.pdf` を追加して生成 PDF を追跡対象にし（`sample-deck.pptx` と同様）、per-slide PNG 等その他の生成物は `dist/*` により追跡外であることを `scripts/pdf/README.md` に明記する（FR-011）
 
 ---
 
@@ -170,5 +170,5 @@ Task: "tests/print/pdf-artifact.spec.mjs を追加 (T011, RED)"
 - [P] = 別ファイル・依存なし
 - Claude Code の視覚評価は主観判断のため、決定的指標（枚数一致・生成成功＝US3）と既知不備検出（T014）で裏打ちする
 - 版面は既存 `@media print` のみを正とし、PDF 用の新規 CSS を書かない
-- 成果物（PDF/PNG）はコミットしない。注入不備の検証版もコミットしない
+- 生成 PDF（`dist/deck.pdf`）は追跡対象。PNG 等その他の生成物・注入不備の検証版はコミットしない
 - 各タスクまたは論理的なまとまりごとにコミット
