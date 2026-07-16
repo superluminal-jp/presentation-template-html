@@ -7,7 +7,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-6);
-  align-items: start;
+  align-items: stretch; /* 2案のボックスを本文領域の下端まで伸ばし余白を埋める */
 }
 .slide--compare .slide__footer { grid-row: 4; }
 .slide--compare .col {
@@ -17,6 +17,7 @@
   padding: var(--space-5);
   display: grid;
   gap: var(--space-3);
+  align-content: start; /* ボックスは伸ばしつつ内容は上詰め */
 }
 .slide--compare .col--accent { border-color: var(--accent); border-top: var(--space-1) solid var(--accent); }
 .slide--compare .col h3 { font-size: var(--fs-h2); }
