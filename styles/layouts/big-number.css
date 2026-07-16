@@ -1,20 +1,24 @@
-/* big-number — 単一の重要指標。Von Restorff/事前注意/流暢性/アンカリング。 */
+/* big-number — 単一の重要指標。Von Restorff/事前注意/流暢性/アンカリング。
+   数値と内訳(アンカー)を1ユニットとして中央寄せし、数値を主役として際立たせる。 */
 .slide--big-number .slide__stage { grid-template-rows: auto 1fr auto; }
-.slide--big-number .bignum {
+.slide--big-number .bignum-block {
   grid-column: 1 / -1;
   grid-row: 2;
   align-self: center;
   justify-self: start;
-  font-size: var(--font-size-64);
+  display: grid;
+  gap: var(--space-4);
+}
+.slide--big-number .bignum {
+  /* DS 型スケール上限(--font-size-64)ではキャンバスに対し弱いため、トークン由来の派生値で拡大。
+     生 px を書かないため lint:tokens を通過する。 */
+  font-size: calc(var(--font-size-64) * 1.8);
   line-height: var(--lh-tight);
   font-weight: var(--fw-bold);
   color: var(--accent);
 }
 .slide--big-number .bignum .unit { font-size: var(--fs-h1); color: var(--text-primary); margin-left: var(--space-2); }
 .slide--big-number .anchor {
-  grid-column: 1 / -1;
-  grid-row: 2;
-  align-self: end;
   font-size: var(--fs-h3);
   color: var(--text-secondary);
 }

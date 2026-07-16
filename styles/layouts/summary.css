@@ -5,7 +5,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-6);
-  align-content: center;
+  align-content: stretch; /* 3枚を本文領域いっぱいに伸ばし、下部の空白とCTAとの間延びを解消 */
 }
 .slide--summary .key {
   display: grid;

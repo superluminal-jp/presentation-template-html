@@ -30,9 +30,11 @@
 .ms-1 { fill: var(--cat-1); }
 .ms-2 { fill: var(--cat-4); }
 .ms-3 { fill: var(--cat-5); }
-.legend__swatch--cat1 { background: var(--cat-1); }
-.legend__swatch--cat2 { background: var(--cat-4); }
-.legend__swatch--cat3 { background: var(--cat-5); }
+/* 系列凡例は基底 .legend__swatch{background:var(--accent)}(components.css・後読み)に
+   同一詳細度で上書きされ緑/橙が青化するため、.legend スコープで詳細度を上げて系列色を確実に勝たせる。 */
+.legend .legend__swatch--cat1 { background: var(--cat-1); }
+.legend .legend__swatch--cat2 { background: var(--cat-4); }
+.legend .legend__swatch--cat3 { background: var(--cat-5); }
 
 /* Appendix E: グラフ事例集(用途別のチャート選択) */
 .slide--appendix-graphs .graph-grid {
