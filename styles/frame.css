@@ -39,9 +39,11 @@
 .slide[data-confidentiality="2"] .frame__confidentiality { background: var(--conf2-bg); color: var(--conf2-fg); }
 .slide[data-confidentiality="3"] .frame__confidentiality { background: var(--conf3-bg); color: var(--conf3-fg); }
 
-/* 濃色地スライド(表紙/クロージング=accent)ではフレーム文字を反転 */
+/* 濃色地スライド(表紙/クロージング=accent、全面画像=スクリムで暗転)ではフレーム文字を反転。
+   全面画像は .scrim(opacity-gray-600)上に載るため、中立色の scope 等が埋没する。キャプションと同じ白系に揃える。 */
 .slide--title .frame__copyright, .slide--title .frame__pageno, .slide--title .frame__scope,
-.slide--closing .frame__copyright, .slide--closing .frame__pageno, .slide--closing .frame__scope {
+.slide--closing .frame__copyright, .slide--closing .frame__pageno, .slide--closing .frame__scope,
+.slide--image-full .frame__copyright, .slide--image-full .frame__pageno, .slide--image-full .frame__scope {
   color: var(--text-on-accent);
 }
 

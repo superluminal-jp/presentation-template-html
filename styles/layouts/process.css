@@ -2,7 +2,7 @@
 .slide--process .process {
   grid-column: 1 / -1;
   grid-row: 2;
-  align-self: center;
+  align-self: start;
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 1fr auto;

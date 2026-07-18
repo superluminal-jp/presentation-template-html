@@ -5,6 +5,8 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-4);
-  align-content: start;
+  align-content: stretch; /* 6件を維持したまま2行を本文領域いっぱいに伸ばす(6件以内の原則を保持) */
 }
+/* 背の高いタイル内で内容を中央に置き、余白を均す */
+.slide--dashboard .kpi-grid .tile { align-content: center; }
 .slide--dashboard .kpi-grid .tile__value { line-height: var(--lh-tight); }

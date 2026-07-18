@@ -223,8 +223,10 @@
     <section class="slide slide--big-number" data-layout="big-number">
       <div class="slide__stage">
         <h2 class="slide__heading">ビッグナンバーは<span class="u-accent">単一指標</span>を大きく1点強調します</h2>
-        <p class="bignum">16<span class="unit"> レイアウト</span></p>
-        <p class="anchor">内訳: コア <b>8</b> + 拡張 <b>8</b> = <b>16</b>（用途で選ぶ）</p>
+        <div class="bignum-block">
+          <p class="bignum">16<span class="unit"> レイアウト</span></p>
+          <p class="anchor">内訳: コア <b>8</b> + 拡張 <b>8</b> = <b>16</b>（用途で選ぶ）</p>
+        </div>
         <div class="slide__footer"><span class="slide__citation">使い方: 強調は1箇所 / アンカリング</span></div>
       </div>
       <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
@@ -246,7 +248,7 @@
           <div class="tile"><span class="tile__label">レイアウト</span><span class="tile__value">16</span><span class="tile__sub">コア8+拡張8</span></div>
           <div class="tile tile--highlight"><span class="tile__label">コンポーネント</span><span class="tile__value">20</span><span class="tile__sub">自作14+公式6</span></div>
           <div class="tile"><span class="tile__label">採用手法</span><span class="tile__value">37</span><span class="tile__sub">出典付き</span></div>
-          <div class="tile"><span class="tile__label">付録スライド</span><span class="tile__value">9</span><span class="tile__sub">実例</span></div>
+          <div class="tile"><span class="tile__label">付録スライド</span><span class="tile__value">11</span><span class="tile__sub">実例</span></div>
           <div class="tile"><span class="tile__label">DS準拠</span><span class="tile__value">100%</span><span class="tile__sub">トークン参照</span></div>
           <div class="tile"><span class="tile__label">ハードコード</span><span class="tile__value">0</span><span class="tile__sub">lint検証</span></div>
         </div>
@@ -269,25 +271,21 @@
         <h2 class="slide__heading">タイムラインは<span class="u-accent">時系列で全体像</span>を示します</h2>
         <ol class="timeline" aria-label="4ステップの時間軸（週単位・左から右へ進行）">
           <li class="step" data-state="done">
-            <span class="step__marker" aria-hidden="true">1</span>
             <span class="step__time">0週</span>
             <span class="step__label">選ぶ</span>
             <span class="step__body">レイアウトを複製</span>
           </li>
           <li class="step" data-state="current" aria-current="step">
-            <span class="step__marker" aria-hidden="true">2</span>
             <span class="step__time">1週</span>
             <span class="step__label">書く</span>
             <span class="step__body">主張と根拠を入力</span>
           </li>
           <li class="step" data-state="upcoming">
-            <span class="step__marker" aria-hidden="true">3</span>
             <span class="step__time">2週</span>
             <span class="step__label">整える</span>
             <span class="step__body">トークン内で調整</span>
           </li>
           <li class="step" data-state="upcoming">
-            <span class="step__marker" aria-hidden="true">4</span>
             <span class="step__time">4週</span>
             <span class="step__label">配る</span>
             <span class="step__body">印刷・PDFで共有</span>
@@ -848,10 +846,64 @@
       </div>
     </section>
 
-    <!-- Appendix I: ツリー(横 / 左→右のロジックツリー) -->
+    <!-- Appendix I: 2段タイムライン(長い時系列) -->
+    <section class="slide slide--appendix slide--timeline-2row" data-layout="appendix-timeline-2row">
+      <div class="slide__stage">
+        <h2 class="slide__heading">長い時系列は<span class="u-accent">2段タイムライン</span>で折り返します</h2>
+        <div class="timeline-2row">
+          <ol class="timeline" aria-label="前半 ステップ1〜4(月単位・左から右へ進行)">
+            <li class="step" data-state="done">
+              <span class="step__time">0月</span>
+              <span class="step__label">企画</span>
+              <span class="step__body">課題と目標を定義</span>
+            </li>
+            <li class="step" data-state="done">
+              <span class="step__time">1月</span>
+              <span class="step__label">要件</span>
+              <span class="step__body">要件を確定</span>
+            </li>
+            <li class="step" data-state="done">
+              <span class="step__time">2月</span>
+              <span class="step__label">設計</span>
+              <span class="step__body">方式・画面を設計</span>
+            </li>
+            <li class="step" data-state="current" aria-current="step">
+              <span class="step__time">4月</span>
+              <span class="step__label">開発</span>
+              <span class="step__body">実装とレビュー</span>
+            </li>
+          </ol>
+          <ol class="timeline" aria-label="後半 ステップ5〜8(月単位・左から右へ進行)">
+            <li class="step" data-state="upcoming">
+              <span class="step__time">6月</span>
+              <span class="step__label">試験</span>
+              <span class="step__body">結合・受入試験</span>
+            </li>
+            <li class="step" data-state="upcoming">
+              <span class="step__time">7月</span>
+              <span class="step__label">移行</span>
+              <span class="step__body">データ移行と切替</span>
+            </li>
+            <li class="step" data-state="upcoming">
+              <span class="step__time">8月</span>
+              <span class="step__label">公開</span>
+              <span class="step__body">本番公開・周知</span>
+            </li>
+            <li class="step" data-state="upcoming">
+              <span class="step__time">10月</span>
+              <span class="step__label">評価</span>
+              <span class="step__body">効果測定と改善</span>
+            </li>
+          </ol>
+        </div>
+        <div class="slide__footer"><span class="slide__citation">4段を超える長い時系列は前半/後半に折り返す。状態(済/現在/未来)と時期ラベルは1段版と共通</span></div>
+      </div>
+    </section>
+
+    <!-- Appendix J: ツリー(横 / 左→右のロジックツリー) -->
     <section class="slide slide--appendix slide--appendix-tree" data-layout="appendix-tree-horizontal">
       <div class="slide__stage">
-        <h2 class="slide__heading">付録I: <span class="u-accent">横ツリー</span>（左→右の深いロジック構造）</h2>
+        <h2 class="slide__heading">付録J: <span class="u-accent">横ツリー</span>（左→右の深いロジック構造）</h2>
         <ul class="tree tree--horizontal">
           <li class="tree__node tree__node--root">
             <div class="node"><span class="node__label">この構成を採用する</span></div>
@@ -888,7 +940,7 @@
       </aside>
     </section>
 
-    <!-- Appendix J: グリッド(12カラムの下地) -->
+    <!-- Appendix K: グリッド(12カラムの下地) -->
     <section class="slide slide--appendix slide--grid-guide" data-layout="appendix-grid">
       <div class="slide__stage">
         <h2 class="slide__heading">全レイアウトは<span class="u-accent">12カラム × 3行</span>のグリッドに載ります</h2>
