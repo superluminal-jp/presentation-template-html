@@ -19,12 +19,14 @@ const root = resolve(__dirname, '..');
 const ORDER = {
   title: '01', toc: '02', section: '03', body: '04', compare: '05', chart: '06', summary: '07', reference: '08',
   'big-number': '09', dashboard: '10', timeline: '11', matrix: '12', process: '13', quote: '14', 'image-full': '15', closing: '16',
+  tree: '17',
 };
 const TITLE = {
   title: '表紙', toc: '目次', section: '章扉', body: '本文',
   compare: '2カラム比較', chart: '図表', summary: 'まとめ', reference: '参考',
   'big-number': 'ビッグナンバー', dashboard: 'KPIダッシュボード', timeline: 'タイムライン', matrix: '2×2マトリクス',
   process: 'プロセス', quote: '引用・証言', 'image-full': '全面ビジュアル', closing: 'クロージング',
+  tree: 'ツリー(階層)',
 };
 
 const html = readFileSync(resolve(root, 'index.html'), 'utf8');
@@ -53,6 +55,7 @@ function head(layout) {
 const foot = `  </div>
   <script src="../js/annotations.js"></script>
   <script src="../js/frame.js"></script>
+  <script src="../js/tree-connectors.js"></script>
 </body>
 </html>
 `;

@@ -14,6 +14,7 @@ export const LAYOUTS = [
   '05-compare', '06-chart', '07-summary', '08-reference',
   '09-big-number', '10-dashboard', '11-timeline', '12-matrix',
   '13-process', '14-quote', '15-image-full', '16-closing',
+  '17-tree',
 ];
 
 export function slideUrl(name) {

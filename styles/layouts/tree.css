@@ -1,0 +1,107 @@
+/* tree — 階層(ツリー)図。内容モデルは Minto のピラミッド・プリンシプル:
+   頂点=結論(支配的メッセージ)/ 第2階層=MECE な根拠 / 末端=個別の裏付け。
+   節点は HTML(テキスト/可読性/a11y を保持)。コネクタは「鍵線ではなく直線」で、
+   実際の節点位置から SVG の直線(親→子)を js/tree-connectors.js が描く(壊れにくい)。
+   既定=縦(トップダウン)、.tree--horizontal=横(左→右)。.tree は配置非依存の再利用コンポーネント。 */
+
+/* 配置: コア(縦)/付録(横) とも本文帯に中央。 */
+.slide--tree .tree,
+.slide--appendix-tree .tree {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  align-self: center;
+  justify-self: center;
+}
+
+/* ---- リセットとノード ---- */
+.tree,
+.tree ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 節点は直線コネクタの上に載る(不透明で下の線端を隠す)。 */
+.tree .node {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: var(--space-1);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-m);
+  padding: var(--space-3) var(--space-4);
+  text-align: center;
+  max-width: 24ch;
+}
+.tree .node__label {
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-body);
+  line-height: var(--lh-tight);
+}
+.tree .node__body {
+  font-size: var(--fs-caption);
+  color: var(--text-secondary);
+}
+
+/* 役割: root=結論(accent 強調) / branch=根拠 / leaf=裏付け(淡色・破線) */
+.tree__node--root > .node {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--text-on-accent);
+}
+.tree__node--root > .node .node__label,
+.tree__node--root > .node .node__body { color: var(--text-on-accent); }
+.tree__node--leaf > .node {
+  background: var(--surface-strong);
+  border-style: dashed;
+}
+.tree__node--leaf > .node .node__label { font-size: var(--fs-caption); }
+
+/* 直線コネクタ(SVG オーバーレイ)。各枝分かれ li に 1 つ、li 内に絶対配置。 */
+.tree li { position: relative; }
+.tree .tree__lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 0;
+}
+.tree .tree__line {
+  stroke: var(--border-strong);
+  stroke-width: 2;
+  fill: none;
+}
+
+/* ================= 縦(既定): トップダウン ================= */
+/* 子は等幅グリッド(1fr)で等間隔配置。列間ギャップで直線の水平方向の広がりを確保。 */
+.tree:not(.tree--horizontal) li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tree:not(.tree--horizontal) li ul {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  column-gap: var(--space-8);
+  padding-top: var(--space-7);
+}
+
+/* ================= 横: 左→右(付録) ================= */
+.tree--horizontal { align-items: center; }
+.tree--horizontal li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.tree--horizontal li ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: var(--space-5);
+  padding-left: var(--space-10);
+}
+.tree--horizontal .node { text-align: left; }

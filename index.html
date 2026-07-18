@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="styles/layouts/closing.css" />
   <link rel="stylesheet" href="styles/layouts/appendix.css" />
   <link rel="stylesheet" href="styles/layouts/grid-guide.css" />
+  <link rel="stylesheet" href="styles/layouts/tree.css" />
   <link rel="stylesheet" href="styles/components.css" />
   <link rel="stylesheet" href="styles/dads-components.css" />
   <link rel="stylesheet" href="styles/frame.css" />
@@ -351,6 +352,40 @@
           <li data-practice="D-multimedia">マルチメディア学習原則（→ #D-multimedia）</li>
           <li data-practice="B-signal-noise">Signal-to-Noise（→ #B-signal-noise）</li>
           <li data-practice="A-consistency">一貫性（→ #A-consistency）</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- tree (階層 / ピラミッド・プリンシプル) -->
+    <section class="slide slide--tree" data-layout="tree">
+      <div class="slide__stage">
+        <h2 class="slide__heading">主張は<span class="u-accent">結論→根拠→裏付け</span>のツリーで構造化します</h2>
+        <ul class="tree">
+          <li class="tree__node tree__node--root">
+            <div class="node"><span class="node__label">この構成を採用する</span></div>
+            <ul>
+              <li class="tree__node tree__node--branch">
+                <div class="node"><span class="node__label">① 伝わりやすさ</span></div>
+                <ul><li class="tree__node tree__node--leaf"><div class="node"><span class="node__label">結論先出しで要点が即伝わる</span></div></li></ul>
+              </li>
+              <li class="tree__node tree__node--branch">
+                <div class="node"><span class="node__label">② 作りやすさ</span></div>
+                <ul><li class="tree__node tree__node--leaf"><div class="node"><span class="node__label">トークンで色・余白が一貫</span></div></li></ul>
+              </li>
+              <li class="tree__node tree__node--branch">
+                <div class="node"><span class="node__label">③ 保守しやすさ</span></div>
+                <ul><li class="tree__node tree__node--leaf"><div class="node"><span class="node__label">単一情報源で改修が局所化</span></div></li></ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <div class="slide__footer"><span class="slide__citation">使い方: 頂点=結論、第2階層=MECEな根拠、末端=裏付け(ピラミッド・プリンシプル)</span></div>
+      </div>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">結論を頂点に置き、MECEな根拠と裏付けを親子で結ぶ。構造そのものが論理(なぜ)を伝える。</p>
+        <ul class="annotation__practices">
+          <li data-practice="A-pyramid">ピラミッド・プリンシプル / MECE（→ #A-pyramid）</li>
+          <li data-practice="B-visual-hierarchy">視覚階層（→ #B-visual-hierarchy）</li>
         </ul>
       </aside>
     </section>
@@ -813,7 +848,47 @@
       </div>
     </section>
 
-    <!-- Appendix I: グリッド(12カラムの下地) -->
+    <!-- Appendix I: ツリー(横 / 左→右のロジックツリー) -->
+    <section class="slide slide--appendix slide--appendix-tree" data-layout="appendix-tree-horizontal">
+      <div class="slide__stage">
+        <h2 class="slide__heading">付録I: <span class="u-accent">横ツリー</span>（左→右の深いロジック構造）</h2>
+        <ul class="tree tree--horizontal">
+          <li class="tree__node tree__node--root">
+            <div class="node"><span class="node__label">この構成を採用する</span></div>
+            <ul>
+              <li class="tree__node tree__node--branch">
+                <div class="node"><span class="node__label">① 伝わりやすさ</span></div>
+                <ul>
+                  <li class="tree__node tree__node--leaf"><div class="node"><span class="node__label">結論先出しで要点が即伝わる</span></div></li>
+                  <li class="tree__node tree__node--leaf"><div class="node"><span class="node__label">アクションタイトルで主張が残る</span></div></li>
+                </ul>
+              </li>
+              <li class="tree__node tree__node--branch">
+                <div class="node"><span class="node__label">② 作りやすさ</span></div>
+                <ul>
+                  <li class="tree__node tree__node--leaf"><div class="node"><span class="node__label">トークンで色・余白が一貫</span></div></li>
+                </ul>
+              </li>
+              <li class="tree__node tree__node--branch">
+                <div class="node"><span class="node__label">③ 保守しやすさ</span></div>
+                <ul>
+                  <li class="tree__node tree__node--leaf"><div class="node"><span class="node__label">単一情報源で改修が局所化</span></div></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <div class="slide__footer"><span class="slide__citation">縦が収まらない深い/枝の多い論理は横(左→右)で。縦ツリーと同一コンポーネント(.tree--horizontal)</span></div>
+      </div>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">縦(コア)と同じ .tree を向き替えで再利用。根=左端、枝を右へ展開し深い構造を可読に保つ。</p>
+        <ul class="annotation__practices">
+          <li data-practice="A-pyramid">ピラミッド・プリンシプル / MECE（→ #A-pyramid）</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- Appendix J: グリッド(12カラムの下地) -->
     <section class="slide slide--appendix slide--grid-guide" data-layout="appendix-grid">
       <div class="slide__stage">
         <h2 class="slide__heading">全レイアウトは<span class="u-accent">12カラム × 3行</span>のグリッドに載ります</h2>
@@ -864,5 +939,6 @@
   <script src="js/annotations.js"></script>
   <script src="js/frame.js"></script>
   <script src="js/present.js"></script>
+  <script src="js/tree-connectors.js"></script>
 </body>
 </html>

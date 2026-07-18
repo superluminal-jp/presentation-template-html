@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ja" data-annotations="off" data-org="（組織名）" data-copyright="© 2026 （組織名）" data-confidentiality="2">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ツリー(階層) — レイアウト単体</title>
+  <link rel="stylesheet" href="../tokens/vendor/tokens.css" />
+  <link rel="stylesheet" href="../styles/tokens.semantic.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/grid.css" />
+  <link rel="stylesheet" href="../styles/slides.css" />
+  <link rel="stylesheet" href="../styles/layouts/tree.css" />
+  <link rel="stylesheet" href="../styles/frame.css" />
+</head>
+<body>
+  <div class="deck">
+    <section class="slide slide--tree" data-layout="tree">
+      <div class="slide__stage">
+        <h2 class="slide__heading">主張は<span class="u-accent">結論→根拠→裏付け</span>のツリーで構造化します</h2>
+        <ul class="tree">
+          <li class="tree__node tree__node--root">
+            <div class="node"><span class="node__label">この構成を採用する</span></div>
+            <ul>
+              <li class="tree__node tree__node--branch">
+                <div class="node"><span class="node__label">① 伝わりやすさ</span></div>
+                <ul><li class="tree__node tree__node--leaf"><div class="node"><span class="node__label">結論先出しで要点が即伝わる</span></div></li></ul>
+              </li>
+              <li class="tree__node tree__node--branch">
+                <div class="node"><span class="node__label">② 作りやすさ</span></div>
+                <ul><li class="tree__node tree__node--leaf"><div class="node"><span class="node__label">トークンで色・余白が一貫</span></div></li></ul>
+              </li>
+              <li class="tree__node tree__node--branch">
+                <div class="node"><span class="node__label">③ 保守しやすさ</span></div>
+                <ul><li class="tree__node tree__node--leaf"><div class="node"><span class="node__label">単一情報源で改修が局所化</span></div></li></ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <div class="slide__footer"><span class="slide__citation">使い方: 頂点=結論、第2階層=MECEな根拠、末端=裏付け(ピラミッド・プリンシプル)</span></div>
+      </div>
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+        <p class="annotation__intent">結論を頂点に置き、MECEな根拠と裏付けを親子で結ぶ。構造そのものが論理(なぜ)を伝える。</p>
+        <ul class="annotation__practices">
+          <li data-practice="A-pyramid">ピラミッド・プリンシプル / MECE（→ #A-pyramid）</li>
+          <li data-practice="B-visual-hierarchy">視覚階層（→ #B-visual-hierarchy）</li>
+        </ul>
+      </aside>
+    </section>
+  </div>
+  <script src="../js/annotations.js"></script>
+  <script src="../js/frame.js"></script>
+  <script src="../js/tree-connectors.js"></script>
+</body>
+</html>
