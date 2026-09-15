@@ -17,7 +17,7 @@
 - **発表モード**: キー `P`(またはツールバー「発表モード」)で 1 枚表示に切替え、ビューポートに合わせて自動縮尺。`←`/`→`/Space で移動(端で停止)、`F` で全画面、`Esc`/`P` で復帰。既定は縦スクロールのレビュー表示で、印刷(1スライド=1ページ)には影響しない。`prefers-reduced-motion` を尊重。
 - **アクセシブル**: 主要テキストは WCAG 2.2 AA コントラスト。キーボードフォーカスリング(`:focus-visible`・トークン由来)、単一 `h1` + `main` ランドマーク + 各スライドのアクセシブル名/位置、多系列チャートは色以外の直接ラベルでも識別可能(色覚・グレースケール対応)。
 - **更新追従**: DS 更新はセマンティック写像層のみで吸収(レイアウト無改修)。
-- **PowerPoint エクスポート**: `npm run build:pptx` でショーケースを編集可能な `.pptx`(ネイティブ図形・表、ラスタなし)に出力(16 レイアウト + 付録 4 枚)。詳細は [scripts/pptx/README.md](scripts/pptx/README.md)。
+- **PowerPoint エクスポート**: `npm run build:pptx` で正本デックを編集可能な `.pptx`(ネイティブ図形・表・グラフ・グループ、ラスタなし)に出力。正本 `index.html` の実レンダリングから生成するため、スライドを足しても変換器の変更は不要。詳細は [scripts/pptx/README.md](scripts/pptx/README.md)。
 
 ## クイックスタート
 
@@ -59,7 +59,7 @@ npm run check:dads     # vendor が固定SHAと一致するか検査(乖離で�
 | `docs/practices.md` | 採用手法と出典(正本・ID 参照元) |
 | `docs/ds-version-map.md` | DS 更新ランブック |
 | `scripts/*` | sync-tokens / lint-tokens / check-crossrefs / check-coverage / split-slides / sync-dads |
-| `scripts/pptx/*` | PowerPoint エクスポート(`build:pptx`・トークン解決値) |
+| `scripts/pptx/*` | PowerPoint エクスポート(`build:pptx` / `check:pptx`・DOM 実測抽出) |
 | `tests/*` | 検証(Playwright + axe + node チェック) |
 
 ## 検証
@@ -82,13 +82,40 @@ npm run verify           # 上記 node チェック + 3 スイート + build:pdf
 
 ## PowerPoint エクスポート(.pptx)
 
-ショーケースデックを、ネイティブに編集可能な `.pptx`(テキストボックス・図形・ネイティブ表のみ、ラスタ画像なし)へエクスポートできる。トークン解決値から `pptxgenjs` で生成する Node 実装(詳細: [scripts/pptx/README.md](scripts/pptx/README.md))。
+正本デック `index.html` を、ネイティブに編集可能な `.pptx` へエクスポートできる。
+本文はテキストボックス、表はネイティブ表、グラフは**数値ごと編集できるネイティブグラフ**、
+複合コンポーネントはグループとして出力され、本文領域にラスタ画像を使わない。
+詳細: [scripts/pptx/README.md](scripts/pptx/README.md)。
 
 ```bash
-npm run build:pptx      # dist/sample-deck.pptx を生成(16 レイアウト + 付録 4 枚)
+npm run build:pptx      # index.html → dist/sample-deck.pptx(全スライド)
+npm run check:pptx      # 正本との乖離を検証(verify に組込済み)
 ```
 
-配色・フォント(Noto Sans JP)・余白はトークン参照値に一致させ、四隅の取扱区分(機密区分/著作権/ページ番号)もプレースホルダとして出力する。幾何は近似(ピクセル一致は非対象)、SVG 多系列チャートは簡略化、フォント埋め込みは未対応。`dist/` は Git 管理外。
+**変換器は正本を読むだけで、スライドの内容も座標も持たない。** 実レンダリングした DOM の
+算出済み矩形と計算済みスタイルから生成するため、`index.html` を直せば `.pptx` が直り、
+スライドを追加しても変換器の変更は要らない。
+
+### 新しいコンポーネントを足すとき
+
+**本文はマーク不要**で PPTX に出る(直接テキストを持つ要素が自動でテキストボックスになる)。
+既定を上書きしたいときだけ `data-pptx` を付ける:
+
+| 付ける値 | 意味 |
+|---|---|
+| `ignore` | 出力しない(装飾・注釈) |
+| `group` | 面 + 複数テキストの複合を一塊に(`.tile` / `.node` / `.step` など) |
+| `shape` | 文字を持たない面(`.progress` / `.divider` など) |
+| `text` | 部分木を 1 ボックスに束ねる(リストは箇条書き段落に) |
+| `table` / `chart` / `line` / `image` | 別種のネイティブオブジェクトにする |
+
+規則と作成チェックリストは
+[役割属性の契約](specs/011-pptx-dom-extraction/contracts/pptx-role-contract.md)が正。
+
+配色・フォント(Noto Sans JP)・余白はトークンの解決値に一致し(抽出時に CSS から読む)、
+四隅の取扱区分(機密区分/著作権/ページ番号)もプレースホルダとして出力する。
+幾何は近似(ピクセル一致は非対象)、フォント埋め込みは未対応。
+`dist/sample-deck.pptx` は追跡対象、その他の `dist/` は Git 管理外。
 
 ## PDF で確認する(Claude Code)
 

@@ -24,6 +24,8 @@
     ln.setAttribute('x1', x1); ln.setAttribute('y1', y1);
     ln.setAttribute('x2', x2); ln.setAttribute('y2', y2);
     ln.setAttribute('class', 'tree__line');
+    // PPTX 変換の役割契約(feature 011): 実行時に描く直線もネイティブ線図形へ写す。
+    ln.setAttribute('data-pptx', 'line');
     return ln;
   }
 

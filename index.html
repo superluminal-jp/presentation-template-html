@@ -54,7 +54,7 @@
           <span>16レイアウト</span><span>20コンポーネント</span><span>DS v2.0.1 準拠</span>
         </div>
       </div>
-      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典" data-pptx="ignore">
         <p class="annotation__intent">表紙は視覚階層で主題を最上位に。導入のフックとスルーラインを1文で提示。</p>
         <ul class="annotation__practices">
           <li data-practice="B-visual-hierarchy">視覚階層（→ practices.md #B-visual-hierarchy）</li>
@@ -75,7 +75,7 @@
           <li><span class="num">05</span><span>出典と設計意図</span></li>
         </ol>
       </div>
-      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典" data-pptx="ignore">
         <p class="annotation__intent">項目は7±2に収め、現在地を示して離脱を防ぐ。</p>
         <ul class="annotation__practices">
           <li data-practice="D-miller">Millerの法則（→ #D-miller）</li>
@@ -94,7 +94,7 @@
         </div>
         <p class="section-lead">章の変わり目で緩急をつけ、次章の主張を1文で予告する。</p>
       </div>
-      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典" data-pptx="ignore">
         <p class="annotation__intent">章扉で緩急を作り、山場と記憶（冒頭・末尾）を設計する。</p>
         <ul class="annotation__practices">
           <li data-practice="E-peak-end">ピーク・エンドの法則（→ #E-peak-end）</li>
@@ -107,7 +107,7 @@
     <section class="slide slide--body" data-layout="body">
       <div class="slide__stage">
         <h2 class="slide__heading">本文は<span class="u-accent">見出しに主張・本文に根拠</span>を置きます</h2>
-        <div class="body">
+        <div class="body" data-pptx="text">
           <ul>
             <li>見出しは結論（アクションタイトル）を1文で</li>
             <li>本文は根拠を7項目以内の箇条書きで</li>
@@ -125,7 +125,7 @@
 
         </div>
       </div>
-      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典" data-pptx="ignore">
         <p class="annotation__intent">見出しに主張、本文に根拠。1スライド1メッセージで認知負荷を抑える。</p>
         <ul class="annotation__practices">
           <li data-practice="A-assertion-evidence">Assertion–Evidence（→ #A-assertion-evidence）</li>
@@ -140,11 +140,11 @@
       <div class="slide__stage">
         <h2 class="slide__heading">比較は<span class="u-accent">2案を同一基準</span>で並べます</h2>
         <div class="cols">
-          <div class="col">
+          <div class="col" data-pptx="group">
             <h3>案A: 中立に記述</h3>
             <ul><li>見出しに案名を置く</li><li>箇条書きで特徴を対比</li><li>誇張しない</li></ul>
           </div>
-          <div class="col col--accent">
+          <div class="col col--accent" data-pptx="group">
             <h3>案B: 推奨を強調</h3>
             <ul><li>accent 枠で推奨を明示</li><li>デフォルト効果を活用</li><li>3項目以内に絞る</li></ul>
           </div>
@@ -155,7 +155,7 @@
 
         </div>
       </div>
-      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典" data-pptx="ignore">
         <p class="annotation__intent">利得フレームで対比を明確化。近接・整列で2案を対称配置。</p>
         <ul class="annotation__practices">
           <li data-practice="E-framing">フレーミング効果（→ #E-framing）</li>
@@ -170,7 +170,7 @@
       <div class="slide__stage">
         <h2 class="slide__heading">図表は<span class="u-accent">基準値を先に</span>示して解釈を助けます</h2>
         <div class="chart">
-          <svg class="chart-sample" viewBox="0 0 420 320" role="img" aria-label="基準に対し改善後を長さで比較（例）">
+          <svg class="chart-sample" viewBox="0 0 420 320" role="img" aria-label="基準に対し改善後を長さで比較（例）" data-pptx="chart" data-chart='{"type":"bar","categories":["基準","改善後"],"series":[{"name":"値","values":[200,50]}]}'>
             <line class="axis" x1="60" y1="20" x2="60" y2="280" />
             <line class="axis" x1="60" y1="280" x2="400" y2="280" />
             <rect class="bar--muted" x="110" y="80" width="90" height="200" />
@@ -188,7 +188,7 @@
 
         </div>
       </div>
-      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典" data-pptx="ignore">
         <p class="annotation__intent">長さで量を比較（棒）。装飾を排し、要点にアクセント色を1箇所。基準値でアンカリング。</p>
         <ul class="annotation__practices">
           <li data-practice="C-cleveland-mcgill">Cleveland–McGill（→ #C-cleveland-mcgill）</li>
@@ -203,13 +203,13 @@
       <div class="slide__stage">
         <h2 class="slide__heading">まとめは<span class="u-accent">3点</span>に凝縮します</h2>
         <div class="key-messages">
-          <div class="key"><span class="n">1</span><p>レイアウトを選ぶ</p></div>
-          <div class="key"><span class="n">2</span><p>役割変数に差し込む</p></div>
-          <div class="key"><span class="n">3</span><p>印刷/PDFで出力する</p></div>
+          <div class="key" data-pptx="group"><span class="n">1</span><p>レイアウトを選ぶ</p></div>
+          <div class="key" data-pptx="group"><span class="n">2</span><p>役割変数に差し込む</p></div>
+          <div class="key" data-pptx="group"><span class="n">3</span><p>印刷/PDFで出力する</p></div>
         </div>
         <p class="cta">使い方: この3手順でスライドを作り始めてください</p>
       </div>
-      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典" data-pptx="ignore">
         <p class="annotation__intent">記憶に残る3点に凝縮し、末尾に明確な行動喚起（エンドの山場）。</p>
         <ul class="annotation__practices">
           <li data-practice="A-success">SUCCESs（→ #A-success）</li>
@@ -229,7 +229,7 @@
         </div>
         <div class="slide__footer"><span class="slide__citation">使い方: 強調は1箇所 / アンカリング</span></div>
       </div>
-      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典" data-pptx="ignore">
         <p class="annotation__intent">単一指標を大きく1点強調。基準値を併記して数値解釈を助ける。</p>
         <ul class="annotation__practices">
           <li data-practice="B-von-restorff">強調は1箇所（→ #B-von-restorff）</li>
@@ -245,16 +245,16 @@
       <div class="slide__stage">
         <h2 class="slide__heading">ダッシュボードは<span class="u-accent">6件以内</span>のKPIを整列します</h2>
         <div class="kpi-grid">
-          <div class="tile"><span class="tile__label">レイアウト</span><span class="tile__value">16</span><span class="tile__sub">コア8+拡張8</span></div>
-          <div class="tile tile--highlight"><span class="tile__label">コンポーネント</span><span class="tile__value">20</span><span class="tile__sub">自作14+公式6</span></div>
-          <div class="tile"><span class="tile__label">採用手法</span><span class="tile__value">37</span><span class="tile__sub">出典付き</span></div>
-          <div class="tile"><span class="tile__label">付録スライド</span><span class="tile__value">11</span><span class="tile__sub">実例</span></div>
-          <div class="tile"><span class="tile__label">DS準拠</span><span class="tile__value">100%</span><span class="tile__sub">トークン参照</span></div>
-          <div class="tile"><span class="tile__label">ハードコード</span><span class="tile__value">0</span><span class="tile__sub">lint検証</span></div>
+          <div class="tile" data-pptx="group"><span class="tile__label">レイアウト</span><span class="tile__value">16</span><span class="tile__sub">コア8+拡張8</span></div>
+          <div class="tile tile--highlight" data-pptx="group"><span class="tile__label">コンポーネント</span><span class="tile__value">20</span><span class="tile__sub">自作14+公式6</span></div>
+          <div class="tile" data-pptx="group"><span class="tile__label">採用手法</span><span class="tile__value">37</span><span class="tile__sub">出典付き</span></div>
+          <div class="tile" data-pptx="group"><span class="tile__label">付録スライド</span><span class="tile__value">11</span><span class="tile__sub">実例</span></div>
+          <div class="tile" data-pptx="group"><span class="tile__label">DS準拠</span><span class="tile__value">100%</span><span class="tile__sub">トークン参照</span></div>
+          <div class="tile" data-pptx="group"><span class="tile__label">ハードコード</span><span class="tile__value">0</span><span class="tile__sub">lint検証</span></div>
         </div>
         <div class="slide__footer"><span class="slide__citation">使い方: 注目1件を強調・6件以内に抑える</span></div>
       </div>
-      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典" data-pptx="ignore">
         <p class="annotation__intent">見出しで要点を述べ、注目1件を強調。タイルは情報過多を避け6件以内。</p>
         <ul class="annotation__practices">
           <li data-practice="C-dashboard">ダッシュボード設計（→ #C-dashboard）</li>
@@ -270,33 +270,33 @@
       <div class="slide__stage">
         <h2 class="slide__heading">タイムラインは<span class="u-accent">時系列で全体像</span>を示します</h2>
         <ol class="timeline" aria-label="4ステップの時間軸（週単位・左から右へ進行）">
-          <li class="step" data-state="done">
+          <li class="step" data-state="done" data-pptx="group">
             <span class="step__time">0週</span>
             <span class="step__label">選ぶ</span>
             <span class="step__body">レイアウトを複製</span>
           </li>
-          <li class="step" data-state="current" aria-current="step">
+          <li class="step" data-state="current" aria-current="step" data-pptx="group">
             <span class="step__time">1週</span>
             <span class="step__label">書く</span>
             <span class="step__body">主張と根拠を入力</span>
           </li>
-          <li class="step" data-state="upcoming">
+          <li class="step" data-state="upcoming" data-pptx="group">
             <span class="step__time">2週</span>
             <span class="step__label">整える</span>
             <span class="step__body">トークン内で調整</span>
           </li>
-          <li class="step" data-state="upcoming">
+          <li class="step" data-state="upcoming" data-pptx="group">
             <span class="step__time">4週</span>
             <span class="step__label">配る</span>
             <span class="step__body">印刷・PDFで共有</span>
           </li>
         </ol>
         <div class="slide__footer">
-          <div class="slide__signpost" aria-label="現在地"><span class="signpost__dot" aria-current="true"></span><span class="signpost__dot"></span><span class="signpost__dot"></span><span class="signpost__dot"></span></div>
+          <div class="slide__signpost" aria-label="現在地" data-pptx="ignore"><span class="signpost__dot" aria-current="true"></span><span class="signpost__dot"></span><span class="signpost__dot"></span><span class="signpost__dot"></span></div>
           
         </div>
       </div>
-      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典" data-pptx="ignore">
         <p class="annotation__intent">時間軸で全体像を提示(状況→行動)。時期ラベルと方向で「時間」を明示し、済/現在/未来の状態で進捗と現在地を示す(プロセス=順序との差別化)。</p>
         <ul class="annotation__practices">
           <li data-practice="A-scqa">SCQA（→ #A-scqa）</li>
@@ -313,15 +313,15 @@
         <h2 class="slide__heading">マトリクスは<span class="u-accent">2軸で位置づけ</span>を示します</h2>
         <div class="matrix">
           <div class="axis-y">効果 高 → 低</div>
-          <div class="quadrant quadrant--accent"><h3>最優先</h3><p>効果大・容易（推奨象限を強調）</p></div>
-          <div class="quadrant"><h3>計画的に</h3><p>効果大・困難</p></div>
-          <div class="quadrant"><h3>すきま時間で</h3><p>効果小・容易</p></div>
-          <div class="quadrant"><h3>見送り</h3><p>効果小・困難</p></div>
+          <div class="quadrant quadrant--accent" data-pptx="group"><h3>最優先</h3><p>効果大・容易（推奨象限を強調）</p></div>
+          <div class="quadrant" data-pptx="group"><h3>計画的に</h3><p>効果大・困難</p></div>
+          <div class="quadrant" data-pptx="group"><h3>すきま時間で</h3><p>効果小・容易</p></div>
+          <div class="quadrant" data-pptx="group"><h3>見送り</h3><p>効果小・困難</p></div>
           <div class="axis-x">容易さ 高 → 低</div>
         </div>
         <div class="slide__footer"><span class="slide__citation">使い方: 2軸で位置づけ・推奨象限を1つ強調</span></div>
       </div>
-      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典" data-pptx="ignore">
         <p class="annotation__intent">2軸で位置づけを提示。象限をグルーピングし、推奨象限を利得フレームで強調。</p>
         <ul class="annotation__practices">
           <li data-practice="B-gestalt">ゲシュタルト原則（→ #B-gestalt）</li>
@@ -336,15 +336,15 @@
       <div class="slide__stage">
         <h2 class="slide__heading">プロセスは<span class="u-accent">3ステップ</span>で手順を図解します</h2>
         <div class="process">
-          <div class="step"><span class="step__marker">1</span><span class="step__label">選ぶ</span><span class="step__body">レイアウトを複製</span></div>
+          <div class="step" data-pptx="group"><span class="step__marker">1</span><span class="step__label">選ぶ</span><span class="step__body">レイアウトを複製</span></div>
           <div class="arrow" aria-hidden="true">→</div>
-          <div class="step"><span class="step__marker">2</span><span class="step__label">差し込む</span><span class="step__body">役割変数のまま入力</span></div>
+          <div class="step" data-pptx="group"><span class="step__marker">2</span><span class="step__label">差し込む</span><span class="step__body">役割変数のまま入力</span></div>
           <div class="arrow" aria-hidden="true">→</div>
-          <div class="step"><span class="step__marker">3</span><span class="step__label">出す</span><span class="step__body">印刷/PDF 出力</span></div>
+          <div class="step" data-pptx="group"><span class="step__marker">3</span><span class="step__label">出す</span><span class="step__body">印刷/PDF 出力</span></div>
         </div>
         <div class="slide__footer"><span class="slide__citation">使い方: 番号+矢印で手順を明確化</span></div>
       </div>
-      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典" data-pptx="ignore">
         <p class="annotation__intent">図(番号+矢印)と短い語を対応させ、装飾を排して手順を明確化。</p>
         <ul class="annotation__practices">
           <li data-practice="D-multimedia">マルチメディア学習原則（→ #D-multimedia）</li>
@@ -360,26 +360,26 @@
         <h2 class="slide__heading">主張は<span class="u-accent">結論→根拠→裏付け</span>のツリーで構造化します</h2>
         <ul class="tree">
           <li class="tree__node tree__node--root">
-            <div class="node"><span class="node__label">この構成を採用する</span></div>
+            <div class="node" data-pptx="group"><span class="node__label">この構成を採用する</span></div>
             <ul>
               <li class="tree__node tree__node--branch">
-                <div class="node"><span class="node__label">① 伝わりやすさ</span></div>
-                <ul><li class="tree__node tree__node--leaf"><div class="node"><span class="node__label">結論先出しで要点が即伝わる</span></div></li></ul>
+                <div class="node" data-pptx="group"><span class="node__label">① 伝わりやすさ</span></div>
+                <ul><li class="tree__node tree__node--leaf"><div class="node" data-pptx="group"><span class="node__label">結論先出しで要点が即伝わる</span></div></li></ul>
               </li>
               <li class="tree__node tree__node--branch">
-                <div class="node"><span class="node__label">② 作りやすさ</span></div>
-                <ul><li class="tree__node tree__node--leaf"><div class="node"><span class="node__label">トークンで色・余白が一貫</span></div></li></ul>
+                <div class="node" data-pptx="group"><span class="node__label">② 作りやすさ</span></div>
+                <ul><li class="tree__node tree__node--leaf"><div class="node" data-pptx="group"><span class="node__label">トークンで色・余白が一貫</span></div></li></ul>
               </li>
               <li class="tree__node tree__node--branch">
-                <div class="node"><span class="node__label">③ 保守しやすさ</span></div>
-                <ul><li class="tree__node tree__node--leaf"><div class="node"><span class="node__label">単一情報源で改修が局所化</span></div></li></ul>
+                <div class="node" data-pptx="group"><span class="node__label">③ 保守しやすさ</span></div>
+                <ul><li class="tree__node tree__node--leaf"><div class="node" data-pptx="group"><span class="node__label">単一情報源で改修が局所化</span></div></li></ul>
               </li>
             </ul>
           </li>
         </ul>
         <div class="slide__footer"><span class="slide__citation">使い方: 頂点=結論、第2階層=MECEな根拠、末端=裏付け(ピラミッド・プリンシプル)</span></div>
       </div>
-      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典" data-pptx="ignore">
         <p class="annotation__intent">結論を頂点に置き、MECEな根拠と裏付けを親子で結ぶ。構造そのものが論理(なぜ)を伝える。</p>
         <ul class="annotation__practices">
           <li data-practice="A-pyramid">ピラミッド・プリンシプル / MECE（→ #A-pyramid）</li>
@@ -391,10 +391,10 @@
     <!-- 14 quote -->
     <section class="slide slide--quote" data-layout="quote">
       <div class="slide__stage">
-        <p class="quote">引用レイアウトは、事実に基づく実利用者の声だけを載せます。誇張や捏造はしません。</p>
+        <p class="quote"><span class="quote__mark" aria-hidden="true">“</span>引用レイアウトは、事実に基づく実利用者の声だけを載せます。誇張や捏造はしません。</p>
         <p class="attribution"><b>［氏名・肩書きを記入］</b> — ［部署／団体を記入］</p>
       </div>
-      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典" data-pptx="ignore">
         <p class="annotation__intent">社会的証明は事実に基づく実利用者の声のみ。出典・肩書きはプレースホルダ(捏造しない)。</p>
         <ul class="annotation__practices">
           <li data-practice="E-cialdini">社会的証明(誠実利用)（→ #E-cialdini）</li>
@@ -406,11 +406,11 @@
     <!-- 15 image-full -->
     <section class="slide slide--image-full" data-layout="image-full">
       <div class="visual-full">［全面画像を差し込む(著作物は各自用意)］</div>
-      <div class="scrim" aria-hidden="true"></div>
+      <div class="scrim" aria-hidden="true" data-pptx="ignore"></div>
       <div class="overlay">
         <p class="caption">全面ビジュアルで印象づける<span class="sub">要点は1行、スクリムで重ね文字のコントラスト（AA）を確保。</span></p>
       </div>
-      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典" data-pptx="ignore">
         <p class="annotation__intent">全面ビジュアルで印象付け。重ね文字はスクリムでコントラスト(AA)を確保。</p>
         <ul class="annotation__practices">
           <li data-practice="D-picture-superiority">画像優位性（→ #D-picture-superiority）</li>
@@ -430,7 +430,7 @@
           <a href="#">資料・テンプレート: ［リンク］</a>
         </div>
       </div>
-      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典" data-pptx="ignore">
         <p class="annotation__intent">末尾に山場(エンド)。行動喚起と連絡先を大きく押しやすく(操作要素)。枚数・文字量は簡潔に。</p>
         <ul class="annotation__practices">
           <li data-practice="E-peak-end">ピーク・エンドの法則（→ #E-peak-end）</li>
@@ -445,7 +445,7 @@
     <section class="slide slide--reference" data-layout="reference">
       <div class="slide__stage">
         <h2 class="slide__heading">出典</h2>
-        <ul class="citation-list">
+        <ul class="citation-list" data-pptx="text">
           <li><span class="cid">A-pyramid</span><a class="ref-link" href="https://www.barbaraminto.com/" target="_blank" rel="noopener">Minto, <em>The Minto Pyramid Principle</em> (2009)</a></li>
           <li><span class="cid">A-assertion-evidence</span><a class="ref-link" href="https://link.springer.com/book/10.1007/978-1-4419-8279-7" target="_blank" rel="noopener">Alley, <em>The Craft of Scientific Presentations</em> (2013)</a></li>
           <li><span class="cid">A-hook-throughline-cta</span>Anderson, <em>TED Talks</em> (2016) <span class="ref-todo">［URL要記入］</span></li>
@@ -486,7 +486,7 @@
         </ul>
         <div class="slide__footer"><span class="slide__citation">全出典は docs/practices.md を参照</span></div>
       </div>
-      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典" data-pptx="ignore">
         <p class="annotation__intent">巻末に出典を集約(信頼性)。ID は practices.md と相互参照。</p>
         <ul class="annotation__practices">
           <li data-practice="A-pyramid">出典明示（→ practices.md #A-pyramid ほか）</li>
@@ -506,7 +506,7 @@
             <div class="callout callout--warning"><span class="callout__title">注意</span>期限が近づいています。</div>
             <div class="callout callout--error"><span class="callout__title">エラー</span>入力に誤りがあります。</div>
             <span class="cell__label">区切り（.divider）</span>
-            <hr class="divider" />
+            <hr class="divider" data-pptx="shape" />
           </div>
           <div class="cell">
             <span class="cell__label">バッジ（.badge）</span>
@@ -527,11 +527,11 @@
         <h2 class="slide__heading">付録B: <span class="u-accent">指標</span>は表・バー・要約値で示します</h2>
         <div class="appendix-grid appendix-grid--single">
           <div class="stat-row">
-            <div class="stat"><span class="stat__value">75%</span><span class="stat__label">作成時間 削減</span></div>
-            <div class="stat"><span class="stat__value">98%</span><span class="stat__label">準拠率</span></div>
-            <div class="stat"><span class="stat__value">4.5</span><span class="stat__label">満足度 / 5</span></div>
+            <div class="stat" data-pptx="group"><span class="stat__value">75%</span><span class="stat__label">作成時間 削減</span></div>
+            <div class="stat" data-pptx="group"><span class="stat__value">98%</span><span class="stat__label">準拠率</span></div>
+            <div class="stat" data-pptx="group"><span class="stat__value">4.5</span><span class="stat__label">満足度 / 5</span></div>
           </div>
-          <table class="data-table data-table--striped">
+          <table class="data-table data-table--striped" data-pptx="table">
             <thead><tr><th>指標</th><th class="num">前月</th><th class="num">当月</th><th class="num">目標</th></tr></thead>
             <tbody>
               <tr><td>作成時間（h）</td><td class="num">4.0</td><td class="num">1.0</td><td class="num">1.0</td></tr>
@@ -539,11 +539,11 @@
               <tr><td>準拠率</td><td class="num">92%</td><td class="num">98%</td><td class="num">95%</td></tr>
             </tbody>
           </table>
-          <div class="progress"><div class="progress__bar" style="width:98%"></div></div>
+          <div class="progress" data-pptx="shape"><div class="progress__bar" style="width:98%" data-pptx="shape"></div></div>
           <div class="legend">
-            <span class="legend__item"><span class="legend__swatch"></span>当月</span>
-            <span class="legend__item"><span class="legend__swatch legend__swatch--muted"></span>前月</span>
-            <span class="legend__item"><span class="legend__swatch legend__swatch--surface"></span>目標</span>
+            <span class="legend__item" data-pptx="group"><span class="legend__swatch" data-pptx="shape"></span>当月</span>
+            <span class="legend__item" data-pptx="group"><span class="legend__swatch legend__swatch--muted" data-pptx="shape"></span>前月</span>
+            <span class="legend__item" data-pptx="group"><span class="legend__swatch legend__swatch--surface" data-pptx="shape"></span>目標</span>
           </div>
         </div>
         <div class="slide__footer"><span class="slide__citation">値はプレースホルダ</span></div>
@@ -557,7 +557,7 @@
         <div class="appendix-grid">
           <div class="cell">
             <span class="cell__label">チェックリスト（.checklist）</span>
-            <ul class="checklist">
+            <ul class="checklist" data-pptx="text">
               <li>トークン準拠（ハードコード0）</li>
               <li>WCAG 2.2 AA</li>
               <li>スライドへ差し込み可能</li>
@@ -573,8 +573,8 @@
             <span class="cell__label">引用ブロック（.pull-quote）</span>
             <blockquote class="pull-quote">体裁調整が不要になり、内容の議論に集中できた。<cite>［氏名・肩書き］</cite></blockquote>
             <span class="cell__label">統計 + プログレス</span>
-            <div class="stat"><span class="stat__value">3か月</span><span class="stat__label">投資回収の目安</span></div>
-            <div class="progress"><div class="progress__bar" style="width:60%"></div></div>
+            <div class="stat" data-pptx="group"><span class="stat__value">3か月</span><span class="stat__label">投資回収の目安</span></div>
+            <div class="progress" data-pptx="shape"><div class="progress__bar" style="width:60%" data-pptx="shape"></div></div>
           </div>
         </div>
         <div class="slide__footer"><span class="slide__citation">部品を組み合わせた実例</span></div>
@@ -589,15 +589,15 @@
           <div class="cell">
             <span class="cell__label">KPIカード（グリッド整列）</span>
             <div class="kpi-4">
-              <div class="tile"><span class="tile__label">導入部署</span><span class="tile__value">12</span><span class="tile__sub">前月 +3</span></div>
-              <div class="tile tile--highlight"><span class="tile__label">作成時間（中央値）</span><span class="tile__value">1.0h</span><span class="tile__sub">目標達成</span></div>
-              <div class="tile"><span class="tile__label">準拠率</span><span class="tile__value">98%</span><span class="tile__sub">前月 +6pt</span></div>
-              <div class="tile"><span class="tile__label">満足度</span><span class="tile__value">4.5</span><span class="tile__sub">/5</span></div>
+              <div class="tile" data-pptx="group"><span class="tile__label">導入部署</span><span class="tile__value">12</span><span class="tile__sub">前月 +3</span></div>
+              <div class="tile tile--highlight" data-pptx="group"><span class="tile__label">作成時間（中央値）</span><span class="tile__value">1.0h</span><span class="tile__sub">目標達成</span></div>
+              <div class="tile" data-pptx="group"><span class="tile__label">準拠率</span><span class="tile__value">98%</span><span class="tile__sub">前月 +6pt</span></div>
+              <div class="tile" data-pptx="group"><span class="tile__label">満足度</span><span class="tile__value">4.5</span><span class="tile__sub">/5</span></div>
             </div>
           </div>
           <div class="cell ms-chart">
             <span class="cell__label">多系列チャート（カテゴリ配色 = DS 7パレット由来）</span>
-            <svg viewBox="0 0 420 260" role="img" data-series="3" aria-label="四半期別・3系列の棒グラフ（企画・開発・運用）">
+            <svg viewBox="0 0 420 260" role="img" data-series="3" aria-label="四半期別・3系列の棒グラフ（企画・開発・運用）" data-chart='{"type":"bar","categories":["Q1","Q2","Q3"],"series":[{"name":"企画","values":[80,100,70]},{"name":"開発","values":[120,150,180]},{"name":"運用","values":[60,90,110]}]}' data-pptx="chart">
               <line class="ms-axis" x1="48" y1="20" x2="48" y2="210" />
               <line class="ms-axis" x1="48" y1="210" x2="400" y2="210" />
               <rect class="ms-1" x="60" y="130" width="20" height="80" /><rect class="ms-2" x="84" y="90" width="20" height="120" /><rect class="ms-3" x="108" y="150" width="20" height="60" />
@@ -611,9 +611,9 @@
               <text class="series-label" x="358" y="94" text-anchor="middle">運用</text>
             </svg>
             <div class="legend">
-              <span class="legend__item"><span class="legend__swatch legend__swatch--cat1"></span>企画</span>
-              <span class="legend__item"><span class="legend__swatch legend__swatch--cat2"></span>開発</span>
-              <span class="legend__item"><span class="legend__swatch legend__swatch--cat3"></span>運用</span>
+              <span class="legend__item" data-pptx="group"><span class="legend__swatch legend__swatch--cat1" data-pptx="shape"></span>企画</span>
+              <span class="legend__item" data-pptx="group"><span class="legend__swatch legend__swatch--cat2" data-pptx="shape"></span>開発</span>
+              <span class="legend__item" data-pptx="group"><span class="legend__swatch legend__swatch--cat3" data-pptx="shape"></span>運用</span>
             </div>
           </div>
         </div>
@@ -628,7 +628,7 @@
         <div class="graph-grid">
           <div class="graph-cell">
             <span class="graph-cap">多系列 折れ線 <span>— 時系列トレンドの比較</span></span>
-            <svg viewBox="0 0 340 150" role="img" data-series="3" aria-label="多系列の折れ線グラフ（企画・開発・運用）">
+            <svg viewBox="0 0 340 150" role="img" data-series="3" aria-label="多系列の折れ線グラフ（企画・開発・運用）" data-chart='{"type":"line","categories":["1","2","3","4","5"],"series":[{"name":"企画","values":[25,42,38,68,80]},{"name":"開発","values":[15,20,32,36,50]},{"name":"運用","values":[8,12,16,18,24]}]}' data-pptx="chart">
               <line class="ms-axis" x1="36" y1="10" x2="36" y2="120" /><line class="ms-axis" x1="36" y1="120" x2="320" y2="120" />
               <polyline class="g-line-1" points="50,95 110,78 170,82 230,52 300,40" />
               <polyline class="g-line-2" points="50,105 110,100 170,88 230,84 300,70" />
@@ -640,7 +640,7 @@
           </div>
           <div class="graph-cell">
             <span class="graph-cap">100% 積み上げ棒 <span>— 構成比の推移</span></span>
-            <svg viewBox="0 0 360 150" role="img" data-series="3" aria-label="100%積み上げ棒グラフ（企画・開発・運用の構成比）">
+            <svg viewBox="0 0 360 150" role="img" data-series="3" aria-label="100%積み上げ棒グラフ（企画・開発・運用の構成比）" data-chart='{"type":"bar100","categories":["1","2","3","4"],"series":[{"name":"企画","values":[34,48,30,52]},{"name":"開発","values":[42,34,46,30]},{"name":"運用","values":[24,18,24,18]}]}' data-pptx="chart">
               <line class="ms-axis" x1="36" y1="10" x2="36" y2="120" /><line class="ms-axis" x1="36" y1="120" x2="320" y2="120" />
               <rect class="g-seg-1" x="60" y="20" width="44" height="34" /><rect class="g-seg-2" x="60" y="54" width="44" height="42" /><rect class="g-seg-3" x="60" y="96" width="44" height="24" />
               <rect class="g-seg-1" x="132" y="20" width="44" height="48" /><rect class="g-seg-2" x="132" y="68" width="44" height="34" /><rect class="g-seg-3" x="132" y="102" width="44" height="18" />
@@ -653,7 +653,7 @@
           </div>
           <div class="graph-cell">
             <span class="graph-cap">ドーナツ <span>— 単一の構成比</span></span>
-            <svg viewBox="0 0 340 150" role="img" data-series="3" aria-label="ドーナツグラフ（構成比 A55/B27/C18%）">
+            <svg viewBox="0 0 340 150" role="img" data-series="3" aria-label="ドーナツグラフ（構成比 A55/B27/C18%）" data-chart='{"type":"doughnut","categories":["A 55%","B 27%","C 18%"],"series":[{"name":"構成比","values":[55,27,18]}]}' data-pptx="chart">
               <g transform="rotate(-90 130 75)">
                 <circle class="g-donut-1" cx="130" cy="75" r="55" stroke-dasharray="190 345.6" stroke-dashoffset="0" />
                 <circle class="g-donut-2" cx="130" cy="75" r="55" stroke-dasharray="93 345.6" stroke-dashoffset="-190" />
@@ -667,7 +667,7 @@
           </div>
           <div class="graph-cell">
             <span class="graph-cap">散布図 <span>— 2群の相関・分布</span></span>
-            <svg viewBox="0 0 340 150" role="img" data-series="2" aria-label="散布図（2群 群A・群B）">
+            <svg viewBox="0 0 340 150" role="img" data-series="2" aria-label="散布図（2群 群A・群B）" data-chart='{"type":"scatter","categories":[],"series":[{"name":"群A","x":[34,56,76,96,114,134],"values":[20,34,28,48,42,58]},{"name":"群B","x":[144,168,188,216,244,264],"values":[12,24,20,34,38,52]}]}' data-pptx="chart">
               <line class="ms-axis" x1="36" y1="10" x2="36" y2="120" /><line class="ms-axis" x1="36" y1="120" x2="320" y2="120" />
               <circle class="g-pt-a" cx="70" cy="100" r="4" /><circle class="g-pt-a" cx="92" cy="86" r="4" /><circle class="g-pt-a" cx="112" cy="92" r="4" /><circle class="g-pt-a" cx="132" cy="72" r="4" /><circle class="g-pt-a" cx="150" cy="78" r="4" /><circle class="g-pt-a" cx="170" cy="62" r="4" />
               <circle class="g-pt-b" cx="180" cy="108" r="4" /><circle class="g-pt-b" cx="204" cy="96" r="4" /><circle class="g-pt-b" cx="224" cy="100" r="4" /><circle class="g-pt-b" cx="252" cy="86" r="4" /><circle class="g-pt-b" cx="280" cy="82" r="4" /><circle class="g-pt-b" cx="300" cy="68" r="4" />
@@ -723,7 +723,7 @@
                     </div>
                   </div>
                   <div class="dads-card-example-2__image">
-                    <div class="dads-card-example-2__image-img" role="img" aria-label="画像プレースホルダ"></div>
+                    <div class="dads-card-example-2__image-img" role="img" aria-label="画像プレースホルダ" data-pptx="ignore"></div>
                   </div>
                 </div>
               </li>
@@ -731,12 +731,12 @@
           </div>
           <div class="cell">
             <span class="cell__label">箇条書きリスト（.dads-list）</span>
-            <ul class="dads-list" data-spacing="4">
+            <ul class="dads-list" data-spacing="4" data-pptx="text">
               <li>短いテキスト</li>
               <li>これは少し長めのテキストサンプルです。</li>
               <li>
                 ネストされたリスト
-                <ul class="dads-list" data-marker="number" data-spacing="4">
+                <ul class="dads-list" data-marker="number" data-spacing="4" data-pptx="text">
                   <li><span>1. </span><span>番号付きリストの項目</span></li>
                   <li><a class="dads-link" href="#"><span>2. </span><span>リンクを含む項目</span></a></li>
                 </ul>
@@ -744,16 +744,16 @@
             </ul>
             <span class="cell__label">パンくずリスト（.dads-breadcrumb）</span>
             <nav class="dads-breadcrumb" aria-labelledby="dads-bc-label">
-              <span id="dads-bc-label" class="dads-u-visually-hidden">現在位置</span>
+              <span id="dads-bc-label" class="dads-u-visually-hidden" data-pptx="ignore">現在位置</span>
               <ol class="dads-breadcrumb__list">
                 <li class="dads-breadcrumb__item">
                   <a class="dads-breadcrumb__link" href="#">
-                    <svg class="dads-breadcrumb__link-icon" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                    <svg class="dads-breadcrumb__link-icon" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" data-pptx="ignore">
                       <path d="M3 13L3 6L8 2L13 6V13H9V9H7V13H3Z" fill="currentcolor"/>
                     </svg>
                     ホーム
                   </a>
-                  <span class="dads-breadcrumb__separator">
+                  <span class="dads-breadcrumb__separator" data-pptx="ignore">
                     <svg class="dads-breadcrumb__separator-icon" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
                       <path d="M4.5 11L4 10.5L8 6.5L4 2.5L4.5 2L9 6.5L4.5 11Z" fill="currentcolor" />
                     </svg>
@@ -761,7 +761,7 @@
                 </li>
                 <li class="dads-breadcrumb__item">
                   <a class="dads-breadcrumb__link" href="#">組織情報</a>
-                  <span class="dads-breadcrumb__separator">
+                  <span class="dads-breadcrumb__separator" data-pptx="ignore">
                     <svg class="dads-breadcrumb__separator-icon" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
                       <path d="M4.5 11L4 10.5L8 6.5L4 2.5L4.5 2L9 6.5L4.5 11Z" fill="currentcolor" />
                     </svg>
@@ -793,11 +793,11 @@
               <p id="dads-cb-support" class="dads-form-control-label__support-text">該当するすべての区を選択してください。</p>
               <div>
                 <label class="dads-checkbox" data-size="sm">
-                  <span class="dads-checkbox__checkbox"><input class="dads-checkbox__input" type="checkbox" checked></span>
+                  <span class="dads-checkbox__checkbox" data-pptx="shape"><input class="dads-checkbox__input" type="checkbox" checked></span>
                   <span class="dads-checkbox__label">足立区</span>
                 </label>
                 <label class="dads-checkbox" data-size="sm">
-                  <span class="dads-checkbox__checkbox"><input class="dads-checkbox__input" type="checkbox"></span>
+                  <span class="dads-checkbox__checkbox" data-pptx="shape"><input class="dads-checkbox__input" type="checkbox"></span>
                   <span class="dads-checkbox__label">荒川区</span>
                 </label>
               </div>
@@ -808,11 +808,11 @@
               <p id="dads-radio-support" class="dads-form-control-label__support-text">いずれか一つを選択。</p>
               <div>
                 <label class="dads-radio" data-size="sm">
-                  <span class="dads-radio__radio"><input class="dads-radio__input" type="radio" name="dads-ward" checked></span>
+                  <span class="dads-radio__radio" data-pptx="shape"><input class="dads-radio__input" type="radio" name="dads-ward" checked></span>
                   <span class="dads-radio__label">足立区</span>
                 </label>
                 <label class="dads-radio" data-size="sm">
-                  <span class="dads-radio__radio"><input class="dads-radio__input" type="radio" name="dads-ward"></span>
+                  <span class="dads-radio__radio" data-pptx="shape"><input class="dads-radio__input" type="radio" name="dads-ward"></span>
                   <span class="dads-radio__label">荒川区</span>
                 </label>
               </div>
@@ -822,7 +822,7 @@
             <span class="cell__label">プログレスインジケーター（.dads-progress-indicator） — 静的(処理中)</span>
             <div class="row">
               <dads-progress-indicator class="dads-progress-indicator" data-type="stacked" intent="passive" active>
-                <svg class="dads-progress-indicator__static" width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <svg class="dads-progress-indicator__static" width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true" data-pptx="ignore">
                   <path fill="currentcolor" d="M17 15c0 2.5 2.2 7 7 7s7-5 7-7H17ZM15 42h18c0-2-1-4.5-1-4.5L24 34l-8 3.5S15 40 15 42Z"/>
                   <path fill="none" stroke="currentcolor" stroke-width="2" d="M24 24C34.5 24 35.5 6 35.5 4.8V4M24 24C13.5 24 12.5 6 12.5 4.8V4M24 24c7 0 11.5 11.8 11.5 18.3V44M24 24c-7 0-11.5 11.8-11.5 18.3V44M9 4h30M9 44h30"/>
                   <circle cx="24" cy="28" r="1" fill="currentcolor"/>
@@ -831,7 +831,7 @@
                 <span class="dads-progress-indicator__label">処理中</span>
               </dads-progress-indicator>
               <dads-progress-indicator class="dads-progress-indicator" data-type="inlined" intent="passive" active>
-                <svg class="dads-progress-indicator__static" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <svg class="dads-progress-indicator__static" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" data-pptx="ignore">
                   <path fill="currentcolor" d="M9 6c0 1.8 1.1 5 3.5 5S16 7.4 16 6H9ZM8 21h9c0-1-.5-2.2-.5-2.2l-4-1.8-4 1.8S8 20 8 21Z"/>
                   <path fill="none" stroke="currentcolor" d="M4 1.5h17m-17 21h17M6 1.5C6 5.1 7.6 12 12.5 12S18.9 5 19 1.5M19 22.5c.3-3.7-2.2-10.5-6.5-10.5S5.7 18.8 6 22.5"/>
                   <circle cx="12.5" cy="13.5" r=".5" fill="currentcolor"/>
@@ -852,44 +852,44 @@
         <h2 class="slide__heading">長い時系列は<span class="u-accent">2段タイムライン</span>で折り返します</h2>
         <div class="timeline-2row">
           <ol class="timeline" aria-label="前半 ステップ1〜4(月単位・左から右へ進行)">
-            <li class="step" data-state="done">
+            <li class="step" data-state="done" data-pptx="group">
               <span class="step__time">0月</span>
               <span class="step__label">企画</span>
               <span class="step__body">課題と目標を定義</span>
             </li>
-            <li class="step" data-state="done">
+            <li class="step" data-state="done" data-pptx="group">
               <span class="step__time">1月</span>
               <span class="step__label">要件</span>
               <span class="step__body">要件を確定</span>
             </li>
-            <li class="step" data-state="done">
+            <li class="step" data-state="done" data-pptx="group">
               <span class="step__time">2月</span>
               <span class="step__label">設計</span>
               <span class="step__body">方式・画面を設計</span>
             </li>
-            <li class="step" data-state="current" aria-current="step">
+            <li class="step" data-state="current" aria-current="step" data-pptx="group">
               <span class="step__time">4月</span>
               <span class="step__label">開発</span>
               <span class="step__body">実装とレビュー</span>
             </li>
           </ol>
           <ol class="timeline" aria-label="後半 ステップ5〜8(月単位・左から右へ進行)">
-            <li class="step" data-state="upcoming">
+            <li class="step" data-state="upcoming" data-pptx="group">
               <span class="step__time">6月</span>
               <span class="step__label">試験</span>
               <span class="step__body">結合・受入試験</span>
             </li>
-            <li class="step" data-state="upcoming">
+            <li class="step" data-state="upcoming" data-pptx="group">
               <span class="step__time">7月</span>
               <span class="step__label">移行</span>
               <span class="step__body">データ移行と切替</span>
             </li>
-            <li class="step" data-state="upcoming">
+            <li class="step" data-state="upcoming" data-pptx="group">
               <span class="step__time">8月</span>
               <span class="step__label">公開</span>
               <span class="step__body">本番公開・周知</span>
             </li>
-            <li class="step" data-state="upcoming">
+            <li class="step" data-state="upcoming" data-pptx="group">
               <span class="step__time">10月</span>
               <span class="step__label">評価</span>
               <span class="step__body">効果測定と改善</span>
@@ -906,25 +906,25 @@
         <h2 class="slide__heading">付録J: <span class="u-accent">横ツリー</span>（左→右の深いロジック構造）</h2>
         <ul class="tree tree--horizontal">
           <li class="tree__node tree__node--root">
-            <div class="node"><span class="node__label">この構成を採用する</span></div>
+            <div class="node" data-pptx="group"><span class="node__label">この構成を採用する</span></div>
             <ul>
               <li class="tree__node tree__node--branch">
-                <div class="node"><span class="node__label">① 伝わりやすさ</span></div>
+                <div class="node" data-pptx="group"><span class="node__label">① 伝わりやすさ</span></div>
                 <ul>
-                  <li class="tree__node tree__node--leaf"><div class="node"><span class="node__label">結論先出しで要点が即伝わる</span></div></li>
-                  <li class="tree__node tree__node--leaf"><div class="node"><span class="node__label">アクションタイトルで主張が残る</span></div></li>
+                  <li class="tree__node tree__node--leaf"><div class="node" data-pptx="group"><span class="node__label">結論先出しで要点が即伝わる</span></div></li>
+                  <li class="tree__node tree__node--leaf"><div class="node" data-pptx="group"><span class="node__label">アクションタイトルで主張が残る</span></div></li>
                 </ul>
               </li>
               <li class="tree__node tree__node--branch">
-                <div class="node"><span class="node__label">② 作りやすさ</span></div>
+                <div class="node" data-pptx="group"><span class="node__label">② 作りやすさ</span></div>
                 <ul>
-                  <li class="tree__node tree__node--leaf"><div class="node"><span class="node__label">トークンで色・余白が一貫</span></div></li>
+                  <li class="tree__node tree__node--leaf"><div class="node" data-pptx="group"><span class="node__label">トークンで色・余白が一貫</span></div></li>
                 </ul>
               </li>
               <li class="tree__node tree__node--branch">
-                <div class="node"><span class="node__label">③ 保守しやすさ</span></div>
+                <div class="node" data-pptx="group"><span class="node__label">③ 保守しやすさ</span></div>
                 <ul>
-                  <li class="tree__node tree__node--leaf"><div class="node"><span class="node__label">単一情報源で改修が局所化</span></div></li>
+                  <li class="tree__node tree__node--leaf"><div class="node" data-pptx="group"><span class="node__label">単一情報源で改修が局所化</span></div></li>
                 </ul>
               </li>
             </ul>
@@ -932,7 +932,7 @@
         </ul>
         <div class="slide__footer"><span class="slide__citation">縦が収まらない深い/枝の多い論理は横(左→右)で。縦ツリーと同一コンポーネント(.tree--horizontal)</span></div>
       </div>
-      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典" data-pptx="ignore">
         <p class="annotation__intent">縦(コア)と同じ .tree を向き替えで再利用。根=左端、枝を右へ展開し深い構造を可読に保つ。</p>
         <ul class="annotation__practices">
           <li data-practice="A-pyramid">ピラミッド・プリンシプル / MECE（→ #A-pyramid）</li>

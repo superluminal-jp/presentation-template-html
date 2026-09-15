@@ -18,7 +18,7 @@
       <div class="slide__stage">
         <h2 class="slide__heading">図表は<span class="u-accent">基準値を先に</span>示して解釈を助けます</h2>
         <div class="chart">
-          <svg class="chart-sample" viewBox="0 0 420 320" role="img" aria-label="基準に対し改善後を長さで比較（例）">
+          <svg class="chart-sample" viewBox="0 0 420 320" role="img" aria-label="基準に対し改善後を長さで比較（例）" data-pptx="chart" data-chart='{"type":"bar","categories":["基準","改善後"],"series":[{"name":"値","values":[200,50]}]}'>
             <line class="axis" x1="60" y1="20" x2="60" y2="280" />
             <line class="axis" x1="60" y1="280" x2="400" y2="280" />
             <rect class="bar--muted" x="110" y="80" width="90" height="200" />
@@ -36,7 +36,7 @@
 
         </div>
       </div>
-      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典">
+      <aside class="slide__annotation" data-annotation hidden aria-label="設計意図と出典" data-pptx="ignore">
         <p class="annotation__intent">長さで量を比較（棒）。装飾を排し、要点にアクセント色を1箇所。基準値でアンカリング。</p>
         <ul class="annotation__practices">
           <li data-practice="C-cleveland-mcgill">Cleveland–McGill（→ #C-cleveland-mcgill）</li>
