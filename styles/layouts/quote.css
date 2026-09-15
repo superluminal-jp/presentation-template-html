@@ -9,7 +9,9 @@
   line-height: var(--lh-heading);
   color: var(--text-primary);
 }
-.slide--quote .quote::before { content: "“"; color: var(--accent); font-size: var(--font-size-64); vertical-align: -0.2em; margin-right: var(--space-2); }
+/* 装飾引用符。DOM 抽出(PPTX 変換)がテキストとして読めるよう、擬似要素ではなく
+   実要素 .quote__mark で描く(feature 011 / FR-003)。見た目は従来と同一。 */
+.slide--quote .quote__mark { color: var(--accent); font-size: var(--font-size-64); vertical-align: -0.2em; margin-right: var(--space-2); }
 .slide--quote .attribution {
   grid-column: 1 / -1;
   grid-row: 2;
